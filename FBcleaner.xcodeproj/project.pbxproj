@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F1C1AEAC19FD231A002B2E16 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C1AEAB19FD231A002B2E16 /* Photos.framework */; };
+		F1ED60E019F3D16800238338 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED60DF19F3D16800238338 /* AppDelegate.swift */; };
+		F1ED60E519F3D16800238338 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1ED60E319F3D16800238338 /* Main.storyboard */; };
+		F1ED60E719F3D16800238338 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1ED60E619F3D16800238338 /* Images.xcassets */; };
+		F1ED60EA19F3D16800238338 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1ED60E819F3D16800238338 /* LaunchScreen.xib */; };
+		F1ED60F619F3D16800238338 /* FBcleanerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED60F519F3D16800238338 /* FBcleanerTests.swift */; };
+		F1ED610119F3D33E00238338 /* UIDraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED60FF19F3D33E00238338 /* UIDraggableView.swift */; };
+		F1ED610219F3D33E00238338 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED610019F3D33E00238338 /* ViewController.swift */; };
+		F1ED610519F4182200238338 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1ED610419F4182100238338 /* DropboxSDK.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F1ED60F019F3D16800238338 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1ED60D219F3D16800238338 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1ED60D919F3D16800238338;
+			remoteInfo = FBcleaner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F1C1AEAB19FD231A002B2E16 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		F1ED60DA19F3D16800238338 /* FBcleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBcleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1ED60DE19F3D16800238338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1ED60DF19F3D16800238338 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F1ED60E419F3D16800238338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F1ED60E619F3D16800238338 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F1ED60E919F3D16800238338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F1ED60EF19F3D16800238338 /* FBcleanerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FBcleanerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1ED60F419F3D16800238338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1ED60F519F3D16800238338 /* FBcleanerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBcleanerTests.swift; sourceTree = "<group>"; };
+		F1ED60FF19F3D33E00238338 /* UIDraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDraggableView.swift; path = "../keep-or-trash/UIDraggableView.swift"; sourceTree = "<group>"; };
+		F1ED610019F3D33E00238338 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../keep-or-trash/ViewController.swift"; sourceTree = "<group>"; };
+		F1ED610419F4182100238338 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F1ED60D719F3D16800238338 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1C1AEAC19FD231A002B2E16 /* Photos.framework in Frameworks */,
+				F1ED610519F4182200238338 /* DropboxSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1ED60EC19F3D16800238338 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F1ED60D119F3D16800238338 = {
+			isa = PBXGroup;
+			children = (
+				F1C1AEAB19FD231A002B2E16 /* Photos.framework */,
+				F1ED610419F4182100238338 /* DropboxSDK.framework */,
+				F1ED60DC19F3D16800238338 /* FBcleaner */,
+				F1ED60F219F3D16800238338 /* FBcleanerTests */,
+				F1ED60DB19F3D16800238338 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F1ED60DB19F3D16800238338 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1ED60DA19F3D16800238338 /* FBcleaner.app */,
+				F1ED60EF19F3D16800238338 /* FBcleanerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1ED60DC19F3D16800238338 /* FBcleaner */ = {
+			isa = PBXGroup;
+			children = (
+				F1ED610319F3D34700238338 /* view */,
+				F1ED60DF19F3D16800238338 /* AppDelegate.swift */,
+				F1ED610019F3D33E00238338 /* ViewController.swift */,
+				F1ED60E319F3D16800238338 /* Main.storyboard */,
+				F1ED60E619F3D16800238338 /* Images.xcassets */,
+				F1ED60E819F3D16800238338 /* LaunchScreen.xib */,
+				F1ED60DD19F3D16800238338 /* Supporting Files */,
+			);
+			path = FBcleaner;
+			sourceTree = "<group>";
+		};
+		F1ED60DD19F3D16800238338 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F1ED60DE19F3D16800238338 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1ED60F219F3D16800238338 /* FBcleanerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F1ED60F519F3D16800238338 /* FBcleanerTests.swift */,
+				F1ED60F319F3D16800238338 /* Supporting Files */,
+			);
+			path = FBcleanerTests;
+			sourceTree = "<group>";
+		};
+		F1ED60F319F3D16800238338 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F1ED60F419F3D16800238338 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1ED610319F3D34700238338 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F1ED60FF19F3D33E00238338 /* UIDraggableView.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F1ED60D919F3D16800238338 /* FBcleaner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1ED60F919F3D16800238338 /* Build configuration list for PBXNativeTarget "FBcleaner" */;
+			buildPhases = (
+				F1ED60D619F3D16800238338 /* Sources */,
+				F1ED60D719F3D16800238338 /* Frameworks */,
+				F1ED60D819F3D16800238338 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FBcleaner;
+			productName = FBcleaner;
+			productReference = F1ED60DA19F3D16800238338 /* FBcleaner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F1ED60EE19F3D16800238338 /* FBcleanerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1ED60FC19F3D16800238338 /* Build configuration list for PBXNativeTarget "FBcleanerTests" */;
+			buildPhases = (
+				F1ED60EB19F3D16800238338 /* Sources */,
+				F1ED60EC19F3D16800238338 /* Frameworks */,
+				F1ED60ED19F3D16800238338 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1ED60F119F3D16800238338 /* PBXTargetDependency */,
+			);
+			name = FBcleanerTests;
+			productName = FBcleanerTests;
+			productReference = F1ED60EF19F3D16800238338 /* FBcleanerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1ED60D219F3D16800238338 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Simen Johannessen";
+				TargetAttributes = {
+					F1ED60D919F3D16800238338 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					F1ED60EE19F3D16800238338 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = F1ED60D919F3D16800238338;
+					};
+				};
+			};
+			buildConfigurationList = F1ED60D519F3D16800238338 /* Build configuration list for PBXProject "FBcleaner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F1ED60D119F3D16800238338;
+			productRefGroup = F1ED60DB19F3D16800238338 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F1ED60D919F3D16800238338 /* FBcleaner */,
+				F1ED60EE19F3D16800238338 /* FBcleanerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F1ED60D819F3D16800238338 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1ED60E519F3D16800238338 /* Main.storyboard in Resources */,
+				F1ED60EA19F3D16800238338 /* LaunchScreen.xib in Resources */,
+				F1ED60E719F3D16800238338 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1ED60ED19F3D16800238338 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F1ED60D619F3D16800238338 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1ED610119F3D33E00238338 /* UIDraggableView.swift in Sources */,
+				F1ED610219F3D33E00238338 /* ViewController.swift in Sources */,
+				F1ED60E019F3D16800238338 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1ED60EB19F3D16800238338 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1ED60F619F3D16800238338 /* FBcleanerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F1ED60F119F3D16800238338 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1ED60D919F3D16800238338 /* FBcleaner */;
+			targetProxy = F1ED60F019F3D16800238338 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F1ED60E319F3D16800238338 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1ED60E419F3D16800238338 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F1ED60E819F3D16800238338 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1ED60E919F3D16800238338 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F1ED60F719F3D16800238338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F1ED60F819F3D16800238338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F1ED60FA19F3D16800238338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = FBcleaner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F1ED60FB19F3D16800238338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = FBcleaner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+			};
+			name = Release;
+		};
+		F1ED60FD19F3D16800238338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FBcleanerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FBcleaner.app/FBcleaner";
+			};
+			name = Debug;
+		};
+		F1ED60FE19F3D16800238338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FBcleanerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FBcleaner.app/FBcleaner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F1ED60D519F3D16800238338 /* Build configuration list for PBXProject "FBcleaner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1ED60F719F3D16800238338 /* Debug */,
+				F1ED60F819F3D16800238338 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1ED60F919F3D16800238338 /* Build configuration list for PBXNativeTarget "FBcleaner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1ED60FA19F3D16800238338 /* Debug */,
+				F1ED60FB19F3D16800238338 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1ED60FC19F3D16800238338 /* Build configuration list for PBXNativeTarget "FBcleanerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1ED60FD19F3D16800238338 /* Debug */,
+				F1ED60FE19F3D16800238338 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F1ED60D219F3D16800238338 /* Project object */;
+}
