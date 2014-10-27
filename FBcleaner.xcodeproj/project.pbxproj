@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7319FED7C20013580F /* GridViewController.swift */; };
+		F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7519FEDB900013580F /* ImageCacheController.swift */; };
+		F1C11F7819FEDBC60013580F /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */; };
 		F1C1AEAC19FD231A002B2E16 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C1AEAB19FD231A002B2E16 /* Photos.framework */; };
 		F1ED60E019F3D16800238338 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED60DF19F3D16800238338 /* AppDelegate.swift */; };
 		F1ED60E519F3D16800238338 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1ED60E319F3D16800238338 /* Main.storyboard */; };
@@ -29,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F1C11F7319FED7C20013580F /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		F1C11F7519FEDB900013580F /* ImageCacheController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheController.swift; sourceTree = "<group>"; };
+		F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		F1C1AEAB19FD231A002B2E16 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		F1ED60DA19F3D16800238338 /* FBcleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBcleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1ED60DE19F3D16800238338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F1C11F7219FEC7C30013580F /* base */ = {
+			isa = PBXGroup;
+			children = (
+				F1ED60FF19F3D33E00238338 /* UIDraggableView.swift */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
 		F1ED60D119F3D16800238338 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +108,9 @@
 				F1ED60E619F3D16800238338 /* Images.xcassets */,
 				F1ED60E819F3D16800238338 /* LaunchScreen.xib */,
 				F1ED60DD19F3D16800238338 /* Supporting Files */,
+				F1C11F7319FED7C20013580F /* GridViewController.swift */,
+				F1C11F7519FEDB900013580F /* ImageCacheController.swift */,
+				F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */,
 			);
 			path = FBcleaner;
 			sourceTree = "<group>";
@@ -126,7 +143,7 @@
 		F1ED610319F3D34700238338 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				F1ED60FF19F3D33E00238338 /* UIDraggableView.swift */,
+				F1C11F7219FEC7C30013580F /* base */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -231,9 +248,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */,
+				F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */,
 				F1ED610119F3D33E00238338 /* UIDraggableView.swift in Sources */,
 				F1ED610219F3D33E00238338 /* ViewController.swift in Sources */,
 				F1ED60E019F3D16800238338 /* AppDelegate.swift in Sources */,
+				F1C11F7819FEDBC60013580F /* PhotosCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
