@@ -14,22 +14,16 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
     var imageAsset: PHAsset? {
         didSet {
-            self.imageManager?.requestImageForAsset(imageAsset!, targetSize: CGSize(width: 320, height: 320), contentMode: .AspectFill, options: nil) { image, info in
+            let initialRequestOptions = PHImageRequestOptions()
+            initialRequestOptions.networkAccessAllowed = true
+            initialRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.HighQualityFormat
+
+            self.imageManager?.requestImageForAsset(imageAsset!, targetSize: CGSize(width: 620, height: 620), contentMode: .AspectFit, options: initialRequestOptions) { image, info in
                 self.photoImageView.image = image
             }
-            starButton.alpha = imageAsset!.favorite ? 1.0 : 0.4
         }
     }
     
     var imageManager: PHImageManager?
-    
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var starButton: UIButton!
-    
-    @IBAction func handleStarButtonPressed(sender: AnyObject) {
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-            let changeRequest = PHAssetChangeRequest(forAsset: self.imageAsset)
-            changeRequest.favorite = !self.imageAsset!.favorite
-            }, completionHandler: nil)
-    } 
 }
