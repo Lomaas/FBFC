@@ -12,16 +12,13 @@ import Photos
 let reuseIdentifier = "Cell"
 
 class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
     var images: [PHAsset] = []
+    var imagesToDelete = []
     let imageManager = PHCachingImageManager()
     let initialRequestOptions = PHImageRequestOptions()
-
     var imageCacheController: ImageCacheController!
     var assetGridThumbnailSize: CGSize!
-    
     @IBOutlet weak var uiCollectionView: UICollectionView!
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +29,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         var scale = UIScreen.mainScreen().scale
         var cellSize = CGSizeMake(80,80)
-        assetGridThumbnailSize = CGSizeMake(cellSize.width * scale, cellSize.height * scale);
+        imagesToDelete = images
+        assetGridThumbnailSize = CGSizeMake(cellSize.width * scale, cellSize.height * scale)
 
         imageCacheController = ImageCacheController(imageManager: imageManager, images: images, preheatSize: 1)
         imageCacheController.targetSize = assetGridThumbnailSize
@@ -57,11 +55,36 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //        cell.imageAsset = images[indexPath.item]
         cell.targetSize = assetGridThumbnailSize
         
+        if(cell.keep){
+            cell.checkedImageView.image = UIImage(named: "unchecked")
+        }
+        else {
+            cell.checkedImageView.image = UIImage(named: "checked")
+        }
         
         self.imageManager.requestImageForAsset(images[indexPath.item], targetSize: cell.targetSize, contentMode:PHImageContentMode.AspectFill, options: initialRequestOptions) { image, info in
             cell.photoImageView.image = image;
         }
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        println("didSelectItemAtIndexPath")
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
+        cell.updateCheckmarkPicture()
+    }
+    
+    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+               let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
+        cell.backgroundColor = UIColor.blueColor()
+        cell.alpha = 0.5
+        return true
+    }
+    
+    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
+        cell.backgroundColor = nil
+        cell.alpha = 1
     }
     
     // MARK: - ScrollViewDelegate

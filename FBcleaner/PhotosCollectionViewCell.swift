@@ -11,9 +11,11 @@ import UIKit
 import Photos
 
 class PhotosCollectionViewCell: UICollectionViewCell {
-    var imageManager: PHImageManager?
-    var targetSize: CGSize!
+//    var imageManager: PHImageManager?
+//    var targetSize: CGSize!
+    var keep = false
    
+    @IBOutlet weak var checkedImageView: UIImageView!
     @IBOutlet weak var photoImageView: UIImageView!
     //    var imageAsset: PHAsset? {
 //        didSet {
@@ -34,6 +36,21 @@ class PhotosCollectionViewCell: UICollectionViewCell {
 //    
     func setThumbnail(image: UIImage){
         self.photoImageView.image = image
+    }
+    
+    func updateCheckmarkPicture(){
+        println("updateCheckmarkPicture")
+        
+        if(self.keep){
+            self.keep = false
+            var img = UIImageView(image: UIImage(named:"checked"))
+            self.checkedImageView = img
+        }
+        else {
+            self.keep = true
+            checkedImageView.image = UIImage(named:"unchecked")
+            self.setNeedsDisplay()
+        }
     }
     
 
