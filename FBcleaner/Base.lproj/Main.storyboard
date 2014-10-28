@@ -15,8 +15,41 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkA-d9-xgo">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Keep or trash " id="gmh-zO-JUb"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XA1-Z5-big">
+                                <rect key="frame" x="75" y="495" width="39" height="30"/>
+                                <state key="normal" title="KEEP">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdE-BM-WRc">
+                                <rect key="frame" x="500" y="495" width="50" height="30"/>
+                                <state key="normal" title="TRASH">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cdE-BM-WRc" secondAttribute="bottom" constant="75" id="38B-Dn-NSY"/>
+                            <constraint firstItem="cdE-BM-WRc" firstAttribute="baseline" secondItem="XA1-Z5-big" secondAttribute="baseline" id="3wT-NB-p8G"/>
+                            <constraint firstItem="gkA-d9-xgo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="N04-Pn-AAk"/>
+                            <constraint firstAttribute="trailing" secondItem="cdE-BM-WRc" secondAttribute="trailing" constant="50" id="UHk-J2-Qub"/>
+                            <constraint firstItem="gkA-d9-xgo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VLO-dY-BXc"/>
+                            <constraint firstItem="XA1-Z5-big" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="75" id="i2g-VV-5AD"/>
+                            <constraint firstAttribute="centerX" secondItem="gkA-d9-xgo" secondAttribute="centerX" id="zF8-8d-ghj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="keepButton" destination="XA1-Z5-big" id="JYr-YE-PdR"/>
+                        <outlet property="trashButton" destination="cdE-BM-WRc" id="9WX-h7-jEv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

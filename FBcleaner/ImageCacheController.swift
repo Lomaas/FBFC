@@ -11,13 +11,12 @@ import Photos
 
 
 class ImageCacheController {
-    
     private var cachedIndices = NSIndexSet()
     var cachePreheatSize: Int
     var imageCache: PHCachingImageManager
     var images: [PHAsset] = []
-    var targetSize = CGSize(width: 620, height: 620)
-    var contentMode = PHImageContentMode.AspectFit
+    var targetSize: CGSize!
+    var contentMode = PHImageContentMode.AspectFill
     
     init(imageManager: PHCachingImageManager, images: [PHAsset], preheatSize: Int = 1) {
         self.cachePreheatSize = preheatSize
@@ -45,7 +44,6 @@ class ImageCacheController {
                 let asset: AnyObject! = self.images[index]
                 self.imageCache.stopCachingImagesForAssets([asset], targetSize: self.targetSize, contentMode: self.contentMode, options: initialRequestOptions)
                 println("Stopping caching image \(index)")
-                
             }
         }
         
@@ -53,7 +51,6 @@ class ImageCacheController {
         updatedCache.enumerateIndexesUsingBlock {
             index, _ in
             if !self.cachedIndices.containsIndex(index) {
-
                 let asset: AnyObject! = self.images[index]
                 self.imageCache.startCachingImagesForAssets([asset], targetSize: self.targetSize, contentMode: self.contentMode, options: initialRequestOptions)
                 println("Starting caching image \(index)")

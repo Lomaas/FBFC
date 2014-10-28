@@ -11,19 +11,30 @@ import UIKit
 import Photos
 
 class PhotosCollectionViewCell: UICollectionViewCell {
-    
-    var imageAsset: PHAsset? {
-        didSet {
-            let initialRequestOptions = PHImageRequestOptions()
-            initialRequestOptions.networkAccessAllowed = true
-            initialRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.HighQualityFormat
-
-            self.imageManager?.requestImageForAsset(imageAsset!, targetSize: CGSize(width: 620, height: 620), contentMode: .AspectFit, options: initialRequestOptions) { image, info in
-                self.photoImageView.image = image
-            }
-        }
+    var imageManager: PHImageManager?
+    var targetSize: CGSize!
+   
+    @IBOutlet weak var photoImageView: UIImageView!
+    //    var imageAsset: PHAsset? {
+//        didSet {
+//            
+//            var scale = UIScreen.mainScreen().scale
+//            var cellSize = CGSizeMake(80,80)
+//            targetSize = CGSizeMake(cellSize.width * scale, cellSize.height * scale);
+//            
+//            let initialRequestOptions = PHImageRequestOptions()
+//            initialRequestOptions.networkAccessAllowed = true
+//            initialRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.HighQualityFormat
+//
+//            self.imageManager?.requestImageForAsset(imageAsset!, targetSize: targetSize!, contentMode: .AspectFill, options: initialRequestOptions) { image, info in
+//                self.photoImageView.image = image
+//            }
+//        }
+//    }
+//    
+    func setThumbnail(image: UIImage){
+        self.photoImageView.image = image
     }
     
-    var imageManager: PHImageManager?
-    @IBOutlet weak var photoImageView: UIImageView!
+
 }

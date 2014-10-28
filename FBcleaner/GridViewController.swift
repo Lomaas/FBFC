@@ -11,49 +11,68 @@ import Photos
 
 let reuseIdentifier = "Cell"
 
-class GridViewController: UICollectionViewController {
-    
+class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
     var images: [PHAsset] = []
     let imageManager = PHCachingImageManager()
+    let initialRequestOptions = PHImageRequestOptions()
+
     var imageCacheController: ImageCacheController!
+    var assetGridThumbnailSize: CGSize!
     
+    @IBOutlet weak var uiCollectionView: UICollectionView!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.uiCollectionView.delegate = self
+        self.uiCollectionView.dataSource = self
+        initialRequestOptions.networkAccessAllowed = true
+        initialRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.HighQualityFormat
         
-        if(self.images.count == 0){
-            
-        }
+        var scale = UIScreen.mainScreen().scale
+        var cellSize = CGSizeMake(80,80)
+        assetGridThumbnailSize = CGSizeMake(cellSize.width * scale, cellSize.height * scale);
+
         imageCacheController = ImageCacheController(imageManager: imageManager, images: images, preheatSize: 1)
+        imageCacheController.targetSize = assetGridThumbnailSize
     }
     
     // MARK: UICollectionViewDataSource
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        if(self.images.count > 1){
-            return 2
-        }
-        else {
-            return 1
-        }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
         
         // Configure the cell
         cell.imageManager = imageManager
-        cell.imageAsset = images[indexPath.item]
+//        cell.imageAsset = images[indexPath.item]
+        cell.targetSize = assetGridThumbnailSize
         
+        
+        self.imageManager.requestImageForAsset(images[indexPath.item], targetSize: cell.targetSize, contentMode:PHImageContentMode.AspectFill, options: initialRequestOptions) { image, info in
+            cell.photoImageView.image = image;
+        }
         return cell
     }
     
     // MARK: - ScrollViewDelegate
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-        let indexPaths = collectionView.indexPathsForVisibleItems()
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let indexPaths = self.uiCollectionView.indexPathsForVisibleItems()
         imageCacheController.updateVisibleCells(indexPaths as [NSIndexPath])
+    }
+    
+    @IBAction func confirmDelete(sender: AnyObject) {
+        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+            PHAssetChangeRequest.deleteAssets(self.images)
+            }, completionHandler:nil)
     }
 }
