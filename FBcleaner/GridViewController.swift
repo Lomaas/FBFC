@@ -50,6 +50,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let vc = storyboard.instantiateViewControllerWithIdentifier("StartViewController") as UIViewController;
         self.presentViewController(vc, animated: true, completion: nil);
     }
+
     @IBAction func deleteImages(sender: AnyObject) {
         var temp: [PHAsset] = self.getAssetsToBeDeleted()
         
