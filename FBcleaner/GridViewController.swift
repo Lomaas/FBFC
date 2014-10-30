@@ -49,7 +49,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         var temp: [PHAsset] = self.getAssetsToBeDeleted()
         
         if(temp.count == 0){
-            let alertController = UIAlertController(title: "No images selected", message:
+            let alertController = UIAlertController(title: "No picture selected", message:
                 "Select some images by tapping on the picture", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
             
@@ -59,7 +59,21 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             PHAssetChangeRequest.deleteAssets(temp)
-            }, completionHandler:nil)
+            }, completionHandler: { noError, error in
+                NSLog("Changes complete. Did they succeed? Who knows! \(noError)")
+                
+                if(noError == true){
+                    // Go to success view
+                    self.uiCollectionView.removeFromSuperview()
+                    
+                }
+                else {
+                    let alertController = UIAlertController(title: "Ups", message:
+                        "We are sorry. Something went wrong while deleting your pictures. Please try again", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+        })
     }
     
     func getAssetsToBeDeleted() -> [PHAsset] {
