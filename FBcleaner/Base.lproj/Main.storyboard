@@ -48,11 +48,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="351" y="288"/>
         </scene>
-        <!--View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="qiP-NX-7r0">
             <objects>
-                <viewController id="Y4g-dk-meB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartViewController" id="Y4g-dk-meB" customClass="StartViewController" customModule="FBcleaner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9RJ-YF-Cmr"/>
                         <viewControllerLayoutGuide type="bottom" id="vtP-TG-0aM"/>
@@ -159,6 +160,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Tap to unselect" id="N0m-NT-Qw3">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="txL-iK-7bR"/>
                                         <barButtonItem key="rightBarButtonItem" title="Delete" id="axm-f6-tvb">
                                             <inset key="imageInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <connections>

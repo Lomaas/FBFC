@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108769F1A02EB46002EEEDB /* StartViewController.swift */; };
 		F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7319FED7C20013580F /* GridViewController.swift */; };
 		F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7519FEDB900013580F /* ImageCacheController.swift */; };
 		F1C11F7819FEDBC60013580F /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */; };
@@ -32,8 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F108769D1A02E13D002EEEDB /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
-		F108769E1A02E13D002EEEDB /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F108769F1A02EB46002EEEDB /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		F1C11F7319FED7C20013580F /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		F1C11F7519FEDB900013580F /* ImageCacheController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheController.swift; sourceTree = "<group>"; };
 		F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -113,6 +113,7 @@
 				F1C11F7319FED7C20013580F /* GridViewController.swift */,
 				F1C11F7519FEDB900013580F /* ImageCacheController.swift */,
 				F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */,
+				F108769F1A02EB46002EEEDB /* StartViewController.swift */,
 			);
 			path = FBcleaner;
 			sourceTree = "<group>";
@@ -251,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */,
+				F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */,
 				F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */,
 				F1ED610119F3D33E00238338 /* UIDraggableView.swift in Sources */,
 				F1ED610219F3D33E00238338 /* ViewController.swift in Sources */,
@@ -282,7 +284,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				F1ED60E419F3D16800238338 /* Base */,
-				F108769D1A02E13D002EEEDB /* nb */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -291,7 +292,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				F1ED60E919F3D16800238338 /* Base */,
-				F108769E1A02E13D002EEEDB /* nb */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

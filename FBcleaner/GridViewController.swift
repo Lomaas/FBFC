@@ -45,6 +45,11 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // MARK: UICollectionViewDataSource
     
+    @IBAction func cancelButtonPressed(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil);
+        let vc = storyboard.instantiateViewControllerWithIdentifier("StartViewController") as UIViewController;
+        self.presentViewController(vc, animated: true, completion: nil);
+    }
     @IBAction func deleteImages(sender: AnyObject) {
         var temp: [PHAsset] = self.getAssetsToBeDeleted()
         
@@ -65,7 +70,6 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 if(noError == true){
                     // Go to success view
                     self.uiCollectionView.removeFromSuperview()
-                    
                 }
                 else {
                     let alertController = UIAlertController(title: "Ups", message:
