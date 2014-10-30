@@ -160,7 +160,11 @@
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Tap to unselect" id="N0m-NT-Qw3">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="txL-iK-7bR"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="txL-iK-7bR">
+                                            <connections>
+                                                <action selector="cancelCalled:" destination="W1M-84-M9J" id="zK3-Qs-pSf"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Delete" id="axm-f6-tvb">
                                             <inset key="imageInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <connections>
@@ -211,10 +215,16 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="HpA-vF-MSc">
+                                <rect key="frame" x="282" y="282" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="HpA-vF-MSc" secondAttribute="centerY" id="EwW-bx-8JG"/>
                             <constraint firstItem="b6i-1C-AhA" firstAttribute="bottom" secondItem="OVW-oz-MGf" secondAttribute="top" id="Idx-CI-KWc"/>
+                            <constraint firstAttribute="centerX" secondItem="HpA-vF-MSc" secondAttribute="centerX" id="MYQ-5a-CXG"/>
                             <constraint firstAttribute="centerX" secondItem="SSz-Et-roJ" secondAttribute="centerX" id="Ose-mj-wbl"/>
                             <constraint firstItem="SSz-Et-roJ" firstAttribute="leading" secondItem="Dl1-X5-jJS" secondAttribute="leading" id="Zub-mP-4wX"/>
                             <constraint firstItem="SSz-Et-roJ" firstAttribute="trailing" secondItem="b6i-1C-AhA" secondAttribute="trailing" id="flu-ed-vj0"/>
@@ -225,6 +235,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="HpA-vF-MSc" id="FhH-vZ-s8O"/>
                         <outlet property="uiCollectionView" destination="b6i-1C-AhA" id="4gC-aW-UNM"/>
                     </connections>
                 </viewController>

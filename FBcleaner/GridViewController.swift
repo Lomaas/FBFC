@@ -21,6 +21,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var assetGridThumbnailSize: CGSize!
     @IBOutlet weak var uiCollectionView: UICollectionView!
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.uiCollectionView.delegate = self
@@ -40,15 +41,16 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         for x in images {
             self.imagesArray.append(false)
         }
-        
+        self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
     }
     
-    // MARK: UICollectionViewDataSource
-    
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
+    func goToStartViewController(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
         let vc = storyboard.instantiateViewControllerWithIdentifier("StartViewController") as UIViewController;
         self.presentViewController(vc, animated: true, completion: nil);
+    }
+    @IBAction func cancelCalled(sender: AnyObject) {
+        self.goToStartViewController()
     }
 
     @IBAction func deleteImages(sender: AnyObject) {
@@ -63,14 +65,21 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return
         }
         
+        self.activityIndicator.hidden = false;
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.uiCollectionView.alpha = 0.5
+        
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             PHAssetChangeRequest.deleteAssets(temp)
             }, completionHandler: { noError, error in
                 NSLog("Changes complete. Did they succeed? Who knows! \(noError)")
-                
+                self.activityIndicator.hidden = true;
+                self.uiCollectionView.alpha = 1
+
+
                 if(noError == true){
                     // Go to success view
-                    self.uiCollectionView.removeFromSuperview()
+                    self.goToStartViewController()
                 }
                 else {
                     let alertController = UIAlertController(title: "Ups", message:
@@ -114,6 +123,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.imageManager.requestImageForAsset(images[indexPath.item], targetSize: assetGridThumbnailSize, contentMode:PHImageContentMode.AspectFill, options: initialRequestOptions) { image, info in
             cell.photoImageView.image = image;
         }
+        self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
         return cell
     }
     

@@ -214,11 +214,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FBcleaner/GridViewController.swift"
-            timestampString = "436390671.516121"
+            timestampString = "436400939.877664"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35">
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -228,11 +230,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FBcleaner/GridViewController.swift"
-            timestampString = "436390671.516121"
+            timestampString = "436400939.877664"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44">
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "GridViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -242,11 +246,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FBcleaner/GridViewController.swift"
-            timestampString = "436398851.887283"
+            timestampString = "436401088.778388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114">
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -256,25 +262,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FBcleaner/GridViewController.swift"
-            timestampString = "436398851.887283"
+            timestampString = "436401088.778388"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "collectionView(_:didSelectItemAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FBcleaner/GridViewController.swift"
+            timestampString = "436401088.778388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
-            endingLineNumber = "122">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FBcleaner/GridViewController.swift"
-            timestampString = "436398851.887283"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113">
+            endingLineNumber = "122"
+            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
+            landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -356,11 +366,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FBcleaner/GridViewController.swift"
-            timestampString = "436398851.887283"
+            timestampString = "436401088.778388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107">
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -370,11 +382,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FBcleaner/GridViewController.swift"
-            timestampString = "436398851.887283"
+            timestampString = "436401088.778388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127">
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "collectionView(_:didSelectItemAtIndexPath:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -384,11 +398,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FBcleaner/GridViewController.swift"
-            timestampString = "436398851.887283"
+            timestampString = "436401088.778388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65">
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "deleteImages(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
