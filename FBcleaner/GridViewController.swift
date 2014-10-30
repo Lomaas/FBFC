@@ -50,8 +50,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if(temp.count == 0){
             let alertController = UIAlertController(title: "No images selected", message:
-                "Hello, world!", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Select some images by tapping on the picture", style: UIAlertActionStyle.Default,handler: nil))
+                "Select some images by tapping on the picture", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
             
             self.presentViewController(alertController, animated: true, completion: nil)
             return
