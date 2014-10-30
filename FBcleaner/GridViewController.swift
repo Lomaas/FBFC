@@ -11,10 +11,11 @@ import Photos
 
 let reuseIdentifier = "Cell"
 
-class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var images: [PHAsset] = []
     var imagesToDelete = []
     let imageManager = PHCachingImageManager()
+    var imagesArray: [Bool] = []
     let initialRequestOptions = PHImageRequestOptions()
     var imageCacheController: ImageCacheController!
     var assetGridThumbnailSize: CGSize!
@@ -35,10 +36,44 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
         imageCacheController = ImageCacheController(imageManager: imageManager, images: images, preheatSize: 1)
         imageCacheController.targetSize = assetGridThumbnailSize
+        
+        for x in images {
+            self.imagesArray.append(false)
+        }
+        
     }
     
     // MARK: UICollectionViewDataSource
     
+    @IBAction func deleteImages(sender: AnyObject) {
+        var temp: [PHAsset] = self.getAssetsToBeDeleted()
+        
+        if(temp.count == 0){
+            let alertController = UIAlertController(title: "No images selected", message:
+                "Hello, world!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Select some images by tapping on the picture", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+            PHAssetChangeRequest.deleteAssets(temp)
+            }, completionHandler:nil)
+    }
+    
+    func getAssetsToBeDeleted() -> [PHAsset] {
+        var counter = 0
+        var temp: [PHAsset] = []
+        
+        for x in self.imagesArray {
+            if(x == false){
+                temp.append(images[counter])
+            }
+            counter += 1
+        }
+        return temp
+    }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -51,47 +86,40 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
         
-        if(cell.keep){
-            cell.checkedImageView.image = UIImage(named: "unchecked")
+        if(self.imagesArray[indexPath.item] == true){
+            cell.checkedImageView.image = UIImage(named:"unchecked")
         }
         else {
-            cell.checkedImageView.image = UIImage(named: "checked")
+            cell.checkedImageView.image = UIImage(named:"checked")
         }
-        
         self.imageManager.requestImageForAsset(images[indexPath.item], targetSize: assetGridThumbnailSize, contentMode:PHImageContentMode.AspectFill, options: initialRequestOptions) { image, info in
             cell.photoImageView.image = image;
         }
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSlectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         println("didSelectItemAtIndexPath")
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
-        cell.updateCheckmarkPicture()
+        println("updateCheckmarkPicture")
+        
+        cell.backgroundColor = UIColor.whiteColor()
+        cell.transform = CGAffineTransformMakeRotation(0.1);
+        
+        self.imagesArray[indexPath.item] = !self.imagesArray[indexPath.item]
+        
+        if(self.imagesArray[indexPath.item] == true){
+            cell.checkedImageView.image = UIImage(named:"unchecked")
+        }
+        else {
+            cell.checkedImageView.image = UIImage(named:"checked")
+        }
+        self.uiCollectionView.reloadItemsAtIndexPaths([indexPath])
     }
-    
-//    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-//               let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
-//        cell.backgroundColor = UIColor.blueColor()
-//        cell.alpha = 0.5
-//        return true
-//    }
-//    
-//    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
-//        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
-//        cell.backgroundColor = nil
-//        cell.alpha = 1
-//    }
     
     // MARK: - ScrollViewDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let indexPaths = self.uiCollectionView.indexPathsForVisibleItems()
         imageCacheController.updateVisibleCells(indexPaths as [NSIndexPath])
-    }
-    
-    @IBAction func confirmDelete(sender: AnyObject) {
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-            PHAssetChangeRequest.deleteAssets(self.images)
-            }, completionHandler:nil)
     }
 }
