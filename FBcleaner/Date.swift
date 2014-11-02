@@ -21,6 +21,19 @@ class Date: NSString {
     func setDate (newValue: NSString) {
             NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: DATE_STRING)
             NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func getNSDate() -> NSDate {
+        var returnValue: NSString? = NSUserDefaults.standardUserDefaults().objectForKey(DATE_STRING) as? NSString
+        if returnValue == nil
+        {
+            return NSDate()
         }
+        else {
+            var formatter = NSDateFormatter()
+            formatter.dateStyle = .MediumStyle
+            return formatter.dateFromString(returnValue!)!
+        }
+    }
     
 }
