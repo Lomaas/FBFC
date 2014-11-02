@@ -12,13 +12,14 @@ import Photos
 
 
 class StartViewController: UIViewController {
-    var assetsLeftToEvaluate: [PHAsset] = []
+    var assetsLeftToEvaluate: [PHAsset]
     @IBOutlet weak var startDate: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var fromDateButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
 
     required init(coder aDecoder: NSCoder) {
+        self.assetsLeftToEvaluate = []
         super.init(coder: aDecoder)
     }
     
@@ -53,10 +54,13 @@ class StartViewController: UIViewController {
         }
     }
     
+    @IBAction func allPicturesButtonPressed(sender: AnyObject) {
+        self.fetchAssets(false)
+    }
     func fetchAssets(dateCompare: Bool){
         if let results = PHAsset.fetchAssetsWithMediaType(.Image, options: nil) {
             if(dateCompare){
-                self.evaluateResultDate(results)
+                    self.evaluateResultDate(results)
             }
             else {
                 self.evaluateResult(results)
@@ -65,7 +69,23 @@ class StartViewController: UIViewController {
     }
     
     func evaluateResult(results: PHFetchResult){
+        var counter = 0
         
+        results.enumerateObjectsUsingBlock { (object, idx, _) in
+            if let asset = object as? PHAsset {
+                counter += 1
+                self.assetsLeftToEvaluate.append(asset)
+
+                if(counter == results.count){
+                    if(self.assetsLeftToEvaluate.count == 0){
+                        self.createAlertView("No pictures", message:"It appears that you have no pictures. Take some pictures", actionTitle: "Take some pictures!")
+                    }
+                    else {
+                        self.presentNewViewController()
+                    }
+                }
+            }
+        }
     }
     
     func evaluateResultDate(results: PHFetchResult){
@@ -81,26 +101,16 @@ class StartViewController: UIViewController {
        
                 if(counter == results.count){
                     if(self.assetsLeftToEvaluate.count == 0){
-                        let alertController = UIAlertController(title: "No pictures", message:
-                            "It appears that you have no pictures newer than the selected date", preferredStyle: UIAlertControllerStyle.Alert)
-                        alertController.addAction(UIAlertAction(title: "Select new date", style: UIAlertActionStyle.Default, handler: { action in
-                            self.dismissViewControllerAnimated(true, completion: nil)
-                        }))
-                        self.presentViewController(alertController, animated: true, completion: nil);
+                        self.createAlertView("No pictures", message: "It appears that you have no pictures newer than the selected date", actionTitle: "Select new date")
                     }
                     else {
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil);
-                        let vc = storyboard.instantiateViewControllerWithIdentifier("ViewController") as ViewController;
-                        vc.assetsLeftToEvaluate = self.assetsLeftToEvaluate
-                        self.presentViewController(vc, animated: true, completion: nil);
+                        self.presentNewViewController()
                     }
                 }
             }
         }
     }
-
-
-
+    
     
     func compareDates(asset: PHAsset) -> Bool {
         var dateComparisionResult: NSComparisonResult = asset.creationDate.compare(self.datePicker.date)
@@ -110,9 +120,18 @@ class StartViewController: UIViewController {
         return false
     }
     
-//    
-//    if(self.assetsLeftToEvaluate.count == 0){
-//    self.labelNoImages.text = "It appears that there is no pictures newer than \(Date().getDateStringFromNSDate(self.fromDate!))"
-//    }
+    func presentNewViewController(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil);
+        let vc = storyboard.instantiateViewControllerWithIdentifier("SelecterViewController") as ViewController;
+        vc.assetsLeftToEvaluate = self.assetsLeftToEvaluate
+        self.presentViewController(vc, animated: true, completion: nil);
+    }
+    
+    func createAlertView(title: NSString, message: NSString, actionTitle: NSString){
+        let alertController = UIAlertController(title: title, message:
+            message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.Default, handler:nil))
+        self.presentViewController(alertController, animated: true, completion: nil);
+    }
 }
 
