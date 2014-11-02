@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FBcleaner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelecterViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="FBcleaner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -29,7 +29,7 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ln3-Ne-mtd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="25P-A1-IAs"/>
                             <constraint firstItem="ln3-Ne-mtd" firstAttribute="leading" secondItem="gkA-d9-xgo" secondAttribute="leading" id="GIV-fH-Rmd"/>
@@ -68,10 +68,10 @@
                                     <navigationItem title="Select pictures" id="AdY-ZA-fLp"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3f-6b-N92">
-                                <rect key="frame" x="191" y="143" width="219" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3f-6b-N92">
+                                <rect key="frame" x="191" y="96" width="219" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="219" id="UGb-A7-1Qy"/>
+                                    <constraint firstAttribute="width" constant="219" id="ycg-X5-DAC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="ALL">
@@ -80,7 +80,7 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="2"/>
+                                        <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                         <integer key="value" value="1"/>
@@ -91,7 +91,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TM2-iu-qyW">
-                                <rect key="frame" x="191" y="232" width="219" height="48"/>
+                                <rect key="frame" x="191" y="185" width="219" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="FROM DATE">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,49 +99,88 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="2"/>
+                                        <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="fromDateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="BvB-lF-A8b"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uu2-Oh-PM6">
-                                <rect key="frame" x="191" y="315" width="219" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="GEO POS">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time since last run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3a-0p-rRj">
+                                <rect key="frame" x="204" y="467" width="193" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="7Fu-gM-4eW"/>
+                                    <constraint firstAttribute="width" constant="193" id="It9-BL-LCK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76N-l9-B0H">
+                                <rect key="frame" x="215" y="496" width="171" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="6hT-bP-Mhn"/>
+                                    <constraint firstAttribute="width" constant="171" id="hsJ-uQ-x1x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wrf-AY-KOy">
+                                <rect key="frame" x="1" y="240" width="600" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="436646603.45087397">
+                                    <!--2014-11-02 18:43:23 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6f-PT-OLW">
+                                <rect key="frame" x="279" y="156" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="jJR-bw-qvp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="P3f-6b-N92" firstAttribute="centerX" secondItem="iMO-BO-GZt" secondAttribute="centerX" id="Dyh-mK-Ubc"/>
-                            <constraint firstItem="P3f-6b-N92" firstAttribute="top" secondItem="iMO-BO-GZt" secondAttribute="bottom" constant="71" id="ILJ-rC-2l1"/>
-                            <constraint firstItem="P3f-6b-N92" firstAttribute="leading" secondItem="TM2-iu-qyW" secondAttribute="leading" id="KCn-Ta-s3I"/>
-                            <constraint firstItem="uu2-Oh-PM6" firstAttribute="top" secondItem="TM2-iu-qyW" secondAttribute="bottom" constant="35" id="LII-nQ-VeB"/>
-                            <constraint firstItem="iMO-BO-GZt" firstAttribute="top" secondItem="9RJ-YF-Cmr" secondAttribute="bottom" constant="8" id="NWU-cP-arJ"/>
-                            <constraint firstAttribute="trailing" secondItem="iMO-BO-GZt" secondAttribute="trailing" id="Vcb-Uw-8mO"/>
-                            <constraint firstItem="uu2-Oh-PM6" firstAttribute="trailing" secondItem="TM2-iu-qyW" secondAttribute="trailing" id="ZBc-4c-OA8"/>
-                            <constraint firstItem="TM2-iu-qyW" firstAttribute="top" secondItem="P3f-6b-N92" secondAttribute="bottom" constant="41" id="duk-aG-qSU"/>
-                            <constraint firstItem="TM2-iu-qyW" firstAttribute="trailing" secondItem="P3f-6b-N92" secondAttribute="trailing" id="hdi-de-bCa"/>
-                            <constraint firstItem="iMO-BO-GZt" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" id="nE5-I5-IcS"/>
-                            <constraint firstItem="TM2-iu-qyW" firstAttribute="leading" secondItem="uu2-Oh-PM6" secondAttribute="leading" id="wTU-e7-UgP"/>
+                            <constraint firstAttribute="trailing" secondItem="iMO-BO-GZt" secondAttribute="trailing" id="1co-yi-qXr"/>
+                            <constraint firstAttribute="centerX" secondItem="t6f-PT-OLW" secondAttribute="centerX" id="2nC-0f-Wss"/>
+                            <constraint firstItem="76N-l9-B0H" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" constant="216" id="65t-HU-SLI"/>
+                            <constraint firstItem="V3a-0p-rRj" firstAttribute="centerX" secondItem="TM2-iu-qyW" secondAttribute="centerX" id="6zX-av-NqE"/>
+                            <constraint firstItem="wrf-AY-KOy" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leadingMargin" constant="-15" id="BeA-S1-MDT"/>
+                            <constraint firstItem="iMO-BO-GZt" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" id="MAk-xE-tZW"/>
+                            <constraint firstItem="V3a-0p-rRj" firstAttribute="top" secondItem="wrf-AY-KOy" secondAttribute="bottom" constant="65" id="Q6T-Oo-Qfw"/>
+                            <constraint firstItem="iMO-BO-GZt" firstAttribute="top" secondItem="9RJ-YF-Cmr" secondAttribute="bottom" constant="8" id="QDR-9a-0cx"/>
+                            <constraint firstItem="76N-l9-B0H" firstAttribute="top" secondItem="V3a-0p-rRj" secondAttribute="bottom" constant="8" symbolic="YES" id="QUJ-w3-ijO"/>
+                            <constraint firstItem="TM2-iu-qyW" firstAttribute="top" secondItem="P3f-6b-N92" secondAttribute="bottom" constant="41" id="UT8-4e-7HA"/>
+                            <constraint firstItem="TM2-iu-qyW" firstAttribute="trailing" secondItem="P3f-6b-N92" secondAttribute="trailing" id="Umu-5h-mVP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wrf-AY-KOy" secondAttribute="trailing" constant="-17" id="XZm-YO-f8a"/>
+                            <constraint firstItem="P3f-6b-N92" firstAttribute="top" secondItem="iMO-BO-GZt" secondAttribute="bottom" constant="24" id="Zp8-iy-LDV"/>
+                            <constraint firstItem="TM2-iu-qyW" firstAttribute="top" secondItem="t6f-PT-OLW" secondAttribute="bottom" constant="8" symbolic="YES" id="dEo-eW-oON"/>
+                            <constraint firstItem="TM2-iu-qyW" firstAttribute="leading" secondItem="P3f-6b-N92" secondAttribute="leading" id="lTZ-6Q-98n"/>
+                            <constraint firstItem="iMO-BO-GZt" firstAttribute="centerX" secondItem="P3f-6b-N92" secondAttribute="centerX" id="ljf-R9-LER"/>
+                            <constraint firstItem="V3a-0p-rRj" firstAttribute="centerX" secondItem="76N-l9-B0H" secondAttribute="centerX" id="lxu-kQ-21p"/>
+                            <constraint firstItem="vtP-TG-0aM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="76N-l9-B0H" secondAttribute="bottom" constant="10" id="vml-Nv-zFv"/>
+                            <constraint firstItem="wrf-AY-KOy" firstAttribute="top" secondItem="TM2-iu-qyW" secondAttribute="bottom" constant="7" id="wRs-wV-zNG"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="65t-HU-SLI"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="76N-l9-B0H" id="Eb4-o0-rpy"/>
+                        <outlet property="datePicker" destination="wrf-AY-KOy" id="3vC-Sz-78V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyt-Sr-hC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-371" y="288"/>
+            <point key="canvasLocation" x="-323" y="288"/>
         </scene>
         <!--Grid View Controller-->
         <scene sceneID="uSs-Nl-nRP">
@@ -236,6 +275,8 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="HpA-vF-MSc" id="FhH-vZ-s8O"/>
+                        <outlet property="cancelButton" destination="txL-iK-7bR" id="dLm-nk-Dyt"/>
+                        <outlet property="deleteButton" destination="axm-f6-tvb" id="P7O-M1-lJs"/>
                         <outlet property="uiCollectionView" destination="b6i-1C-AhA" id="4gC-aW-UNM"/>
                     </connections>
                 </viewController>

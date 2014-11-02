@@ -11,18 +11,27 @@ import UIKit
 
 
 class StartViewController: UIViewController {
+    @IBOutlet weak var dateLabel: UILabel!
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var date = Date()
+        self.dateLabel.text = date.getDate()
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    @IBOutlet weak var datePicker: UIDatePicker!
     
+    @IBAction func fromDateButtonPressed(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil);
+        let vc = storyboard.instantiateViewControllerWithIdentifier("SelecterViewController") as ViewController;
+        vc.fromDate = self.datePicker.date
+        self.presentViewController(vc, animated: true, completion: nil);
+    }
 }
 

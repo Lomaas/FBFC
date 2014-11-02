@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108769F1A02EB46002EEEDB /* StartViewController.swift */; };
+		F17FC8F81A06A7E400E0B1DF /* GlobalConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */; };
+		F17FC8FA1A06A83000E0B1DF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FC8F91A06A83000E0B1DF /* Date.swift */; };
 		F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7319FED7C20013580F /* GridViewController.swift */; };
 		F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7519FEDB900013580F /* ImageCacheController.swift */; };
 		F1C11F7819FEDBC60013580F /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */; };
@@ -34,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		F108769F1A02EB46002EEEDB /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstans.swift; sourceTree = "<group>"; };
+		F17FC8F91A06A83000E0B1DF /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F1C11F7319FED7C20013580F /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		F1C11F7519FEDB900013580F /* ImageCacheController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheController.swift; sourceTree = "<group>"; };
 		F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -72,9 +76,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F17FC8FB1A06AE2300E0B1DF /* util */ = {
+			isa = PBXGroup;
+			children = (
+				F17FC8F91A06A83000E0B1DF /* Date.swift */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
 		F1C11F7219FEC7C30013580F /* base */ = {
 			isa = PBXGroup;
 			children = (
+				F1C11F7519FEDB900013580F /* ImageCacheController.swift */,
 				F1ED60FF19F3D33E00238338 /* UIDraggableView.swift */,
 			);
 			name = base;
@@ -103,17 +116,14 @@
 		F1ED60DC19F3D16800238338 /* FBcleaner */ = {
 			isa = PBXGroup;
 			children = (
+				F17FC8FB1A06AE2300E0B1DF /* util */,
 				F1ED610319F3D34700238338 /* view */,
 				F1ED60DF19F3D16800238338 /* AppDelegate.swift */,
-				F1ED610019F3D33E00238338 /* ViewController.swift */,
 				F1ED60E319F3D16800238338 /* Main.storyboard */,
 				F1ED60E619F3D16800238338 /* Images.xcassets */,
 				F1ED60E819F3D16800238338 /* LaunchScreen.xib */,
 				F1ED60DD19F3D16800238338 /* Supporting Files */,
-				F1C11F7319FED7C20013580F /* GridViewController.swift */,
-				F1C11F7519FEDB900013580F /* ImageCacheController.swift */,
-				F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */,
-				F108769F1A02EB46002EEEDB /* StartViewController.swift */,
+				F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */,
 			);
 			path = FBcleaner;
 			sourceTree = "<group>";
@@ -146,6 +156,10 @@
 		F1ED610319F3D34700238338 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				F1ED610019F3D33E00238338 /* ViewController.swift */,
+				F1C11F7319FED7C20013580F /* GridViewController.swift */,
+				F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */,
+				F108769F1A02EB46002EEEDB /* StartViewController.swift */,
 				F1C11F7219FEC7C30013580F /* base */,
 			);
 			name = view;
@@ -252,11 +266,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */,
+				F17FC8F81A06A7E400E0B1DF /* GlobalConstans.swift in Sources */,
 				F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */,
 				F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */,
 				F1ED610119F3D33E00238338 /* UIDraggableView.swift in Sources */,
 				F1ED610219F3D33E00238338 /* ViewController.swift in Sources */,
 				F1ED60E019F3D16800238338 /* AppDelegate.swift in Sources */,
+				F17FC8FA1A06A83000E0B1DF /* Date.swift in Sources */,
 				F1C11F7819FEDBC60013580F /* PhotosCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

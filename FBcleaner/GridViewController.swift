@@ -20,8 +20,11 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var imageCacheController: ImageCacheController!
     var assetGridThumbnailSize: CGSize!
     @IBOutlet weak var uiCollectionView: UICollectionView!
-
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.uiCollectionView.delegate = self
@@ -42,6 +45,13 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.imagesArray.append(false)
         }
         self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        self.setViewToNotLoading()
+        
+        let date = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        println(formatter.stringFromDate(date))
+        Date().setDate(formatter.stringFromDate(date))
     }
     
     func goToStartViewController(){
@@ -49,6 +59,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let vc = storyboard.instantiateViewControllerWithIdentifier("StartViewController") as UIViewController;
         self.presentViewController(vc, animated: true, completion: nil);
     }
+    
     @IBAction func cancelCalled(sender: AnyObject) {
         self.goToStartViewController()
     }
@@ -64,30 +75,45 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.presentViewController(alertController, animated: true, completion: nil)
             return
         }
-        
-        self.activityIndicator.hidden = false;
-        self.view.bringSubviewToFront(self.activityIndicator)
-        self.uiCollectionView.alpha = 0.5
+        self.setViewToLoading()
+        let gridView: GridViewController = self
         
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             PHAssetChangeRequest.deleteAssets(temp)
             }, completionHandler: { noError, error in
                 NSLog("Changes complete. Did they succeed? Who knows! \(noError)")
-                self.activityIndicator.hidden = true;
-                self.uiCollectionView.alpha = 1
-
 
                 if(noError == true){
                     // Go to success view
                     self.goToStartViewController()
                 }
+                else if(noError == false){
+                    // User pressed false
+                    println("What is the error? \(error.localizedDescription)")
+                    gridView.setViewToNotLoading()
+                }
                 else {
                     let alertController = UIAlertController(title: "Ups", message:
                         "We are sorry. Something went wrong while deleting your pictures. Please try again", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+                    alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
+                        self.setViewToNotLoading()
+                    }))
                     self.presentViewController(alertController, animated: true, completion: nil)
                 }
         })
+    }
+    
+    func setViewToNotLoading(){
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.hidden = true
+        self.uiCollectionView.alpha = 1
+    }
+    
+    func setViewToLoading(){
+        self.activityIndicator.hidden = false
+        self.uiCollectionView.alpha = 0.4
+        self.activityIndicator.startAnimating()
+        
     }
     
     func getAssetsToBeDeleted() -> [PHAsset] {
