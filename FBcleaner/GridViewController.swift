@@ -22,7 +22,6 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var uiCollectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
-    
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
     override func viewDidLoad() {

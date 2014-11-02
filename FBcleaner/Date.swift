@@ -36,4 +36,11 @@ class Date: NSString {
         }
     }
     
+    func getDateStringFromNSDate(date: NSDate) -> NSString {
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        println(formatter.stringFromDate(date))
+        return formatter.stringFromDate(date)
+    }
+    
 }
