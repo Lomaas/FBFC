@@ -23,11 +23,16 @@ class StartViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    @IBOutlet weak var mainBackGround: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dateLabel.text = Date().getDate()
         self.datePicker.hidden = true
         self.startDate.hidden = true
+        
+        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark)) as UIVisualEffectView
+        visualEffectView.frame = self.view.frame
+        self.mainBackGround.addSubview(visualEffectView)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -47,12 +52,12 @@ class StartViewController: UIViewController {
             self.datePicker.hidden = false
             self.startDate.hidden = false
             self.datePicker.date = Date().getNSDate()
-            self.fromDateButton.setTitle("from date", forState: UIControlState.Normal)
+            self.fromDateButton.setTitle("FROM DATE", forState: UIControlState.Normal)
         }
         else {
             self.datePicker.hidden = true
             self.startDate.hidden = true
-            self.fromDateButton.setTitle("from date", forState: UIControlState.Normal)
+            self.fromDateButton.setTitle("FROM DATE", forState: UIControlState.Normal)
 
         }
     }
