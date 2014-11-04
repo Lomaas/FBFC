@@ -31,30 +31,108 @@
                                                 <action selector="cancelbuttonpressed:" destination="BYZ-38-t0r" id="Zmv-mG-zxF"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="skip rest" style="plain" id="Xfs-j4-7xI"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnc-B1-DQF">
+                                <rect key="frame" x="332" y="462" width="97" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="TRASH">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.border">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.92048445820000002" green="1" blue="0.12743380230000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startFromDateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="jb7-kV-x8k"/>
+                                    <action selector="trashButtonPressd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yqb-xt-OAf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF9-XC-guW">
+                                <rect key="frame" x="178" y="462" width="75" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="154" id="iRG-Ax-QNk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="KEEP">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.border">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.92048445820000002" green="1" blue="0.12743380230000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="iRG-Ax-QNk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="iRG-Ax-QNk"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="keepButtonPressd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mqH-jd-t6e"/>
+                                    <action selector="startFromDateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="mOQ-rX-AZW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="A0X-0b-imD"/>
-                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="leading" secondItem="gkA-d9-xgo" secondAttribute="leading" id="DwN-7V-B2k"/>
-                            <constraint firstItem="gkA-d9-xgo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="N04-Pn-AAk"/>
-                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="PoF-c9-7o3"/>
+                            <constraint firstAttribute="centerX" secondItem="vnc-B1-DQF" secondAttribute="centerX" constant="-80" id="0Sg-X1-rGW"/>
+                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="19g-Mk-RfV"/>
+                            <constraint firstItem="gkA-d9-xgo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4aM-EW-STW"/>
+                            <constraint firstAttribute="centerX" secondItem="VF9-XC-guW" secondAttribute="centerX" constant="85" id="BaZ-Vd-FXL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vnc-B1-DQF" secondAttribute="bottom" constant="90" id="F6e-ir-zXo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vnc-B1-DQF" secondAttribute="trailing" constant="18" id="NMG-XO-bRN"/>
+                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Osf-aY-g4Y"/>
+                            <constraint firstItem="vnc-B1-DQF" firstAttribute="leading" secondItem="VF9-XC-guW" secondAttribute="trailing" constant="30" id="Oto-6Z-bLf"/>
                             <constraint firstAttribute="centerX" secondItem="gkA-d9-xgo" secondAttribute="centerX" id="Pw3-X1-rWV"/>
-                            <constraint firstItem="gkA-d9-xgo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VLO-dY-BXc"/>
-                            <constraint firstAttribute="centerX" secondItem="gkA-d9-xgo" secondAttribute="centerX" id="fvm-sn-Eh8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ln3-Ne-mtd" secondAttribute="trailing" constant="-27" id="ji4-8d-wJk"/>
-                            <constraint firstAttribute="centerX" secondItem="gkA-d9-xgo" secondAttribute="centerX" id="zF8-8d-ghj"/>
+                            <constraint firstItem="gkA-d9-xgo" firstAttribute="leading" secondItem="ln3-Ne-mtd" secondAttribute="leading" id="R9F-ze-DcF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ln3-Ne-mtd" secondAttribute="trailing" constant="-27" id="TIC-oR-w7E"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VF9-XC-guW" secondAttribute="bottom" constant="90" id="WIF-x8-rqp"/>
+                            <constraint firstItem="gkA-d9-xgo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XYC-Vb-EDe"/>
+                            <constraint firstAttribute="trailing" secondItem="gkA-d9-xgo" secondAttribute="trailing" id="XdR-dl-3cq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VF9-XC-guW" secondAttribute="bottom" constant="84" id="YpR-66-Msw"/>
+                            <constraint firstItem="VF9-XC-guW" firstAttribute="baseline" secondItem="vnc-B1-DQF" secondAttribute="baseline" id="hfG-jx-qRH"/>
+                            <constraint firstItem="VF9-XC-guW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="oeJ-MA-uiX"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Pw3-X1-rWV"/>
+                                <exclude reference="hfG-jx-qRH"/>
+                                <exclude reference="oeJ-MA-uiX"/>
+                                <exclude reference="NMG-XO-bRN"/>
+                                <exclude reference="Oto-6Z-bLf"/>
+                                <exclude reference="YpR-66-Msw"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
                                 <include reference="Pw3-X1-rWV"/>
+                                <include reference="hfG-jx-qRH"/>
+                                <include reference="oeJ-MA-uiX"/>
+                                <include reference="NMG-XO-bRN"/>
+                                <include reference="Oto-6Z-bLf"/>
+                                <include reference="YpR-66-Msw"/>
                             </mask>
                         </variation>
                     </view>
@@ -80,9 +158,6 @@
                         <subviews>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainbackground" translatesAutoresizingMaskIntoConstraints="NO" id="VAm-L3-XmY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="601"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="-106" y="0.0" width="611" height="600"/>
-                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3f-6b-N92">
                                 <rect key="frame" x="191" y="96" width="219" height="48"/>
@@ -174,7 +249,7 @@
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cig-C4-mFN">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <color key="barTintColor" red="0.71164790814468737" green="0.80173268742707882" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <items>
                                     <navigationItem title="SELECT IMAGES" id="vx3-5u-jbk"/>
                                 </items>
