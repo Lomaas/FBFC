@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Y4g-dk-meB">
     <dependencies>
+        <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -17,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainbackground" translatesAutoresizingMaskIntoConstraints="NO" id="ln3-Ne-mtd">
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainbackground" translatesAutoresizingMaskIntoConstraints="NO" id="ln3-Ne-mtd">
                                 <rect key="frame" x="0.0" y="0.0" width="611" height="600"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkA-d9-xgo">
@@ -36,10 +37,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="A0X-0b-imD"/>
+                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="leading" secondItem="gkA-d9-xgo" secondAttribute="leading" id="DwN-7V-B2k"/>
                             <constraint firstItem="gkA-d9-xgo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="N04-Pn-AAk"/>
+                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="PoF-c9-7o3"/>
                             <constraint firstAttribute="centerX" secondItem="gkA-d9-xgo" secondAttribute="centerX" id="Pw3-X1-rWV"/>
                             <constraint firstItem="gkA-d9-xgo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VLO-dY-BXc"/>
                             <constraint firstAttribute="centerX" secondItem="gkA-d9-xgo" secondAttribute="centerX" id="fvm-sn-Eh8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ln3-Ne-mtd" secondAttribute="trailing" constant="-27" id="ji4-8d-wJk"/>
                             <constraint firstAttribute="centerX" secondItem="gkA-d9-xgo" secondAttribute="centerX" id="zF8-8d-ghj"/>
                         </constraints>
                         <variation key="default">
@@ -53,6 +58,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="mainbackground" destination="ln3-Ne-mtd" id="43P-y8-24c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,7 +79,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainbackground" translatesAutoresizingMaskIntoConstraints="NO" id="VAm-L3-XmY">
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainbackground" translatesAutoresizingMaskIntoConstraints="NO" id="VAm-L3-XmY">
                                 <rect key="frame" x="0.0" y="0.0" width="611" height="600"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="-106" y="0.0" width="611" height="600"/>
@@ -167,6 +176,7 @@
                             <constraint firstItem="76N-l9-B0H" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" constant="216" id="65t-HU-SLI"/>
                             <constraint firstItem="V3a-0p-rRj" firstAttribute="centerX" secondItem="TM2-iu-qyW" secondAttribute="centerX" id="6zX-av-NqE"/>
                             <constraint firstItem="wrf-AY-KOy" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leadingMargin" constant="-15" id="BeA-S1-MDT"/>
+                            <constraint firstItem="VAm-L3-XmY" firstAttribute="top" secondItem="olY-bB-Wnc" secondAttribute="top" id="DKA-64-m91"/>
                             <constraint firstItem="iMO-BO-GZt" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" id="MAk-xE-tZW"/>
                             <constraint firstItem="V3a-0p-rRj" firstAttribute="top" secondItem="wrf-AY-KOy" secondAttribute="bottom" constant="65" id="Q6T-Oo-Qfw"/>
                             <constraint firstItem="iMO-BO-GZt" firstAttribute="top" secondItem="9RJ-YF-Cmr" secondAttribute="bottom" constant="8" id="QDR-9a-0cx"/>
@@ -178,16 +188,16 @@
                             <constraint firstItem="hzm-tB-SpZ" firstAttribute="top" secondItem="wrf-AY-KOy" secondAttribute="bottom" constant="8" symbolic="YES" id="Z0x-SA-Dg1"/>
                             <constraint firstItem="P3f-6b-N92" firstAttribute="top" secondItem="iMO-BO-GZt" secondAttribute="bottom" constant="24" id="Zp8-iy-LDV"/>
                             <constraint firstItem="TM2-iu-qyW" firstAttribute="top" secondItem="t6f-PT-OLW" secondAttribute="bottom" constant="8" symbolic="YES" id="dEo-eW-oON"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VAm-L3-XmY" secondAttribute="trailing" constant="-27" id="dTf-9w-68s"/>
+                            <constraint firstItem="VAm-L3-XmY" firstAttribute="bottom" secondItem="vtP-TG-0aM" secondAttribute="top" id="iUZ-lG-jTV"/>
                             <constraint firstItem="TM2-iu-qyW" firstAttribute="leading" secondItem="P3f-6b-N92" secondAttribute="leading" id="lTZ-6Q-98n"/>
                             <constraint firstItem="iMO-BO-GZt" firstAttribute="centerX" secondItem="P3f-6b-N92" secondAttribute="centerX" id="ljf-R9-LER"/>
                             <constraint firstItem="V3a-0p-rRj" firstAttribute="centerX" secondItem="76N-l9-B0H" secondAttribute="centerX" id="lxu-kQ-21p"/>
                             <constraint firstItem="vtP-TG-0aM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="76N-l9-B0H" secondAttribute="bottom" constant="10" id="vml-Nv-zFv"/>
                             <constraint firstItem="wrf-AY-KOy" firstAttribute="top" secondItem="TM2-iu-qyW" secondAttribute="bottom" constant="7" id="wRs-wV-zNG"/>
+                            <constraint firstItem="VAm-L3-XmY" firstAttribute="leading" secondItem="iMO-BO-GZt" secondAttribute="leading" id="zQC-rj-qpX"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="VAm-L3-XmY"/>
-                            </mask>
                             <mask key="constraints">
                                 <exclude reference="65t-HU-SLI"/>
                             </mask>
@@ -198,6 +208,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="dateLabel" destination="76N-l9-B0H" id="Eb4-o0-rpy"/>
                         <outlet property="datePicker" destination="wrf-AY-KOy" id="3vC-Sz-78V"/>

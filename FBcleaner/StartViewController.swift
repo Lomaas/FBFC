@@ -25,10 +25,13 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var date = Date()
-        self.dateLabel.text = date.getDate()
+        self.dateLabel.text = Date().getDate()
         self.datePicker.hidden = true
         self.startDate.hidden = true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.assetsLeftToEvaluate = []
     }
     
     override func didReceiveMemoryWarning() {
@@ -111,7 +114,6 @@ class StartViewController: UIViewController {
         }
     }
     
-    
     func compareDates(asset: PHAsset) -> Bool {
         var dateComparisionResult: NSComparisonResult = asset.creationDate.compare(self.datePicker.date)
         if(dateComparisionResult == NSComparisonResult.OrderedDescending){
@@ -123,7 +125,7 @@ class StartViewController: UIViewController {
     func presentNewViewController(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
         let vc = storyboard.instantiateViewControllerWithIdentifier("SelecterViewController") as ViewController;
-        vc.assetsLeftToEvaluate = self.assetsLeftToEvaluate
+        vc.tmpAssets = self.assetsLeftToEvaluate
         self.presentViewController(vc, animated: true, completion: nil);
     }
     

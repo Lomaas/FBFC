@@ -75,7 +75,6 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return
         }
         self.setViewToLoading()
-        let gridView: GridViewController = self
         
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             PHAssetChangeRequest.deleteAssets(temp)
@@ -89,7 +88,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 else if(noError == false){
                     // User pressed false
                     println("What is the error? \(error.localizedDescription)")
-                    gridView.setViewToNotLoading()
+                    self.setViewToNotLoading()
                 }
                 else {
                     let alertController = UIAlertController(title: "Ups", message:
