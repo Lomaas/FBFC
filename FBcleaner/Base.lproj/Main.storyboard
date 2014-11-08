@@ -31,7 +31,11 @@
                                                 <action selector="cancelbuttonpressed:" destination="BYZ-38-t0r" id="Zmv-mG-zxF"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="skip rest" style="plain" id="Xfs-j4-7xI"/>
+                                        <barButtonItem key="rightBarButtonItem" title="skip rest" style="plain" id="Xfs-j4-7xI">
+                                            <connections>
+                                                <action selector="skipRestButtonPressed:" destination="BYZ-38-t0r" id="owN-Zc-iFG"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -138,6 +142,7 @@
                     </view>
                     <connections>
                         <outlet property="mainbackground" destination="ln3-Ne-mtd" id="43P-y8-24c"/>
+                        <outlet property="skipRestButton" destination="Xfs-j4-7xI" id="h4I-Mh-fOr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
