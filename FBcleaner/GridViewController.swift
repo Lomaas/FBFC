@@ -14,6 +14,7 @@ let reuseIdentifier = "Cell"
 class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var images: [PHAsset] = []
     var imagesToDelete = []
+    var hasDeleted = false
     let imageManager = PHCachingImageManager()
     var imagesArray: [Bool] = []
     let initialRequestOptions = PHImageRequestOptions()
@@ -83,6 +84,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
                 if(noError == true){
                     // Go to success view
+                    self.hasDeleted = true
                     self.goToStartViewController()
                 }
                 else if(noError == false){
@@ -105,13 +107,16 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.activityIndicator.stopAnimating()
         self.activityIndicator.hidden = true
         self.uiCollectionView.alpha = 1
+        self.cancelButton.enabled = true
+        self.deleteButton.enabled = true
     }
     
     func setViewToLoading(){
         self.activityIndicator.hidden = false
         self.uiCollectionView.alpha = 0.4
         self.activityIndicator.startAnimating()
-        
+        self.cancelButton.enabled = false
+        self.deleteButton.enabled = false
     }
     
     func getAssetsToBeDeleted() -> [PHAsset] {
@@ -132,11 +137,15 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(self.hasDeleted == true){
+            return 0
+        }
         return images.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
+        
         
         if(self.imagesArray[indexPath.item] == true){
             cell.checkedImageView.image = UIImage(named:"unchecked")
@@ -145,7 +154,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cell.checkedImageView.image = UIImage(named:"checked")
         }
         self.imageManager.requestImageForAsset(images[indexPath.item], targetSize: assetGridThumbnailSize, contentMode:PHImageContentMode.AspectFill, options: initialRequestOptions) { image, info in
-            cell.photoImageView.image = image;
+            cell.photoImageView.image = image?;
         }
         self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
         return cell
