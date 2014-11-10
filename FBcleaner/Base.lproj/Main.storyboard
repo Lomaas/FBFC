@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="barTintColor" red="0.98630196364254241" green="1" blue="0.98542850639979895" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Keep or trash" id="gmh-zO-JUb">
+                                    <navigationItem title="Trash or keep" id="gmh-zO-JUb">
                                         <barButtonItem key="leftBarButtonItem" title="back" style="plain" id="l5P-vf-QvA">
                                             <connections>
                                                 <action selector="cancelbuttonpressed:" destination="BYZ-38-t0r" id="Zmv-mG-zxF"/>
@@ -40,33 +40,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnc-B1-DQF">
-                                <rect key="frame" x="318" y="462" width="97" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="TRASH">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.border">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="0.92048445820000002" green="1" blue="0.12743380230000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="startFromDateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="jb7-kV-x8k"/>
-                                    <action selector="trashButtonPressd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yqb-xt-OAf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF9-XC-guW">
-                                <rect key="frame" x="173" y="462" width="75" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="154" id="iRG-Ax-QNk"/>
-                                </constraints>
+                                <rect key="frame" x="329" y="462" width="75" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="KEEP">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -83,6 +57,32 @@
                                         <color key="value" red="0.92048445820000002" green="1" blue="0.12743380230000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="keepButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="55R-AA-4Ic"/>
+                                    <action selector="startFromDateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="jb7-kV-x8k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF9-XC-guW">
+                                <rect key="frame" x="162" y="462" width="97" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="154" id="iRG-Ax-QNk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="TRASH">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.border">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.99215692281723022" green="0.98431378602981567" blue="0.96862751245498657" alpha="1" colorSpace="deviceRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="iRG-Ax-QNk"/>
@@ -94,8 +94,8 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="keepButtonPressd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mqH-jd-t6e"/>
                                     <action selector="startFromDateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="mOQ-rX-AZW"/>
+                                    <action selector="trashButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wvw-R0-GTP"/>
                                 </connections>
                             </button>
                         </subviews>
