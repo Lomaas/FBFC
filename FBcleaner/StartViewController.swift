@@ -11,7 +11,7 @@ import UIKit
 import Photos
 
 
-class StartViewController: UIViewController {
+class StartViewController: UIViewController, GoBackDelegate {
     var assetsLeftToEvaluate: [PHAsset]
     @IBOutlet weak var startDate: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
@@ -131,6 +131,7 @@ class StartViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
         let vc = storyboard.instantiateViewControllerWithIdentifier("SelecterViewController") as ViewController;
         vc.tmpAssets = self.assetsLeftToEvaluate
+        vc.delegate = self
         self.presentViewController(vc, animated: true, completion: nil);
     }
     
@@ -139,6 +140,12 @@ class StartViewController: UIViewController {
             message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.Default, handler:nil))
         self.presentViewController(alertController, animated: true, completion: nil);
+    }
+    
+    func dissmissMyViewController(view: UIViewController, toStartView: Bool, animated: Bool, title: String, msg: String){
+        view.dismissViewControllerAnimated(false, completion: { finished in
+            self.createAlertView(title, message: msg, actionTitle: "Ok")
+        })
     }
 }
 

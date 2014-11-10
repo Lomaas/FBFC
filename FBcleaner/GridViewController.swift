@@ -11,6 +11,11 @@ import Photos
 
 let reuseIdentifier = "Cell"
 
+
+protocol GoBackDelegate {
+    func dissmissMyViewController(view: UIViewController, toStartView: Bool, animated: Bool, title: String, msg: String)
+}
+
 class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var images: [PHAsset] = []
     var imagesToDelete = []
@@ -20,6 +25,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let initialRequestOptions = PHImageRequestOptions()
     var imageCacheController: ImageCacheController!
     var assetGridThumbnailSize: CGSize!
+    var delegate: GoBackDelegate?
     @IBOutlet weak var uiCollectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -55,13 +61,11 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func goToStartViewController(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil);
-        let vc = storyboard.instantiateViewControllerWithIdentifier("StartViewController") as UIViewController;
-        self.presentViewController(vc, animated: true, completion: nil);
+        self.delegate?.dissmissMyViewController(self as UIViewController, toStartView: true, animated: false, title: "Success", msg:"Your pictures were deleted")
     }
     
     @IBAction func cancelCalled(sender: AnyObject) {
-        self.goToStartViewController()
+        self.delegate?.dissmissMyViewController(self as UIViewController, toStartView: false, animated: true, title: "", msg: "")
     }
 
     @IBAction func deleteImages(sender: AnyObject) {

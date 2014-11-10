@@ -196,7 +196,7 @@
                                     <action selector="fromDateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="BvB-lF-A8b"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time since last run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3a-0p-rRj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3a-0p-rRj">
                                 <rect key="frame" x="204" y="508" width="193" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5CI-fO-ebV"/>
