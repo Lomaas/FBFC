@@ -25,7 +25,6 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         self.scrollView.delegate = self;
         self.scrollView.addSubview(self.uiImageView)
         self.addSubview(self.scrollView)
-        self.backgroundColor = UIColor.blackColor()
         
         var doubleTap = UITapGestureRecognizer(target: self, action: "handleDoubleTap:")
         doubleTap.numberOfTapsRequired = 2
@@ -33,6 +32,8 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         
         var singleTap = UITapGestureRecognizer(target: self, action: "singleTapButton:")
         singleTap.numberOfTapsRequired = 1
+        self.uiImageView.addGestureRecognizer(singleTap)
+
         var button = UIButton(frame: CGRectMake(3, 19, 60, 30))
         button.setTitle("back", forState: UIControlState.Normal)
         button.addGestureRecognizer(singleTap)

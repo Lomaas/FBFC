@@ -18,6 +18,9 @@ class StartViewController: UIViewController, GoBackDelegate {
     @IBOutlet weak var fromDateButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
 
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var selectFromDate: UIButton!
+    @IBOutlet weak var selectAllButton: UIButton!
     required init(coder aDecoder: NSCoder) {
         self.assetsLeftToEvaluate = []
         super.init(coder: aDecoder)
@@ -29,10 +32,22 @@ class StartViewController: UIViewController, GoBackDelegate {
         self.dateLabel.text = Date().getDate()
         self.datePicker.hidden = true
         self.startDate.hidden = true
+
+        self.selectAllButton.layer.borderColor = BLUE_COLOR.CGColor
+        self.selectAllButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.selectAllButton.layer.borderWidth = 6.0
+        self.selectAllButton.layer.cornerRadius = 3.0
         
-//        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark)) as UIVisualEffectView
-//        visualEffectView.frame = self.view.frame
-//        self.mainBackGround.addSubview(visualEffectView)
+        self.selectFromDate.layer.borderColor = BLUE_COLOR.CGColor
+        self.selectFromDate.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.selectFromDate.layer.borderWidth = 6.0
+        self.selectFromDate.layer.cornerRadius = 3.0
+        
+        self.startButton.layer.borderColor = BLUE_COLOR.CGColor
+        self.startButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+        self.startButton.layer.borderWidth = 3.0
+        self.startButton.layer.cornerRadius = 3.0
+
     }
     
     override func viewDidAppear(animated: Bool) {
