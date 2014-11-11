@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="SelecterViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="FBcleaner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelecterViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="CamCleaner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,12 +26,14 @@
                                 <color key="barTintColor" red="0.98630196364254241" green="1" blue="0.98542850639979895" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Trash or keep" id="gmh-zO-JUb">
-                                        <barButtonItem key="leftBarButtonItem" title="back" style="plain" id="l5P-vf-QvA">
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="l5P-vf-QvA">
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <connections>
                                                 <action selector="cancelbuttonpressed:" destination="BYZ-38-t0r" id="Zmv-mG-zxF"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="skip rest" style="plain" id="Xfs-j4-7xI">
+                                        <barButtonItem key="rightBarButtonItem" title="skip rest" id="Xfs-j4-7xI">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="skipRestButtonPressed:" destination="BYZ-38-t0r" id="owN-Zc-iFG"/>
                                             </connections>
@@ -39,8 +41,11 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnc-B1-DQF">
-                                <rect key="frame" x="329" y="462" width="75" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnc-B1-DQF">
+                                <rect key="frame" x="289" y="477" width="97" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="Ft0-ZK-Ehw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="KEEP">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,40 +62,36 @@
                                         <color key="value" red="0.92048445820000002" green="1" blue="0.12743380230000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ft0-ZK-Ehw"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="keepButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="55R-AA-4Ic"/>
                                     <action selector="startFromDateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="jb7-kV-x8k"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF9-XC-guW">
-                                <rect key="frame" x="162" y="462" width="97" height="48"/>
+                                <rect key="frame" x="182" y="477" width="97" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="154" id="iRG-Ax-QNk"/>
+                                    <constraint firstAttribute="width" constant="97" id="BTP-tc-6gs"/>
+                                    <constraint firstAttribute="width" constant="97" id="iRG-Ax-QNk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="TRASH">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.border">
-                                        <integer key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" red="0.99215692281723022" green="0.98431378602981567" blue="0.96862751245498657" alpha="1" colorSpace="deviceRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="BTP-tc-6gs"/>
                                         <exclude reference="iRG-Ax-QNk"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="iRG-Ax-QNk"/>
+                                        <exclude reference="iRG-Ax-QNk"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -101,27 +102,28 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="vnc-B1-DQF" firstAttribute="leading" secondItem="VF9-XC-guW" secondAttribute="trailing" constant="70" id="1qI-qH-fuN"/>
+                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="trailing" secondItem="gkA-d9-xgo" secondAttribute="trailing" id="2kT-G2-O4q"/>
+                            <constraint firstItem="gkA-d9-xgo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9nQ-rO-JuT"/>
+                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="leading" secondItem="gkA-d9-xgo" secondAttribute="leading" id="Azm-yf-NSk"/>
                             <constraint firstItem="VF9-XC-guW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="EyV-j9-FfU"/>
-                            <constraint firstItem="gkA-d9-xgo" firstAttribute="leading" secondItem="ln3-Ne-mtd" secondAttribute="leading" id="IFJ-r0-1HU"/>
-                            <constraint firstAttribute="centerX" secondItem="VF9-XC-guW" secondAttribute="centerX" constant="90" id="KIN-FB-0Nj"/>
+                            <constraint firstAttribute="trailing" secondItem="ln3-Ne-mtd" secondAttribute="trailing" id="HU9-zW-TKa"/>
                             <constraint firstItem="gkA-d9-xgo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="MjT-gn-Gcp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vnc-B1-DQF" secondAttribute="trailing" constant="18" id="NMG-XO-bRN"/>
+                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OES-2v-OO4"/>
                             <constraint firstItem="vnc-B1-DQF" firstAttribute="leading" secondItem="VF9-XC-guW" secondAttribute="trailing" constant="30" id="Oto-6Z-bLf"/>
                             <constraint firstAttribute="centerX" secondItem="gkA-d9-xgo" secondAttribute="centerX" id="Pw3-X1-rWV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ln3-Ne-mtd" secondAttribute="trailing" constant="-27" id="QKs-e5-Xq0"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VF9-XC-guW" secondAttribute="bottom" constant="90" id="SRP-D5-s9h"/>
-                            <constraint firstItem="gkA-d9-xgo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Tvi-yP-pM0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VF9-XC-guW" secondAttribute="bottom" constant="75" id="Vb6-XZ-I27"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VF9-XC-guW" secondAttribute="bottom" constant="84" id="YpR-66-Msw"/>
-                            <constraint firstItem="VF9-XC-guW" firstAttribute="baseline" secondItem="vnc-B1-DQF" secondAttribute="baseline" id="ZNd-Su-Vb1"/>
+                            <constraint firstAttribute="centerX" secondItem="VF9-XC-guW" secondAttribute="centerX" constant="70" id="c5d-lW-Mbt"/>
+                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fOM-jM-2O3"/>
                             <constraint firstItem="VF9-XC-guW" firstAttribute="baseline" secondItem="vnc-B1-DQF" secondAttribute="baseline" id="hfG-jx-qRH"/>
-                            <constraint firstAttribute="trailing" secondItem="gkA-d9-xgo" secondAttribute="trailing" id="jLC-OZ-GGw"/>
-                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jND-wG-921"/>
+                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="mjU-vu-A32"/>
+                            <constraint firstItem="VF9-XC-guW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="182" id="ndx-qV-98U"/>
+                            <constraint firstItem="vnc-B1-DQF" firstAttribute="leading" secondItem="VF9-XC-guW" secondAttribute="trailing" constant="40" id="nwk-3J-hdi"/>
                             <constraint firstItem="VF9-XC-guW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="oeJ-MA-uiX"/>
-                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ruW-T0-I5u"/>
-                            <constraint firstAttribute="centerX" secondItem="gkA-d9-xgo" secondAttribute="centerX" id="uxU-Sn-qSp"/>
-                            <constraint firstItem="ln3-Ne-mtd" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="xkk-Yw-pDz"/>
-                            <constraint firstAttribute="centerX" secondItem="ln3-Ne-mtd" secondAttribute="centerX" id="zfs-9W-iIq"/>
+                            <constraint firstItem="VF9-XC-guW" firstAttribute="baseline" secondItem="vnc-B1-DQF" secondAttribute="baseline" id="xON-89-YV5"/>
+                            <constraint firstItem="VF9-XC-guW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="182" id="z8G-UN-ZLH"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -130,7 +132,9 @@
                                 <exclude reference="Pw3-X1-rWV"/>
                                 <exclude reference="EyV-j9-FfU"/>
                                 <exclude reference="hfG-jx-qRH"/>
+                                <exclude reference="ndx-qV-98U"/>
                                 <exclude reference="oeJ-MA-uiX"/>
+                                <exclude reference="z8G-UN-ZLH"/>
                                 <exclude reference="NMG-XO-bRN"/>
                                 <exclude reference="Oto-6Z-bLf"/>
                                 <exclude reference="YpR-66-Msw"/>
@@ -148,8 +152,10 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="keepButton" destination="vnc-B1-DQF" id="FV8-bD-2jp"/>
                         <outlet property="mainbackground" destination="ln3-Ne-mtd" id="43P-y8-24c"/>
                         <outlet property="skipRestButton" destination="Xfs-j4-7xI" id="h4I-Mh-fOr"/>
+                        <outlet property="trashButton" destination="VF9-XC-guW" id="L2v-1B-lex"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -159,7 +165,7 @@
         <!--Start View Controller-->
         <scene sceneID="qiP-NX-7r0">
             <objects>
-                <viewController storyboardIdentifier="StartViewController" id="Y4g-dk-meB" customClass="StartViewController" customModule="FBcleaner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartViewController" id="Y4g-dk-meB" customClass="StartViewController" customModule="CamCleaner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9RJ-YF-Cmr"/>
                         <viewControllerLayoutGuide type="bottom" id="vtP-TG-0aM"/>
@@ -196,7 +202,7 @@
                                     <action selector="fromDateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="BvB-lF-A8b"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3a-0p-rRj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date for last run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3a-0p-rRj">
                                 <rect key="frame" x="204" y="508" width="193" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5CI-fO-ebV"/>
@@ -267,7 +273,6 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="P3f-6b-N92" firstAttribute="top" secondItem="Cig-C4-mFN" secondAttribute="bottom" constant="24" id="0hz-ic-uOb"/>
                             <constraint firstItem="V3a-0p-rRj" firstAttribute="top" secondItem="hzm-tB-SpZ" secondAttribute="bottom" priority="750" constant="50" id="171-mJ-3Rb"/>
@@ -325,7 +330,7 @@
         <!--Grid View Controller-->
         <scene sceneID="uSs-Nl-nRP">
             <objects>
-                <viewController storyboardIdentifier="GridViewController" id="W1M-84-M9J" customClass="GridViewController" customModule="FBcleaner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GridViewController" id="W1M-84-M9J" customClass="GridViewController" customModule="CamCleaner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uNm-UO-tjZ"/>
                         <viewControllerLayoutGuide type="bottom" id="OVW-oz-MGf"/>
@@ -340,12 +345,14 @@
                                 <items>
                                     <navigationItem title="Tap to unselect" id="N0m-NT-Qw3">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="txL-iK-7bR">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="cancelCalled:" destination="W1M-84-M9J" id="zK3-Qs-pSf"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Delete" id="axm-f6-tvb">
                                             <inset key="imageInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="deleteImages:" destination="W1M-84-M9J" id="fJY-zP-yDc"/>
                                             </connections>
@@ -363,7 +370,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Ahu-tn-XTf" customClass="PhotosCollectionViewCell" customModule="FBcleaner" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Ahu-tn-XTf" customClass="PhotosCollectionViewCell" customModule="CamCleaner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -426,6 +433,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mainbackground" width="299" height="419"/>
+        <image name="mainbackground" width="1080" height="1920"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

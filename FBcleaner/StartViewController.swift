@@ -30,9 +30,9 @@ class StartViewController: UIViewController, GoBackDelegate {
         self.datePicker.hidden = true
         self.startDate.hidden = true
         
-        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark)) as UIVisualEffectView
-        visualEffectView.frame = self.view.frame
-        self.mainBackGround.addSubview(visualEffectView)
+//        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark)) as UIVisualEffectView
+//        visualEffectView.frame = self.view.frame
+//        self.mainBackGround.addSubview(visualEffectView)
     }
     
     override func viewDidAppear(animated: Bool) {

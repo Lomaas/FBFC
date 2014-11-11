@@ -14,8 +14,9 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
     var uiImageView: UIImageView
     
     init(imageView: UIImageView, frame: CGRect){
-        self.uiImageView = imageView.c
-        self.uiImageView.frame = frame
+        self.uiImageView = UIImageView(frame: frame)
+        self.uiImageView.image = imageView.image
+        self.uiImageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.scrollView = UIScrollView(frame: frame)
         self.scrollView.minimumZoomScale = 1.0;
         self.scrollView.maximumZoomScale = 6.5;
@@ -40,6 +41,9 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         button.layer.borderWidth = 2.0
         button.layer.cornerRadius = 3.0
         self.addSubview(button)
+        
+        centerScrollViewContents()
+
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -69,5 +73,24 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         let rectToZoomTo = CGRectMake(x, y, w, h);
         
         scrollView.zoomToRect(rectToZoomTo, animated: true)
+    }
+    
+    func centerScrollViewContents() {
+        let boundsSize = self.scrollView.bounds.size
+        var contentsFrame = self.uiImageView.frame
+        
+        if contentsFrame.size.width < boundsSize.width {
+            contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0
+        } else {
+            contentsFrame.origin.x = 0.0
+        }
+        
+        if contentsFrame.size.height < boundsSize.height {
+            contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0
+        } else {
+            contentsFrame.origin.y = 0.0
+        }
+        
+        self.uiImageView.frame = contentsFrame
     }
 }
