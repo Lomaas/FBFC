@@ -46,7 +46,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnc-B1-DQF">
-                                <rect key="frame" x="319" y="477" width="168" height="48"/>
+                                <rect key="frame" x="296" y="477" width="168" height="48"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="Ft0-ZK-Ehw"/>
@@ -78,7 +78,7 @@
                                     <action selector="startFromDateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="jb7-kV-x8k"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF9-XC-guW">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF9-XC-guW">
                                 <rect key="frame" x="121" y="477" width="168" height="48"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -124,6 +124,7 @@
                             <constraint firstAttribute="centerX" secondItem="gkA-d9-xgo" secondAttribute="centerX" id="Pw3-X1-rWV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ln3-Ne-mtd" secondAttribute="trailing" constant="-27" id="QKs-e5-Xq0"/>
                             <constraint firstItem="gkA-d9-xgo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UQJ-BK-geH"/>
+                            <constraint firstAttribute="centerX" secondItem="vnc-B1-DQF" secondAttribute="centerX" constant="-80" id="XTb-GP-7aa"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VF9-XC-guW" secondAttribute="bottom" constant="84" id="YpR-66-Msw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VF9-XC-guW" secondAttribute="bottom" constant="75" id="c2u-k9-z91"/>
                             <constraint firstItem="ln3-Ne-mtd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fOM-jM-2O3"/>
@@ -150,6 +151,7 @@
                                 <exclude reference="z8G-UN-ZLH"/>
                                 <exclude reference="NMG-XO-bRN"/>
                                 <exclude reference="Oto-6Z-bLf"/>
+                                <exclude reference="hKp-zE-7ta"/>
                                 <exclude reference="YpR-66-Msw"/>
                             </mask>
                         </variation>
@@ -168,6 +170,7 @@
                         <outlet property="keepButton" destination="vnc-B1-DQF" id="FV8-bD-2jp"/>
                         <outlet property="mainbackground" destination="ln3-Ne-mtd" id="43P-y8-24c"/>
                         <outlet property="skipRestButton" destination="Xfs-j4-7xI" id="h4I-Mh-fOr"/>
+                        <outlet property="titleNavBar" destination="gmh-zO-JUb" id="c4V-kV-PQp"/>
                         <outlet property="trashButton" destination="VF9-XC-guW" id="L2v-1B-lex"/>
                     </connections>
                 </viewController>
