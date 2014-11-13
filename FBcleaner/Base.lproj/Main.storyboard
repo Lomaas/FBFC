@@ -30,13 +30,13 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Trash or keep" id="gmh-zO-JUb">
-                                        <barButtonItem key="leftBarButtonItem" title="back" id="l5P-vf-QvA">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="l5P-vf-QvA">
                                             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <connections>
                                                 <action selector="leftBarButtonPressed:" destination="BYZ-38-t0r" id="b32-HF-eox"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="0" id="Xfs-j4-7xI">
+                                        <barButtonItem key="rightBarButtonItem" id="Xfs-j4-7xI">
                                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="skipRestButtonPressed:" destination="BYZ-38-t0r" id="owN-Zc-iFG"/>
