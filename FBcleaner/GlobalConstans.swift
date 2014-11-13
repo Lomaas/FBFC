@@ -11,3 +11,4 @@ import UIKit
 
 let DATE_STRING = "dateSinceLastRun"
 let BLUE_COLOR = UIColor(red: 38, green: 128, blue: 255, alpha: 100)
+let ANIMATION_TIME = 0.3

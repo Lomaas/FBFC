@@ -622,11 +622,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "keep-or-trash/ViewController.swift"
-            timestampString = "437607381.924905"
+            timestampString = "437608749.412934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
             landmarkName = "fetchNextAsset()"
             landmarkType = "5">
          </BreakpointContent>
@@ -638,11 +638,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "keep-or-trash/ViewController.swift"
-            timestampString = "437607381.924905"
+            timestampString = "437608749.412934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
             landmarkName = "fetchNextAsset()"
             landmarkType = "5">
          </BreakpointContent>
@@ -654,11 +654,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "keep-or-trash/ViewController.swift"
-            timestampString = "437607381.924905"
+            timestampString = "437608749.412934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
             landmarkName = "fetchNextAsset()"
             landmarkType = "5">
          </BreakpointContent>
@@ -670,7 +670,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FBcleaner/GlobalConstans.swift"
-            timestampString = "437435879.894741"
+            timestampString = "437608638.950535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -716,11 +716,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "keep-or-trash/ViewController.swift"
-            timestampString = "437607381.924905"
+            timestampString = "437608749.412934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
             landmarkName = "getPreviousAssetEvaulated()"
             landmarkType = "5">
          </BreakpointContent>
@@ -728,15 +728,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "keep-or-trash/ViewController.swift"
-            timestampString = "437607382.04273"
+            timestampString = "437608242.6086"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
             landmarkName = "addPreviousReviewedPicture()"
             landmarkType = "5">
          </BreakpointContent>
