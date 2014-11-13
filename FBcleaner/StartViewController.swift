@@ -44,7 +44,7 @@ class StartViewController: UIViewController, GoBackDelegate {
         self.selectFromDate.layer.cornerRadius = 3.0
         
         self.startButton.layer.borderColor = BLUE_COLOR.CGColor
-        self.startButton.setTitleColor(UIColor.greenColor(), forState: UIControlState.Normal)
+        self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.startButton.layer.borderWidth = 3.0
         self.startButton.layer.cornerRadius = 3.0
 

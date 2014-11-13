@@ -33,11 +33,11 @@
                                         <barButtonItem key="leftBarButtonItem" title="back" id="l5P-vf-QvA">
                                             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <connections>
-                                                <action selector="cancelbuttonpressed:" destination="BYZ-38-t0r" id="Zmv-mG-zxF"/>
+                                                <action selector="leftBarButtonPressed:" destination="BYZ-38-t0r" id="b32-HF-eox"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="0" id="Xfs-j4-7xI">
-                                            <color key="tintColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="skipRestButtonPressed:" destination="BYZ-38-t0r" id="owN-Zc-iFG"/>
                                             </connections>
@@ -168,6 +168,7 @@
                     </view>
                     <connections>
                         <outlet property="keepButton" destination="vnc-B1-DQF" id="FV8-bD-2jp"/>
+                        <outlet property="leftActionBarButton" destination="l5P-vf-QvA" id="R0q-Vn-uQU"/>
                         <outlet property="mainbackground" destination="ln3-Ne-mtd" id="43P-y8-24c"/>
                         <outlet property="skipRestButton" destination="Xfs-j4-7xI" id="h4I-Mh-fOr"/>
                         <outlet property="titleNavBar" destination="gmh-zO-JUb" id="c4V-kV-PQp"/>
@@ -225,7 +226,7 @@
                                     <action selector="fromDateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="BvB-lF-A8b"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date for last run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3a-0p-rRj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3a-0p-rRj">
                                 <rect key="frame" x="204" y="508" width="193" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="5CI-fO-ebV"/>
@@ -236,9 +237,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="never" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76N-l9-B0H">
-                                <rect key="frame" x="215" y="537" width="171" height="35"/>
+                                <rect key="frame" x="215" y="537" width="171" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="q8l-8s-ZbN"/>
+                                    <constraint firstAttribute="height" constant="25" id="q8l-8s-ZbN"/>
                                     <constraint firstAttribute="width" constant="171" id="rxK-lh-Xnp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -256,6 +257,7 @@
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzm-tB-SpZ">
                                 <rect key="frame" x="224" y="410" width="154" height="48"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="154" id="wxN-NC-4Dc"/>
                                 </constraints>
