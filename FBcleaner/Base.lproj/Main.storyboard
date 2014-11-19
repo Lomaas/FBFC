@@ -46,16 +46,16 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rpz-gE-5pp">
-                                <rect key="frame" x="112" y="413" width="378" height="167"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpz-gE-5pp">
+                                <rect key="frame" x="149" y="488" width="302" height="67"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnc-B1-DQF">
-                                        <rect key="frame" x="193" y="10" width="180" height="97"/>
+                                        <rect key="frame" x="155" y="10" width="142" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="97" id="Ft0-ZK-Ehw"/>
                                             <constraint firstAttribute="width" constant="75" id="wbN-C9-Bsj"/>
                                         </constraints>
-                                        <state key="normal" image="keep"/>
+                                        <state key="normal" backgroundImage="keep"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="Ft0-ZK-Ehw"/>
@@ -68,12 +68,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF9-XC-guW">
-                                        <rect key="frame" x="5" y="10" width="180" height="97"/>
+                                        <rect key="frame" x="5" y="10" width="142" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="97" id="BTP-tc-6gs"/>
                                             <constraint firstAttribute="width" constant="97" id="iRG-Ax-QNk"/>
                                         </constraints>
-                                        <state key="normal" image="trash"/>
+                                        <state key="normal" backgroundImage="trash"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="BTP-tc-6gs"/>
@@ -95,20 +95,24 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="VF9-XC-guW" firstAttribute="top" secondItem="Rpz-gE-5pp" secondAttribute="top" constant="10" id="4wr-oE-gKP"/>
-                                    <constraint firstAttribute="bottom" secondItem="VF9-XC-guW" secondAttribute="bottom" constant="60" id="9bZ-Kf-0TQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="VF9-XC-guW" secondAttribute="bottom" constant="10" id="9bZ-Kf-0TQ"/>
                                     <constraint firstItem="vnc-B1-DQF" firstAttribute="top" secondItem="Rpz-gE-5pp" secondAttribute="top" constant="36" id="EIy-T2-Ics"/>
                                     <constraint firstItem="VF9-XC-guW" firstAttribute="top" secondItem="vnc-B1-DQF" secondAttribute="top" id="F0B-YX-bkA"/>
-                                    <constraint firstItem="vnc-B1-DQF" firstAttribute="leading" secondItem="VF9-XC-guW" secondAttribute="trailing" constant="8" id="Zyz-km-XEM"/>
+                                    <constraint firstItem="vnc-B1-DQF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VF9-XC-guW" secondAttribute="trailing" constant="1" id="Ogk-Nn-4Tl"/>
+                                    <constraint firstItem="VF9-XC-guW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rpz-gE-5pp" secondAttribute="leading" constant="1" id="PFB-Oy-nZT"/>
+                                    <constraint firstItem="vnc-B1-DQF" firstAttribute="leading" secondItem="VF9-XC-guW" secondAttribute="trailing" priority="1" constant="8" id="Zyz-km-XEM"/>
                                     <constraint firstAttribute="trailing" secondItem="vnc-B1-DQF" secondAttribute="trailing" constant="103" id="aEI-cn-QbY"/>
+                                    <constraint firstItem="vnc-B1-DQF" firstAttribute="leading" secondItem="VF9-XC-guW" secondAttribute="trailing" constant="1" id="ktk-ih-PXt"/>
                                     <constraint firstItem="vnc-B1-DQF" firstAttribute="top" secondItem="Rpz-gE-5pp" secondAttribute="top" constant="10" id="pdy-9S-a2t"/>
-                                    <constraint firstAttribute="bottom" secondItem="vnc-B1-DQF" secondAttribute="bottom" priority="500" constant="60" id="r8i-gb-07k"/>
-                                    <constraint firstItem="VF9-XC-guW" firstAttribute="leading" secondItem="Rpz-gE-5pp" secondAttribute="leading" constant="5" id="vBK-uq-7pn"/>
-                                    <constraint firstAttribute="trailing" secondItem="vnc-B1-DQF" secondAttribute="trailing" constant="5" id="zHa-gh-99M"/>
+                                    <constraint firstAttribute="bottom" secondItem="vnc-B1-DQF" secondAttribute="bottom" priority="500" constant="10" id="r8i-gb-07k"/>
+                                    <constraint firstItem="VF9-XC-guW" firstAttribute="leading" secondItem="Rpz-gE-5pp" secondAttribute="leading" priority="759" constant="5" id="vBK-uq-7pn"/>
+                                    <constraint firstAttribute="trailing" secondItem="vnc-B1-DQF" secondAttribute="trailing" priority="500" constant="5" id="zHa-gh-99M"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="EIy-T2-Ics"/>
                                         <exclude reference="aEI-cn-QbY"/>
+                                        <exclude reference="ktk-ih-PXt"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
@@ -119,11 +123,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ln3-Ne-mtd" firstAttribute="trailing" secondItem="gkA-d9-xgo" secondAttribute="trailing" id="2kT-G2-O4q"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rpz-gE-5pp" secondAttribute="trailing" constant="1" id="3Mc-JF-oDH"/>
                             <constraint firstItem="ln3-Ne-mtd" firstAttribute="leading" secondItem="gkA-d9-xgo" secondAttribute="leading" id="Azm-yf-NSk"/>
                             <constraint firstAttribute="trailing" secondItem="gkA-d9-xgo" secondAttribute="trailing" id="GE5-Ur-wsR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rpz-gE-5pp" secondAttribute="bottom" constant="40" id="GSI-vf-MTq"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rpz-gE-5pp" secondAttribute="bottom" constant="20" id="HEd-4k-s8V"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Rpz-gE-5pp" secondAttribute="bottom" constant="10" id="HEd-4k-s8V"/>
                             <constraint firstAttribute="trailing" secondItem="ln3-Ne-mtd" secondAttribute="trailing" id="HU9-zW-TKa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rpz-gE-5pp" secondAttribute="bottom" priority="750" constant="45" id="MOn-hr-I2g"/>
                             <constraint firstItem="gkA-d9-xgo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="MjT-gn-Gcp"/>
                             <constraint firstItem="ln3-Ne-mtd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OES-2v-OO4"/>
                             <constraint firstItem="gkA-d9-xgo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="P0W-A9-WJI"/>
@@ -135,17 +141,19 @@
                             <constraint firstItem="ln3-Ne-mtd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fOM-jM-2O3"/>
                             <constraint firstItem="ln3-Ne-mtd" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="mjU-vu-A32"/>
                             <constraint firstAttribute="centerX" secondItem="Rpz-gE-5pp" secondAttribute="centerX" id="smn-ot-NMy"/>
+                            <constraint firstItem="Rpz-gE-5pp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="1" id="t8b-Wg-F7C"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ln3-Ne-mtd"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="QKs-e5-Xq0"/>
                                 <exclude reference="MjT-gn-Gcp"/>
                                 <exclude reference="Pw3-X1-rWV"/>
                                 <exclude reference="df3-ho-0OS"/>
+                                <exclude reference="smn-ot-NMy"/>
                                 <exclude reference="GSI-vf-MTq"/>
-                                <exclude reference="QKs-e5-Xq0"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -455,9 +463,9 @@
     </scenes>
     <resources>
         <image name="checked" width="96" height="90"/>
-        <image name="keep" width="180" height="97"/>
+        <image name="keep" width="142" height="47"/>
         <image name="mainbackground" width="1080" height="1920"/>
-        <image name="trash" width="180" height="97"/>
+        <image name="trash" width="142" height="47"/>
         <image name="unchecked" width="96" height="90"/>
     </resources>
 </document>
