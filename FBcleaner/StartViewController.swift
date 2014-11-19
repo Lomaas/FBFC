@@ -13,41 +13,31 @@ import Photos
 
 class StartViewController: UIViewController, GoBackDelegate {
     var assetsLeftToEvaluate: [PHAsset]
-    @IBOutlet weak var startDate: UIButton!
+    var date: NSDate
+    var dateCompare: Bool = false
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var fromDateButton: UIButton!
-    @IBOutlet weak var datePicker: UIDatePicker!
-
-    @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var selectFromDate: UIButton!
-    @IBOutlet weak var selectAllButton: UIButton!
+    @IBOutlet weak var fromDateView: UIView!
+    @IBOutlet weak var allView: UIView!
+    @IBOutlet weak var dateButton: UIButton!
+    @IBOutlet weak var fromDateCheckbox: UIImageView!
+    @IBOutlet weak var allCheckBox: UIImageView!
+    
     required init(coder aDecoder: NSCoder) {
         self.assetsLeftToEvaluate = []
+        self.date = Date().getNSDate()
         super.init(coder: aDecoder)
     }
     
-    @IBOutlet weak var mainBackGround: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dateLabel.text = Date().getDate()
-        self.datePicker.hidden = true
-        self.startDate.hidden = true
-
-        self.selectAllButton.layer.borderColor = BLUE_COLOR.CGColor
-        self.selectAllButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        self.selectAllButton.layer.borderWidth = 6.0
-        self.selectAllButton.layer.cornerRadius = 3.0
+        self.dateLabel.text = "Last run \(Date().getDate())"
         
-        self.selectFromDate.layer.borderColor = BLUE_COLOR.CGColor
-        self.selectFromDate.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        self.selectFromDate.layer.borderWidth = 6.0
-        self.selectFromDate.layer.cornerRadius = 3.0
-        
-        self.startButton.layer.borderColor = BLUE_COLOR.CGColor
-        self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        self.startButton.layer.borderWidth = 3.0
-        self.startButton.layer.cornerRadius = 3.0
-
+        var singleTap = UITapGestureRecognizer(target: self, action: "allViewTapped:")
+        singleTap.numberOfTapsRequired = 1
+        self.allView.addGestureRecognizer(singleTap)
+        singleTap = UITapGestureRecognizer(target: self, action: "fromDateViewTapped:")
+        singleTap.numberOfTapsRequired = 1
+        self.fromDateView.addGestureRecognizer(singleTap)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -58,31 +48,26 @@ class StartViewController: UIViewController, GoBackDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    func allViewTapped(recognizer : UIPinchGestureRecognizer){
+        allCheckBox.image = UIImage(named: "checked")
+        fromDateCheckbox.image = UIImage(named : "unchecked")
+        self.dateCompare = false
+    }
+    
+    func fromDateViewTapped(recognizer : UIPinchGestureRecognizer){
+        allCheckBox.image = UIImage(named: "unchecked")
+        fromDateCheckbox.image = UIImage(named : "checked")
+        self.dateCompare = true
+    }
+    
     @IBAction func startFromDateButtonPressed(sender: AnyObject) {
-        self.fetchAssets(true);
+        
+        self.fetchAssets();
     }
     
-    @IBAction func fromDateButtonPressed(sender: AnyObject) {
-        if(self.datePicker.hidden != false){
-            self.datePicker.hidden = false
-            self.startDate.hidden = false
-            self.datePicker.date = Date().getNSDate()
-            self.fromDateButton.setTitle("FROM DATE", forState: UIControlState.Normal)
-        }
-        else {
-            self.datePicker.hidden = true
-            self.startDate.hidden = true
-            self.fromDateButton.setTitle("FROM DATE", forState: UIControlState.Normal)
-
-        }
-    }
-    
-    @IBAction func allPicturesButtonPressed(sender: AnyObject) {
-        self.fetchAssets(false)
-    }
-    func fetchAssets(dateCompare: Bool){
+    func fetchAssets(){
         if let results = PHAsset.fetchAssetsWithMediaType(.Image, options: nil) {
-            if(dateCompare){
+            if(self.dateCompare){
                     self.evaluateResultDate(results)
             }
             else {
@@ -101,7 +86,7 @@ class StartViewController: UIViewController, GoBackDelegate {
 
                 if(counter == results.count){
                     if(self.assetsLeftToEvaluate.count == 0){
-                        self.createAlertView("No pictures", message:"It appears that you have no pictures. Take some pictures", actionTitle: "Take some pictures!")
+                        self.createAlertView("No pictures", message: "It appears that you have no pictures. Take some pictures", actionTitle: "Take some pictures!")
                     }
                     else {
                         self.presentNewViewController()
@@ -135,7 +120,7 @@ class StartViewController: UIViewController, GoBackDelegate {
     }
     
     func compareDates(asset: PHAsset) -> Bool {
-        var dateComparisionResult: NSComparisonResult = asset.creationDate.compare(self.datePicker.date)
+        var dateComparisionResult: NSComparisonResult = asset.creationDate.compare(self.date)
         if(dateComparisionResult == NSComparisonResult.OrderedDescending){
             return true
         }

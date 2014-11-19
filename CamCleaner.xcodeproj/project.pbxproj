@@ -11,6 +11,7 @@
 		F17FC8F81A06A7E400E0B1DF /* GlobalConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */; };
 		F17FC8FA1A06A83000E0B1DF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FC8F91A06A83000E0B1DF /* Date.swift */; };
 		F1A14BAE1A1161D9009FBBFB /* PinchZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A14BAD1A1161D9009FBBFB /* PinchZoomView.swift */; };
+		F1AC10631A1BEA57006A87D3 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1AC10621A1BEA57006A87D3 /* Test.storyboard */; };
 		F1BFBED61A0D03D4009FD740 /* PhotoStreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFBED51A0D03D4009FD740 /* PhotoStreamService.swift */; };
 		F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7319FED7C20013580F /* GridViewController.swift */; };
 		F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7519FEDB900013580F /* ImageCacheController.swift */; };
@@ -40,6 +41,7 @@
 		F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstans.swift; sourceTree = "<group>"; };
 		F17FC8F91A06A83000E0B1DF /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F1A14BAD1A1161D9009FBBFB /* PinchZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinchZoomView.swift; sourceTree = "<group>"; };
+		F1AC10621A1BEA57006A87D3 /* Test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		F1BFBED51A0D03D4009FD740 /* PhotoStreamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStreamService.swift; sourceTree = "<group>"; };
 		F1C11F7319FED7C20013580F /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		F1C11F7519FEDB900013580F /* ImageCacheController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				F1ED60E819F3D16800238338 /* LaunchScreen.xib */,
 				F1ED60DD19F3D16800238338 /* Supporting Files */,
 				F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */,
+				F1AC10621A1BEA57006A87D3 /* Test.storyboard */,
 			);
 			path = FBcleaner;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			files = (
 				F1ED60E519F3D16800238338 /* Main.storyboard in Resources */,
 				F1ED60EA19F3D16800238338 /* LaunchScreen.xib in Resources */,
+				F1AC10631A1BEA57006A87D3 /* Test.storyboard in Resources */,
 				F1ED60E719F3D16800238338 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

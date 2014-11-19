@@ -16,9 +16,12 @@ protocol GoBackDelegate {
     func dissmissMyViewController(view: UIViewController, toStartView: Bool, animated: Bool, title: String, msg: String)
 }
 
-class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver {
+
+
     var images: [PHAsset] = []
     var imagesToDelete = []
+    var viewLoading: UIView
     var hasDeleted = false
     let imageManager = PHCachingImageManager()
     var imagesArray: [Bool] = []
@@ -31,33 +34,44 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.uiCollectionView.delegate = self
-        self.uiCollectionView.dataSource = self
-        initialRequestOptions.networkAccessAllowed = true
+    required init(coder aDecoder: NSCoder) {
+//        initialRequestOptions.networkAccessAllowed = true
         initialRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.HighQualityFormat
-        self.view.backgroundColor = nil
-        self.uiCollectionView.backgroundColor = nil
         var scale = UIScreen.mainScreen().scale
         var cellSize = CGSizeMake(100,100)
         imagesToDelete = images
         assetGridThumbnailSize = CGSizeMake(cellSize.width * scale, cellSize.height * scale)
-
+        
         imageCacheController = ImageCacheController(imageManager: imageManager, images: images, preheatSize: 1)
         imageCacheController.targetSize = assetGridThumbnailSize
+        self.viewLoading = UIView()
+        super.init(coder: aDecoder)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self)
+
+
+        self.view.backgroundColor = nil
+        self.uiCollectionView.backgroundColor = nil
+        self.uiCollectionView.delegate = self
+        self.uiCollectionView.dataSource = self
         for x in images {
             self.imagesArray.append(false)
         }
         self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        self.setViewToNotLoading()
         
         let date = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         println(formatter.stringFromDate(date))
         Date().setDate(formatter.stringFromDate(date))
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "setViewToNotLoading:", name: "finishedDeleting", object: self)
+        NSNotificationCenter.defaultCenter().postNotificationName("finishedDeleting", object: self)
+
     }
     
     func goToStartViewController(){
@@ -84,41 +98,51 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             PHAssetChangeRequest.deleteAssets(temp)
             }, completionHandler: { noError, error in
-                NSLog("Changes complete. Did they succeed? Who knows! \(noError)")
+                NSLog("Changes complete. Did they succeed? Who knows! \(noError), \(error?.localizedDescription)")
+                NSNotificationCenter.defaultCenter().postNotificationName("finishedDeleting", object: self)
 
-                if(noError == true){
-                    // Go to success view
-                    self.hasDeleted = true
-                    self.goToStartViewController()
-                }
-                else if(noError == false){
-                    // User pressed false
-                    println("What is the error? \(error.localizedDescription)")
-                    self.setViewToNotLoading()
-                }
-                else {
-                    let alertController = UIAlertController(title: "Ups", message:
-                        "We are sorry. Something went wrong while deleting your pictures. Please try again", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
-                        self.setViewToNotLoading()
-                    }))
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                }
+//                if(noError == true){
+//                    // Go to success view
+//                    self.hasDeleted = true
+//                    self.goToStartViewController()
+//                }
+//                else {
+//                    // User pressed false
+//                    println("What is the error? \(error?.localizedDescription)")
+//                    self.setViewToNotLoading()
+//                }
         })
     }
     
-    func setViewToNotLoading(){
+    func photoLibraryDidChange(changeInstance: PHChange!) {
+//        self.setViewToNotLoading()
+        self.hasDeleted = true
+        self.goToStartViewController()
+    }
+    
+    func setViewToNotLoading(notification: NSNotification){
+        self.viewLoading.removeFromSuperview()
         self.activityIndicator.stopAnimating()
         self.activityIndicator.hidden = true
-        self.uiCollectionView.alpha = 1
+//        self.uiCollectionView.alpha = 1
         self.cancelButton.enabled = true
         self.deleteButton.enabled = true
+        self.view.setNeedsDisplay()
     }
     
     func setViewToLoading(){
-        self.activityIndicator.hidden = false
-        self.uiCollectionView.alpha = 0.4
-        self.activityIndicator.startAnimating()
+        self.viewLoading = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+        var indicatior = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.width/2 - 50, self.view.frame.height/2 - 50, 100, 100))
+        indicatior.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        indicatior.startAnimating()
+        indicatior.color = UIColor.whiteColor()
+        self.viewLoading.addSubview(indicatior)
+        self.viewLoading.backgroundColor = UIColor.blackColor()
+        self.view.addSubview(self.viewLoading)
+//        self.view.backgroundColor = UIColor.blackColor()
+//        self.activityIndicator.hidden = false
+//        self.uiCollectionView.alpha = 0.4
+//        self.activityIndicator.startAnimating()
         self.cancelButton.enabled = false
         self.deleteButton.enabled = false
     }
