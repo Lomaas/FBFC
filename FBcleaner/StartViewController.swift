@@ -65,6 +65,14 @@ class StartViewController: UIViewController, GoBackDelegate {
         self.fetchAssets();
     }
     
+    @IBAction func dateButtonPressed(sender: AnyObject) {
+        var screenRect = UIScreen.mainScreen().bounds
+        var screenWidth = screenRect.size.width
+        var screenHeight = screenRect.size.height
+        var datePickerView = DatePickerView(datePickerFrame: CGRectMake(0, screenHeight - 220, screenHeight, 220))
+        self.view.addSubview(datePickerView)
+    }
+    
     func fetchAssets(){
         if let results = PHAsset.fetchAssetsWithMediaType(.Image, options: nil) {
             if(self.dateCompare){

@@ -18,6 +18,7 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         self.uiImageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.uiImageView.image = imageView.image
         self.scrollView = UIScrollView(frame: frame)
+        self.scrollView.scrollsToTop = false
         self.scrollView.minimumZoomScale = 1.0;
         self.scrollView.maximumZoomScale = 6.5;
         self.scrollView.contentSize = frame.size
