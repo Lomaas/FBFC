@@ -15,19 +15,26 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     var assetsLeftToEvaluate: [PHAsset]
     var date: NSDate
     var dateCompare: Bool = false
+    var datePickerView: DatePickerView
+
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var fromDateView: UIView!
     @IBOutlet weak var allView: UIView!
     @IBOutlet weak var dateButton: UIButton!
-    @IBOutlet weak var fromDateCheckbox: UIImageView!
     @IBOutlet weak var allCheckBox: UIImageView!
     
+    @IBOutlet weak var fromDateView: UIView!
     required init(coder aDecoder: NSCoder) {
         self.assetsLeftToEvaluate = []
         self.date = Date().getNSDate()
+        var screenRect = UIScreen.mainScreen().bounds
+        var screenWidth = screenRect.size.width
+        var screenHeight = screenRect.size.height
+        self.datePickerView = DatePickerView(datePickerFrame: CGRectMake(0, screenHeight - 237, screenHeight, 237))
+
         super.init(coder: aDecoder)
     }
     
+    @IBOutlet weak var fromDateImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dateLabel.text = "Last run \(Date().getDate())"
@@ -40,10 +47,17 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         
         var singleTap = UITapGestureRecognizer(target: self, action: "allViewTapped:")
         singleTap.numberOfTapsRequired = 1
+        var fakeLongPress = TouchDownGestureRecognizer(target: self, action: "touchDown:", parentView: self.allView)
+
         self.allView.addGestureRecognizer(singleTap)
+        self.allView.addGestureRecognizer(fakeLongPress)
+
         singleTap = UITapGestureRecognizer(target: self, action: "fromDateViewTapped:")
         singleTap.numberOfTapsRequired = 1
         self.fromDateView.addGestureRecognizer(singleTap)
+        
+        fakeLongPress = TouchDownGestureRecognizer(target: self, action: "touchDown:", parentView: self.fromDateView)
+        self.fromDateView.addGestureRecognizer(fakeLongPress)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -54,8 +68,13 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         super.didReceiveMemoryWarning()
     }
     
+    func touchDown(reconginzer: UILongPressGestureRecognizer){
+        
+    }
+    
     func allViewTapped(recognizer : UIPinchGestureRecognizer){
         self.setAllImagesView()
+        self.datePickerView.removeFromSuperview()
     }
     
     func fromDateViewTapped(recognizer : UIPinchGestureRecognizer){
@@ -63,14 +82,14 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     }
     
     func setAllImagesView(){
-        allCheckBox.image = UIImage(named: "checked")
-        fromDateCheckbox.image = UIImage(named : "unchecked")
+        allCheckBox.image = UIImage(named: "checkedv2")
+        self.fromDateImage.image = UIImage(named : "uncheckedv2")
         self.dateCompare = false
     }
     
     func setFromDateView(){
-        allCheckBox.image = UIImage(named: "unchecked")
-        fromDateCheckbox.image = UIImage(named : "checked")
+        allCheckBox.image = UIImage(named: "uncheckedv2")
+        self.fromDateImage.image = UIImage(named : "checkedv2")
         self.dateCompare = true
     }
     
@@ -80,12 +99,8 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     
     @IBAction func dateButtonPressed(sender: AnyObject) {
         self.setFromDateView()
-        var screenRect = UIScreen.mainScreen().bounds
-        var screenWidth = screenRect.size.width
-        var screenHeight = screenRect.size.height
-        var datePickerView = DatePickerView(datePickerFrame: CGRectMake(0, screenHeight - 237, screenHeight, 237))
-        datePickerView.delegate = self
-        self.view.addSubview(datePickerView)
+        self.datePickerView.delegate = self
+        self.view.addSubview(self.datePickerView)
     }
     
     func fetchAssets(){
@@ -109,7 +124,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
 
                 if(counter == results.count){
                     if(self.assetsLeftToEvaluate.count == 0){
-                        self.createAlertView("No pictures", message: "It appears that you have no pictures. Take some pictures", actionTitle: "Take some pictures!")
+                        self.createAlertView("Unable to find any pictures", message: "It appears that you have no pictures. Take some pictures", actionTitle: "Ok")
                     }
                     else {
                         self.presentNewViewController()
@@ -132,7 +147,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
        
                 if(counter == results.count){
                     if(self.assetsLeftToEvaluate.count == 0){
-                        self.createAlertView("No pictures", message: "It appears that you have no pictures newer than the selected date", actionTitle: "Select new date")
+                        self.createAlertView("Unable to find any pictures", message: "It appears that you have no pictures newer than the selected date", actionTitle: "Select new date")
                     }
                     else {
                         self.presentNewViewController()

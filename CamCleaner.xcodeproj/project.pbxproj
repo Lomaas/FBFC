@@ -18,6 +18,7 @@
 		F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7519FEDB900013580F /* ImageCacheController.swift */; };
 		F1C11F7819FEDBC60013580F /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */; };
 		F1C1AEAC19FD231A002B2E16 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C1AEAB19FD231A002B2E16 /* Photos.framework */; };
+		F1E902F81A1E5E78001F8359 /* CustomUIGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E902F71A1E5E78001F8359 /* CustomUIGestureRecognizer.swift */; };
 		F1ED60E019F3D16800238338 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED60DF19F3D16800238338 /* AppDelegate.swift */; };
 		F1ED60E519F3D16800238338 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1ED60E319F3D16800238338 /* Main.storyboard */; };
 		F1ED60E719F3D16800238338 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1ED60E619F3D16800238338 /* Images.xcassets */; };
@@ -49,6 +50,7 @@
 		F1C11F7519FEDB900013580F /* ImageCacheController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheController.swift; sourceTree = "<group>"; };
 		F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		F1C1AEAB19FD231A002B2E16 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		F1E902F71A1E5E78001F8359 /* CustomUIGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIGestureRecognizer.swift; sourceTree = "<group>"; };
 		F1ED60DA19F3D16800238338 /* CamCleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CamCleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1ED60DE19F3D16800238338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1ED60DF19F3D16800238338 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				F1ED60FF19F3D33E00238338 /* UIDraggableView.swift */,
 				F1A14BAD1A1161D9009FBBFB /* PinchZoomView.swift */,
 				F1AC10641A1D5C72006A87D3 /* DatePickerView.swift */,
+				F1E902F71A1E5E78001F8359 /* CustomUIGestureRecognizer.swift */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				F1ED610119F3D33E00238338 /* UIDraggableView.swift in Sources */,
 				F1A14BAE1A1161D9009FBBFB /* PinchZoomView.swift in Sources */,
 				F1AC10651A1D5C72006A87D3 /* DatePickerView.swift in Sources */,
+				F1E902F81A1E5E78001F8359 /* CustomUIGestureRecognizer.swift in Sources */,
 				F1ED610219F3D33E00238338 /* ViewController.swift in Sources */,
 				F1ED60E019F3D16800238338 /* AppDelegate.swift in Sources */,
 				F1BFBED61A0D03D4009FD740 /* PhotoStreamService.swift in Sources */,
