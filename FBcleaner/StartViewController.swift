@@ -36,7 +36,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
             dateStr = "Select date"
         }
         self.dateButton.setTitle(Date().getDate(), forState: UIControlState.Normal)
-
+        self.date = Date().getNSDate()
         
         var singleTap = UITapGestureRecognizer(target: self, action: "allViewTapped:")
         singleTap.numberOfTapsRequired = 1
@@ -172,6 +172,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     }
     
     func didFinishWithDateSelected(date: NSDate){
+        self.date = date
         self.dateButton.setTitle( Date().getDateStringFromNSDate(date), forState: UIControlState.Normal)
     }
 }
