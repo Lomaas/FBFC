@@ -18,7 +18,6 @@ protocol GoBackDelegate {
 
 class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver {
 
-
     var images: [PHAsset] = []
     var imagesToDelete = []
     var viewLoading: UIView
