@@ -55,6 +55,5 @@ class DatePickerView: UIView {
     
     func finishButtonPressed(sender: UIButton){
         self.delegate?.didFinishWithDateSelected(self.datePicker.date)
-        self.removeFromSuperview()
     }
 }

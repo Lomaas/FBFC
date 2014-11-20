@@ -29,7 +29,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         var screenRect = UIScreen.mainScreen().bounds
         var screenWidth = screenRect.size.width
         var screenHeight = screenRect.size.height
-        self.datePickerView = DatePickerView(datePickerFrame: CGRectMake(0, screenHeight - 237, screenHeight, 237))
+        self.datePickerView = DatePickerView(datePickerFrame: CGRectMake(0, screenHeight - 237, screenWidth, 237))
 
         super.init(coder: aDecoder)
     }
@@ -74,7 +74,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     
     func allViewTapped(recognizer : UIPinchGestureRecognizer){
         self.setAllImagesView()
-        self.datePickerView.removeFromSuperview()
+        self.animateDateViewInvisible()
     }
     
     func fromDateViewTapped(recognizer : UIPinchGestureRecognizer){
@@ -100,7 +100,51 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     @IBAction func dateButtonPressed(sender: AnyObject) {
         self.setFromDateView()
         self.datePickerView.delegate = self
+        self.animateDateViewVisible()
+    }
+    
+    func animateDateViewVisible(){
+//        var blur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+//        var effect = UIVisualEffectView(effect: blur)
+//        self.view.addSubview(effect)
+        
+        var screenRect = UIScreen.mainScreen().bounds
+        var screenWidth = screenRect.size.width
+        var screenHeight = screenRect.size.height
+        self.datePickerView.frame = CGRectMake(0, screenHeight + 237, screenWidth, 237)
         self.view.addSubview(self.datePickerView)
+
+        UIView.animateWithDuration(0.30,
+            delay: 0,
+            options: UIViewAnimationOptions.CurveEaseOut,
+            animations: {
+                self.datePickerView.frame = CGRectMake(0, screenHeight - 237, screenWidth, 237)
+            },
+            completion: { finished in
+                
+        })
+    }
+    
+    func animateDateViewInvisible(){
+        if(!self.datePickerView.isDescendantOfView(self.view)){
+            return
+        }
+        
+        var screenRect = UIScreen.mainScreen().bounds
+        var screenWidth = screenRect.size.width
+        var screenHeight = screenRect.size.height
+        self.datePickerView.frame = CGRectMake(0, screenHeight - 237, screenWidth, 237)
+        self.view.addSubview(self.datePickerView)
+        
+        UIView.animateWithDuration(0.30,
+            delay: 0,
+            options: UIViewAnimationOptions.CurveEaseOut,
+            animations: {
+                self.datePickerView.frame = CGRectMake(0, screenHeight + 237, screenWidth, 237)
+            },
+            completion: { finished in
+                self.datePickerView.removeFromSuperview()
+        })
     }
     
     func fetchAssets(){
@@ -189,6 +233,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     func didFinishWithDateSelected(date: NSDate){
         self.date = date
         self.dateButton.setTitle( Date().getDateStringFromNSDate(date), forState: UIControlState.Normal)
+        self.animateDateViewInvisible()
     }
 }
 
