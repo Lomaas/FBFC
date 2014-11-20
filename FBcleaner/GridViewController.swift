@@ -35,7 +35,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
     required init(coder aDecoder: NSCoder) {
-//        initialRequestOptions.networkAccessAllowed = true
+        initialRequestOptions.networkAccessAllowed = true
         initialRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.HighQualityFormat
         var scale = UIScreen.mainScreen().scale
         var cellSize = CGSizeMake(100,100)
