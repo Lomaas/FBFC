@@ -23,6 +23,10 @@ class Date: NSString {
             NSUserDefaults.standardUserDefaults().synchronize()
     }
     
+    func setDateFromNSDate(newValue: NSDate){
+        self.setDate(self.getDateStringFromNSDate(newValue))
+    }
+    
     func getNSDate() -> NSDate {
         var returnValue: NSString? = NSUserDefaults.standardUserDefaults().objectForKey(DATE_STRING) as? NSString
         if returnValue == nil

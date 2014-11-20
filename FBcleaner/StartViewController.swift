@@ -11,7 +11,7 @@ import UIKit
 import Photos
 
 
-class StartViewController: UIViewController, GoBackDelegate {
+class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate {
     var assetsLeftToEvaluate: [PHAsset]
     var date: NSDate
     var dateCompare: Bool = false
@@ -31,6 +31,12 @@ class StartViewController: UIViewController, GoBackDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dateLabel.text = "Last run \(Date().getDate())"
+        var dateStr: String = Date().getDate()
+        if(dateStr == "never"){
+            dateStr = "Select date"
+        }
+        self.dateButton.setTitle(Date().getDate(), forState: UIControlState.Normal)
+
         
         var singleTap = UITapGestureRecognizer(target: self, action: "allViewTapped:")
         singleTap.numberOfTapsRequired = 1
@@ -49,27 +55,36 @@ class StartViewController: UIViewController, GoBackDelegate {
     }
     
     func allViewTapped(recognizer : UIPinchGestureRecognizer){
+        self.setAllImagesView()
+    }
+    
+    func fromDateViewTapped(recognizer : UIPinchGestureRecognizer){
+        self.setFromDateView()
+    }
+    
+    func setAllImagesView(){
         allCheckBox.image = UIImage(named: "checked")
         fromDateCheckbox.image = UIImage(named : "unchecked")
         self.dateCompare = false
     }
     
-    func fromDateViewTapped(recognizer : UIPinchGestureRecognizer){
+    func setFromDateView(){
         allCheckBox.image = UIImage(named: "unchecked")
         fromDateCheckbox.image = UIImage(named : "checked")
         self.dateCompare = true
     }
     
     @IBAction func startFromDateButtonPressed(sender: AnyObject) {
-        
         self.fetchAssets();
     }
     
     @IBAction func dateButtonPressed(sender: AnyObject) {
+        self.setFromDateView()
         var screenRect = UIScreen.mainScreen().bounds
         var screenWidth = screenRect.size.width
         var screenHeight = screenRect.size.height
-        var datePickerView = DatePickerView(datePickerFrame: CGRectMake(0, screenHeight - 220, screenHeight, 220))
+        var datePickerView = DatePickerView(datePickerFrame: CGRectMake(0, screenHeight - 237, screenHeight, 237))
+        datePickerView.delegate = self
         self.view.addSubview(datePickerView)
     }
     
@@ -154,6 +169,10 @@ class StartViewController: UIViewController, GoBackDelegate {
         view.dismissViewControllerAnimated(false, completion: { finished in
             self.createAlertView(title, message: msg, actionTitle: "Ok")
         })
+    }
+    
+    func didFinishWithDateSelected(date: NSDate){
+        self.dateButton.setTitle( Date().getDateStringFromNSDate(date), forState: UIControlState.Normal)
     }
 }
 

@@ -276,16 +276,16 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6k-IP-7kr">
-                                <rect key="frame" x="205" y="270" width="163" height="46"/>
+                                <rect key="frame" x="205" y="270" width="163" height="43"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="From date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKf-uX-1s2">
-                                        <rect key="frame" x="46" y="-7" width="117" height="58"/>
+                                        <rect key="frame" x="46" y="-7" width="117" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="uTj-Yy-e4T">
-                                        <rect key="frame" x="-14" y="1" width="61" height="45"/>
+                                        <rect key="frame" x="-14" y="1" width="61" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="61" id="E5l-tl-AXE"/>
                                         </constraints>
@@ -302,7 +302,8 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPP-Yo-8vr">
-                                <rect key="frame" x="249" y="324" width="102" height="30"/>
+                                <rect key="frame" x="247" y="321" width="114" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="12.januar 2014">
                                     <color key="titleColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -319,7 +320,7 @@
                             <constraint firstItem="vtP-TG-0aM" firstAttribute="top" secondItem="76N-l9-B0H" secondAttribute="bottom" constant="38" id="5ei-4U-AYI"/>
                             <constraint firstItem="76N-l9-B0H" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" constant="216" id="65t-HU-SLI"/>
                             <constraint firstItem="L6k-IP-7kr" firstAttribute="top" secondItem="uR7-lp-1QB" secondAttribute="bottom" constant="20" id="71l-y6-zzz"/>
-                            <constraint firstItem="sPP-Yo-8vr" firstAttribute="centerX" secondItem="r64-IJ-zf5" secondAttribute="centerX" id="7OE-X1-U5X"/>
+                            <constraint firstItem="sPP-Yo-8vr" firstAttribute="centerX" secondItem="r64-IJ-zf5" secondAttribute="centerX" constant="4" id="7OE-X1-U5X"/>
                             <constraint firstItem="L6k-IP-7kr" firstAttribute="leading" secondItem="uR7-lp-1QB" secondAttribute="leading" id="CoJ-bQ-ZfI"/>
                             <constraint firstItem="r64-IJ-zf5" firstAttribute="centerX" secondItem="sPP-Yo-8vr" secondAttribute="centerX" id="K77-Li-ioc"/>
                             <constraint firstItem="VAm-L3-XmY" firstAttribute="top" secondItem="olY-bB-Wnc" secondAttribute="top" id="KVl-aV-jVU"/>
@@ -327,7 +328,7 @@
                             <constraint firstItem="VAm-L3-XmY" firstAttribute="centerY" secondItem="olY-bB-Wnc" secondAttribute="centerY" id="PFV-00-C1Z"/>
                             <constraint firstItem="vtP-TG-0aM" firstAttribute="top" secondItem="76N-l9-B0H" secondAttribute="bottom" priority="749" constant="38" id="RdV-62-Y6g"/>
                             <constraint firstItem="hzm-tB-SpZ" firstAttribute="top" secondItem="sPP-Yo-8vr" secondAttribute="bottom" constant="72" id="Vma-A0-nYI"/>
-                            <constraint firstItem="sPP-Yo-8vr" firstAttribute="centerX" secondItem="hzm-tB-SpZ" secondAttribute="centerX" id="YHy-IG-a1V"/>
+                            <constraint firstItem="sPP-Yo-8vr" firstAttribute="centerX" secondItem="hzm-tB-SpZ" secondAttribute="centerX" constant="4" id="YHy-IG-a1V"/>
                             <constraint firstItem="r64-IJ-zf5" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" id="a31-ai-xiG"/>
                             <constraint firstAttribute="trailing" secondItem="uR7-lp-1QB" secondAttribute="trailing" constant="456" id="aEA-1x-Ofq"/>
                             <constraint firstItem="vtP-TG-0aM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="76N-l9-B0H" secondAttribute="bottom" constant="5" id="gP4-ta-RdW"/>
