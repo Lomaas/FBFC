@@ -310,8 +310,14 @@
                                     <action selector="dateButtonPressed:" destination="Y4g-dk-meB" eventType="touchUpInside" id="qtg-qe-Kcr"/>
                                 </connections>
                             </button>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="5Oz-Am-LoD">
+                                <rect key="frame" x="225" y="79" width="150" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="ncL-mO-Mzu"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="tintColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
                             <constraint firstItem="76N-l9-B0H" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" constant="216" id="65t-HU-SLI"/>
@@ -320,11 +326,13 @@
                             <constraint firstItem="hzm-tB-SpZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sPP-Yo-8vr" secondAttribute="bottom" constant="10" id="C1H-lv-X78"/>
                             <constraint firstAttribute="centerX" secondItem="uR7-lp-1QB" secondAttribute="centerX" id="G5I-yn-1c2"/>
                             <constraint firstItem="r64-IJ-zf5" firstAttribute="centerX" secondItem="sPP-Yo-8vr" secondAttribute="centerX" id="K77-Li-ioc"/>
+                            <constraint firstItem="5Oz-Am-LoD" firstAttribute="centerX" secondItem="uR7-lp-1QB" secondAttribute="centerX" id="Klg-9F-PQv"/>
                             <constraint firstItem="xaF-Gz-Vzj" firstAttribute="top" secondItem="uR7-lp-1QB" secondAttribute="bottom" constant="31" id="PdL-ub-5Xh"/>
                             <constraint firstItem="uR7-lp-1QB" firstAttribute="leading" secondItem="xaF-Gz-Vzj" secondAttribute="leading" id="UDQ-OZ-jOR"/>
                             <constraint firstItem="76N-l9-B0H" firstAttribute="top" secondItem="hzm-tB-SpZ" secondAttribute="bottom" constant="15" id="ZFN-Ok-ge9"/>
                             <constraint firstAttribute="trailing" secondItem="uR7-lp-1QB" secondAttribute="trailing" constant="456" id="aEA-1x-Ofq"/>
                             <constraint firstItem="xaF-Gz-Vzj" firstAttribute="leading" secondItem="uR7-lp-1QB" secondAttribute="leading" id="aLy-kh-ksu"/>
+                            <constraint firstItem="uR7-lp-1QB" firstAttribute="top" secondItem="5Oz-Am-LoD" secondAttribute="bottom" constant="32" id="bki-Hw-EDa"/>
                             <constraint firstItem="uR7-lp-1QB" firstAttribute="top" secondItem="olY-bB-Wnc" secondAttribute="top" constant="248" id="bp0-Gc-v55"/>
                             <constraint firstAttribute="trailing" secondItem="r64-IJ-zf5" secondAttribute="trailing" id="cbi-3f-WSs"/>
                             <constraint firstItem="r64-IJ-zf5" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" id="eR7-mh-DkK"/>
@@ -334,6 +342,7 @@
                             <constraint firstItem="hzm-tB-SpZ" firstAttribute="top" secondItem="sPP-Yo-8vr" secondAttribute="bottom" priority="750" constant="30" id="jsG-Gq-VNw"/>
                             <constraint firstItem="hzm-tB-SpZ" firstAttribute="top" secondItem="sPP-Yo-8vr" secondAttribute="bottom" constant="52" id="lMZ-ig-foG"/>
                             <constraint firstItem="sPP-Yo-8vr" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" constant="204" id="meZ-W4-CPh"/>
+                            <constraint firstItem="5Oz-Am-LoD" firstAttribute="top" secondItem="r64-IJ-zf5" secondAttribute="bottom" constant="15" id="pgV-TD-QhX"/>
                             <constraint firstItem="hzm-tB-SpZ" firstAttribute="centerX" secondItem="76N-l9-B0H" secondAttribute="centerX" id="rID-y3-J7o"/>
                             <constraint firstItem="sPP-Yo-8vr" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" constant="247" id="rTd-W8-ONE"/>
                             <constraint firstItem="76N-l9-B0H" firstAttribute="top" secondItem="hzm-tB-SpZ" secondAttribute="bottom" constant="63" id="sMo-sT-nVe"/>
@@ -345,6 +354,7 @@
                             <mask key="constraints">
                                 <exclude reference="K77-Li-ioc"/>
                                 <exclude reference="aEA-1x-Ofq"/>
+                                <exclude reference="bki-Hw-EDa"/>
                                 <exclude reference="xmn-gc-bwr"/>
                                 <exclude reference="6ee-SN-nkp"/>
                                 <exclude reference="meZ-W4-CPh"/>
@@ -359,6 +369,7 @@
                     <connections>
                         <outlet property="allCheckBox" destination="LQU-1s-wXH" id="lzj-fT-rv4"/>
                         <outlet property="allView" destination="uR7-lp-1QB" id="TSS-cM-vvk"/>
+                        <outlet property="cameraImage" destination="5Oz-Am-LoD" id="SdU-6c-ItC"/>
                         <outlet property="dateButton" destination="sPP-Yo-8vr" id="cXR-W4-ewY"/>
                         <outlet property="dateLabel" destination="76N-l9-B0H" id="Eb4-o0-rpy"/>
                         <outlet property="fromDateImage" destination="mUs-CL-5F1" id="mHD-D8-u7u"/>
@@ -479,6 +490,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Image" width="180" height="180"/>
         <image name="checkedv2" width="147" height="143"/>
         <image name="keep" width="142" height="47"/>
         <image name="trash" width="142" height="47"/>

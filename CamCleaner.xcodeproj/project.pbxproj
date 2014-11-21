@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108769F1A02EB46002EEEDB /* StartViewController.swift */; };
+		F1438D851A1E8FEF00A12752 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1438D841A1E8FEF00A12752 /* IntroductionView.swift */; };
 		F17FC8F81A06A7E400E0B1DF /* GlobalConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */; };
 		F17FC8FA1A06A83000E0B1DF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FC8F91A06A83000E0B1DF /* Date.swift */; };
 		F1A14BAE1A1161D9009FBBFB /* PinchZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A14BAD1A1161D9009FBBFB /* PinchZoomView.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		F108769F1A02EB46002EEEDB /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		F1438D841A1E8FEF00A12752 /* IntroductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
 		F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstans.swift; sourceTree = "<group>"; };
 		F17FC8F91A06A83000E0B1DF /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F1A14BAD1A1161D9009FBBFB /* PinchZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinchZoomView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				F1A14BAD1A1161D9009FBBFB /* PinchZoomView.swift */,
 				F1AC10641A1D5C72006A87D3 /* DatePickerView.swift */,
 				F1E902F71A1E5E78001F8359 /* CustomUIGestureRecognizer.swift */,
+				F1438D841A1E8FEF00A12752 /* IntroductionView.swift */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			files = (
 				F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */,
 				F17FC8F81A06A7E400E0B1DF /* GlobalConstans.swift in Sources */,
+				F1438D851A1E8FEF00A12752 /* IntroductionView.swift in Sources */,
 				F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */,
 				F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */,
 				F1ED610119F3D33E00238338 /* UIDraggableView.swift in Sources */,

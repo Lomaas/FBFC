@@ -22,6 +22,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var allCheckBox: UIImageView!
     
+    @IBOutlet weak var cameraImage: UIImageView!
     @IBOutlet weak var fromDateView: UIView!
     required init(coder aDecoder: NSCoder) {
         self.assetsLeftToEvaluate = []
@@ -58,6 +59,10 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         
         fakeLongPress = TouchDownGestureRecognizer(target: self, action: "touchDown:", parentView: self.fromDateView)
         self.fromDateView.addGestureRecognizer(fakeLongPress)
+        
+        var gesture = UITapGestureRecognizer(target: self, action: "cameraPressed:")
+        gesture.numberOfTapsRequired = 1
+        self.cameraImage.addGestureRecognizer(gesture)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -70,6 +75,45 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     
     func touchDown(reconginzer: UILongPressGestureRecognizer){
         
+    }
+    
+    func cameraPressed(reconginzer: UIPinchGestureRecognizer){
+        var screenRect = UIScreen.mainScreen().bounds
+        var screenWidth = screenRect.size.width
+        var screenHeight = screenRect.size.height
+        
+        var flashView = UIView(frame: CGRectMake(self.cameraImage.center.x, self.cameraImage.frame.origin.y, 1, 1))
+        flashView.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(flashView)
+
+        UIView.animateWithDuration(0.1,
+            delay: 0,
+            options: UIViewAnimationOptions.CurveLinear,
+            animations: {
+                self.cameraImage.frame = CGRectMake(self.cameraImage.frame.origin.x, self.cameraImage.frame.origin.y + 15, self.cameraImage.frame.width, self.cameraImage.frame.height)
+            },
+            completion: { finished in
+                UIView.animateWithDuration(0.1,
+                    delay: 0,
+                    options: UIViewAnimationOptions.CurveLinear,
+                    animations: {
+                        self.cameraImage.frame = CGRectMake(self.cameraImage.frame.origin.x, self.cameraImage.frame.origin.y, self.cameraImage.frame.width, self.cameraImage.frame.height)
+                    },
+                    completion: { finished in
+                        
+                })
+        })
+        
+        
+        UIView.animateWithDuration(0.20,
+            delay: 0,
+            options: UIViewAnimationOptions.CurveLinear,
+            animations: {
+                flashView.frame = CGRectMake(0, 0, screenWidth, self.cameraImage.frame.height * 2)
+            },
+            completion: { finished in
+                flashView.removeFromSuperview()
+        })
     }
     
     func allViewTapped(recognizer : UIPinchGestureRecognizer){
@@ -107,6 +151,10 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
 //        var blur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
 //        var effect = UIVisualEffectView(effect: blur)
 //        self.view.addSubview(effect)
+        
+        if(self.datePickerView.isDescendantOfView(self.view)){
+            return
+        }
         
         var screenRect = UIScreen.mainScreen().bounds
         var screenWidth = screenRect.size.width
