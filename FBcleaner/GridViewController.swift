@@ -22,6 +22,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var imagesToDelete = []
     var viewLoading: UIView
     var hasDeleted = false
+    var deleteCounter: Int = 0
     let imageManager = PHCachingImageManager()
     var imagesArray: [Bool] = []
     let initialRequestOptions = PHImageRequestOptions()
@@ -43,12 +44,18 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.init(coder: aDecoder)
     }
     
+    func updateDeleteLabel(){
+        self.deleteButton.title = "Delete (\(self.deleteCounter))"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imageCacheController = ImageCacheController(imageManager: self.imageManager, images: self.images, preheatSize: 1)
         imageCacheController.targetSize = assetGridThumbnailSize
         self.imagesToDelete = self.images
+        self.deleteCounter = self.imagesToDelete.count
+        self.updateDeleteLabel();
 
         PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self)
         self.deleteButton.tintColor = RED_COLOR
@@ -198,11 +205,14 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.imagesArray[indexPath.item] = !self.imagesArray[indexPath.item]
         
         if(self.imagesArray[indexPath.item] == true){
+            self.deleteCounter -= 1
             cell.checkedImageView.image = UIImage(named:"unchecked")
         }
         else {
+            self.deleteCounter += 1
             cell.checkedImageView.image = UIImage(named:"checked")
         }
+        self.updateDeleteLabel()
         self.uiCollectionView.reloadItemsAtIndexPaths([indexPath])
     }
     

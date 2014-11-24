@@ -40,8 +40,10 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         super.viewDidLoad()
         self.view.backgroundColor = BACKGROUND_COLOR
         self.startButton.layer.borderColor = GREEN_COLOR.CGColor
+//        self.startButton.layer.borderColor = UIColor.blackColor().CGColor
         self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.startButton.backgroundColor = GREEN_COLOR
+        self.startButton.alpha = 1.0
         self.startButton.layer.borderWidth = 4.0
         self.startButton.layer.cornerRadius = 3.0
         
