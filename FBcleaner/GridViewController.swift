@@ -38,11 +38,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         initialRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.HighQualityFormat
         var scale = UIScreen.mainScreen().scale
         var cellSize = CGSizeMake(100,100)
-        imagesToDelete = images
         assetGridThumbnailSize = CGSizeMake(cellSize.width * scale, cellSize.height * scale)
-        
-        imageCacheController = ImageCacheController(imageManager: imageManager, images: images, preheatSize: 1)
-        imageCacheController.targetSize = assetGridThumbnailSize
         self.viewLoading = UIView()
         super.init(coder: aDecoder)
     }
@@ -50,8 +46,12 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self)
+        imageCacheController = ImageCacheController(imageManager: self.imageManager, images: self.images, preheatSize: 1)
+        imageCacheController.targetSize = assetGridThumbnailSize
+        self.imagesToDelete = self.images
 
+        PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self)
+        self.deleteButton.tintColor = RED_COLOR
 
         self.view.backgroundColor = nil
         self.uiCollectionView.backgroundColor = nil
