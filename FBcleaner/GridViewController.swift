@@ -123,7 +123,13 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func photoLibraryDidChange(changeInstance: PHChange!) {
 //        self.setViewToNotLoading()
         self.hasDeleted = true
-        self.goToStartViewController()
+        let alertController = UIAlertController(title: "Success", message:
+            "Your pictures were deleted", preferredStyle: UIAlertControllerStyle.Alert)
+        var test = UIAlertAction(title: "Back to start", style: UIAlertActionStyle.Default, { (UIAlertAction) -> Void in
+            self.goToStartViewController()
+        })
+        alertController.addAction(test)
+        self.presentViewController(alertController, animated: true, completion: nil);
     }
     
     func setViewToNotLoading(notification: NSNotification){
@@ -133,7 +139,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //        self.uiCollectionView.alpha = 1
         self.cancelButton.enabled = true
         self.deleteButton.enabled = true
-        self.view.setNeedsDisplay()
+        CATransaction.flush()
     }
     
     func setViewToLoading(){

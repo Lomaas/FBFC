@@ -240,7 +240,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     
     func dissmissMyViewController(view: UIViewController, toStartView: Bool, animated: Bool, title: String, msg: String){
         view.dismissViewControllerAnimated(false, completion: { finished in
-            self.createAlertView(title, message: msg, actionTitle: "Ok")
+            
         })
     }
     
@@ -249,46 +249,5 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         self.dateButton.setTitle( Date().getDateStringFromNSDate(date), forState: UIControlState.Normal)
         self.animateDateViewInvisible()
     }
-    
-    
-//    func cameraPressed(reconginzer: UIPinchGestureRecognizer){
-//        var screenRect = UIScreen.mainScreen().bounds
-//        var screenWidth = screenRect.size.width
-//        var screenHeight = screenRect.size.height
-//        
-//        var flashView = UIView(frame: CGRectMake(self.cameraImage.center.x, self.cameraImage.frame.origin.y, 1, 1))
-//        flashView.backgroundColor = UIColor.whiteColor()
-//        self.view.addSubview(flashView)
-//        
-//        UIView.animateWithDuration(0.1,
-//            delay: 0,
-//            options: UIViewAnimationOptions.CurveLinear,
-//            animations: {
-//                self.cameraImage.frame = CGRectMake(self.cameraImage.frame.origin.x, self.cameraImage.frame.origin.y + 15, self.cameraImage.frame.width, self.cameraImage.frame.height)
-//            },
-//            completion: { finished in
-//                UIView.animateWithDuration(0.1,
-//                    delay: 0,
-//                    options: UIViewAnimationOptions.CurveLinear,
-//                    animations: {
-//                        self.cameraImage.frame = CGRectMake(self.cameraImage.frame.origin.x, self.cameraImage.frame.origin.y, self.cameraImage.frame.width, self.cameraImage.frame.height)
-//                    },
-//                    completion: { finished in
-//                        
-//                })
-//        })
-//        
-//        
-//        UIView.animateWithDuration(0.20,
-//            delay: 0,
-//            options: UIViewAnimationOptions.CurveLinear,
-//            animations: {
-//                flashView.frame = CGRectMake(0, 0, screenWidth, self.cameraImage.frame.height * 2)
-//            },
-//            completion: { finished in
-//                flashView.removeFromSuperview()
-//        })
-//    }
-
 }
 
