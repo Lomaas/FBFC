@@ -11,31 +11,55 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2014 Simen Johannessen. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="439" width="441" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CamCleaner" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="140" width="441" height="43"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CamCleaner" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
+                    <rect key="frame" x="20" y="142" width="441" height="43"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="- Easy photo deleting" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Huy-XI-H1J">
+                    <rect key="frame" x="20" y="186" width="441" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="nb9-pg-ogm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cameraroll" translatesAutoresizingMaskIntoConstraints="NO" id="IND-lE-UKE">
+                    <rect key="frame" x="178" y="50" width="153" height="82"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="DbI-20-Ypz"/>
+                        <constraint firstAttribute="height" constant="82" id="gbk-AT-jOE"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Huy-XI-H1J" firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" id="1M0-7l-HTZ"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
+                <constraint firstItem="IND-lE-UKE" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="9RR-sn-sJC"/>
+                <constraint firstItem="Huy-XI-H1J" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="5" id="B7G-OD-dYL"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="IND-lE-UKE" secondAttribute="bottom" constant="15" id="HYX-At-9Rr"/>
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
+                <constraint firstItem="Huy-XI-H1J" firstAttribute="leading" secondItem="kId-c2-rCX" secondAttribute="leading" id="YnJ-40-YjW"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="IND-lE-UKE" secondAttribute="bottom" constant="8" symbolic="YES" id="fY8-FY-CCK"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="IND-lE-UKE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="jUu-Tl-ze7"/>
+                <constraint firstAttribute="centerX" secondItem="IND-lE-UKE" secondAttribute="centerX" id="w4Z-Ch-PKr"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="5cJ-9S-tgC"/>
+                    <exclude reference="9RR-sn-sJC"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="cameraroll" width="671" height="671"/>
+    </resources>
 </document>
