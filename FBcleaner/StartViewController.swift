@@ -38,6 +38,9 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     @IBOutlet weak var fromDateImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
         self.view.backgroundColor = BACKGROUND_COLOR
         self.startButton.layer.borderColor = GREEN_COLOR.CGColor
 //        self.startButton.layer.borderColor = UIColor.blackColor().CGColor
