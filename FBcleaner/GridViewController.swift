@@ -148,6 +148,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         indicatior.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
         indicatior.startAnimating()
         indicatior.color = UIColor.whiteColor()
+        self.viewLoading.alpha = 0.7
         self.viewLoading.addSubview(indicatior)
         self.viewLoading.backgroundColor = UIColor.blackColor()
         self.view.addSubview(self.viewLoading)

@@ -8,17 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108769F1A02EB46002EEEDB /* StartViewController.swift */; };
-		F1438D851A1E8FEF00A12752 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1438D841A1E8FEF00A12752 /* IntroductionView.swift */; };
 		F17FC8F81A06A7E400E0B1DF /* GlobalConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */; };
 		F17FC8FA1A06A83000E0B1DF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FC8F91A06A83000E0B1DF /* Date.swift */; };
 		F1A14BAE1A1161D9009FBBFB /* PinchZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A14BAD1A1161D9009FBBFB /* PinchZoomView.swift */; };
 		F1AC10651A1D5C72006A87D3 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AC10641A1D5C72006A87D3 /* DatePickerView.swift */; };
-		F1BFBED61A0D03D4009FD740 /* PhotoStreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFBED51A0D03D4009FD740 /* PhotoStreamService.swift */; };
+		F1B124BA1A27BC6F0094AB52 /* CustomUIGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B124B91A27BC6F0094AB52 /* CustomUIGestureRecognizer.swift */; };
 		F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7319FED7C20013580F /* GridViewController.swift */; };
 		F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7519FEDB900013580F /* ImageCacheController.swift */; };
 		F1C11F7819FEDBC60013580F /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */; };
 		F1C1AEAC19FD231A002B2E16 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C1AEAB19FD231A002B2E16 /* Photos.framework */; };
-		F1E902F81A1E5E78001F8359 /* CustomUIGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E902F71A1E5E78001F8359 /* CustomUIGestureRecognizer.swift */; };
 		F1ED60E019F3D16800238338 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED60DF19F3D16800238338 /* AppDelegate.swift */; };
 		F1ED60E519F3D16800238338 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1ED60E319F3D16800238338 /* Main.storyboard */; };
 		F1ED60E719F3D16800238338 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1ED60E619F3D16800238338 /* Images.xcassets */; };
@@ -40,24 +38,22 @@
 
 /* Begin PBXFileReference section */
 		F108769F1A02EB46002EEEDB /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		F1438D841A1E8FEF00A12752 /* IntroductionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
 		F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstans.swift; sourceTree = "<group>"; };
 		F17FC8F91A06A83000E0B1DF /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F1A14BAD1A1161D9009FBBFB /* PinchZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinchZoomView.swift; sourceTree = "<group>"; };
 		F1AC10641A1D5C72006A87D3 /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
-		F1BFBED51A0D03D4009FD740 /* PhotoStreamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStreamService.swift; sourceTree = "<group>"; };
+		F1B124B91A27BC6F0094AB52 /* CustomUIGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIGestureRecognizer.swift; sourceTree = "<group>"; };
 		F1C11F7319FED7C20013580F /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		F1C11F7519FEDB900013580F /* ImageCacheController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheController.swift; sourceTree = "<group>"; };
 		F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		F1C1AEAB19FD231A002B2E16 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		F1E902F71A1E5E78001F8359 /* CustomUIGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIGestureRecognizer.swift; sourceTree = "<group>"; };
-		F1ED60DA19F3D16800238338 /* CamCleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CamCleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1ED60DA19F3D16800238338 /* Photo Trasher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Trasher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1ED60DE19F3D16800238338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1ED60DF19F3D16800238338 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1ED60E419F3D16800238338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1ED60E619F3D16800238338 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F1ED60E919F3D16800238338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F1ED60EF19F3D16800238338 /* CamCleanerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CamCleanerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1ED60EF19F3D16800238338 /* Photo TrasherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Photo TrasherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1ED60F419F3D16800238338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1ED60F519F3D16800238338 /* FBcleanerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBcleanerTests.swift; sourceTree = "<group>"; };
 		F1ED60FF19F3D33E00238338 /* UIDraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDraggableView.swift; path = "../keep-or-trash/UIDraggableView.swift"; sourceTree = "<group>"; };
@@ -87,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				F17FC8F91A06A83000E0B1DF /* Date.swift */,
-				F1BFBED51A0D03D4009FD740 /* PhotoStreamService.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -95,12 +90,11 @@
 		F1C11F7219FEC7C30013580F /* base */ = {
 			isa = PBXGroup;
 			children = (
+				F1B124B91A27BC6F0094AB52 /* CustomUIGestureRecognizer.swift */,
 				F1C11F7519FEDB900013580F /* ImageCacheController.swift */,
 				F1ED60FF19F3D33E00238338 /* UIDraggableView.swift */,
 				F1A14BAD1A1161D9009FBBFB /* PinchZoomView.swift */,
 				F1AC10641A1D5C72006A87D3 /* DatePickerView.swift */,
-				F1E902F71A1E5E78001F8359 /* CustomUIGestureRecognizer.swift */,
-				F1438D841A1E8FEF00A12752 /* IntroductionView.swift */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -118,8 +112,8 @@
 		F1ED60DB19F3D16800238338 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F1ED60DA19F3D16800238338 /* CamCleaner.app */,
-				F1ED60EF19F3D16800238338 /* CamCleanerTests.xctest */,
+				F1ED60DA19F3D16800238338 /* Photo Trasher.app */,
+				F1ED60EF19F3D16800238338 /* Photo TrasherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,9 +173,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F1ED60D919F3D16800238338 /* CamCleaner */ = {
+		F1ED60D919F3D16800238338 /* Photo Trasher */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1ED60F919F3D16800238338 /* Build configuration list for PBXNativeTarget "CamCleaner" */;
+			buildConfigurationList = F1ED60F919F3D16800238338 /* Build configuration list for PBXNativeTarget "Photo Trasher" */;
 			buildPhases = (
 				F1ED60D619F3D16800238338 /* Sources */,
 				F1ED60D719F3D16800238338 /* Frameworks */,
@@ -191,14 +185,14 @@
 			);
 			dependencies = (
 			);
-			name = CamCleaner;
+			name = "Photo Trasher";
 			productName = FBcleaner;
-			productReference = F1ED60DA19F3D16800238338 /* CamCleaner.app */;
+			productReference = F1ED60DA19F3D16800238338 /* Photo Trasher.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F1ED60EE19F3D16800238338 /* CamCleanerTests */ = {
+		F1ED60EE19F3D16800238338 /* Photo TrasherTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1ED60FC19F3D16800238338 /* Build configuration list for PBXNativeTarget "CamCleanerTests" */;
+			buildConfigurationList = F1ED60FC19F3D16800238338 /* Build configuration list for PBXNativeTarget "Photo TrasherTests" */;
 			buildPhases = (
 				F1ED60EB19F3D16800238338 /* Sources */,
 				F1ED60EC19F3D16800238338 /* Frameworks */,
@@ -209,9 +203,9 @@
 			dependencies = (
 				F1ED60F119F3D16800238338 /* PBXTargetDependency */,
 			);
-			name = CamCleanerTests;
+			name = "Photo TrasherTests";
 			productName = FBcleanerTests;
-			productReference = F1ED60EF19F3D16800238338 /* CamCleanerTests.xctest */;
+			productReference = F1ED60EF19F3D16800238338 /* Photo TrasherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -233,7 +227,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F1ED60D519F3D16800238338 /* Build configuration list for PBXProject "CamCleaner" */;
+			buildConfigurationList = F1ED60D519F3D16800238338 /* Build configuration list for PBXProject "Photo Trasher" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -246,8 +240,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F1ED60D919F3D16800238338 /* CamCleaner */,
-				F1ED60EE19F3D16800238338 /* CamCleanerTests */,
+				F1ED60D919F3D16800238338 /* Photo Trasher */,
+				F1ED60EE19F3D16800238338 /* Photo TrasherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -279,16 +273,14 @@
 			files = (
 				F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */,
 				F17FC8F81A06A7E400E0B1DF /* GlobalConstans.swift in Sources */,
-				F1438D851A1E8FEF00A12752 /* IntroductionView.swift in Sources */,
 				F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */,
 				F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */,
 				F1ED610119F3D33E00238338 /* UIDraggableView.swift in Sources */,
 				F1A14BAE1A1161D9009FBBFB /* PinchZoomView.swift in Sources */,
+				F1B124BA1A27BC6F0094AB52 /* CustomUIGestureRecognizer.swift in Sources */,
 				F1AC10651A1D5C72006A87D3 /* DatePickerView.swift in Sources */,
-				F1E902F81A1E5E78001F8359 /* CustomUIGestureRecognizer.swift in Sources */,
 				F1ED610219F3D33E00238338 /* ViewController.swift in Sources */,
 				F1ED60E019F3D16800238338 /* AppDelegate.swift in Sources */,
-				F1BFBED61A0D03D4009FD740 /* PhotoStreamService.swift in Sources */,
 				F17FC8FA1A06A83000E0B1DF /* Date.swift in Sources */,
 				F1C11F7819FEDBC60013580F /* PhotosCollectionViewCell.swift in Sources */,
 			);
@@ -307,7 +299,7 @@
 /* Begin PBXTargetDependency section */
 		F1ED60F119F3D16800238338 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1ED60D919F3D16800238338 /* CamCleaner */;
+			target = F1ED60D919F3D16800238338 /* Photo Trasher */;
 			targetProxy = F1ED60F019F3D16800238338 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -423,7 +415,7 @@
 				);
 				INFOPLIST_FILE = FBcleaner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = CamCleaner;
+				PRODUCT_NAME = "Photo Trasher";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -442,7 +434,7 @@
 				);
 				INFOPLIST_FILE = FBcleaner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = CamCleaner;
+				PRODUCT_NAME = "Photo Trasher";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -462,7 +454,7 @@
 				);
 				INFOPLIST_FILE = FBcleanerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = CamCleanerTests;
+				PRODUCT_NAME = "Photo TrasherTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FBcleaner.app/FBcleaner";
 			};
 			name = Debug;
@@ -477,7 +469,7 @@
 				);
 				INFOPLIST_FILE = FBcleanerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = CamCleanerTests;
+				PRODUCT_NAME = "Photo TrasherTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FBcleaner.app/FBcleaner";
 			};
 			name = Release;
@@ -485,7 +477,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F1ED60D519F3D16800238338 /* Build configuration list for PBXProject "CamCleaner" */ = {
+		F1ED60D519F3D16800238338 /* Build configuration list for PBXProject "Photo Trasher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1ED60F719F3D16800238338 /* Debug */,
@@ -494,7 +486,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1ED60F919F3D16800238338 /* Build configuration list for PBXNativeTarget "CamCleaner" */ = {
+		F1ED60F919F3D16800238338 /* Build configuration list for PBXNativeTarget "Photo Trasher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1ED60FA19F3D16800238338 /* Debug */,
@@ -503,7 +495,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1ED60FC19F3D16800238338 /* Build configuration list for PBXNativeTarget "CamCleanerTests" */ = {
+		F1ED60FC19F3D16800238338 /* Build configuration list for PBXNativeTarget "Photo TrasherTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1ED60FD19F3D16800238338 /* Debug */,

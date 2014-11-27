@@ -38,12 +38,8 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     @IBOutlet weak var fromDateImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBarHidden = false
-        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
-        self.navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
         self.view.backgroundColor = BACKGROUND_COLOR
         self.startButton.layer.borderColor = GREEN_COLOR.CGColor
-//        self.startButton.layer.borderColor = UIColor.blackColor().CGColor
         self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.startButton.backgroundColor = GREEN_COLOR
         self.startButton.alpha = 1.0
@@ -52,10 +48,10 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         
         self.dateLabel.text = "Last run \(Date().getDate())"
         var dateStr: String = Date().getDate()
-        if(dateStr == "never"){
+        if(dateStr.lowercaseString == "never"){
             dateStr = "Select date"
         }
-        self.dateButton.setTitle(Date().getDate(), forState: UIControlState.Normal)
+        self.dateButton.setTitle(dateStr, forState: UIControlState.Normal)
         self.date = Date().getNSDate()
         
         var singleTap = UITapGestureRecognizer(target: self, action: "allViewTapped:")
@@ -153,7 +149,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         self.datePickerView.frame = CGRectMake(0, screenHeight - 237, screenWidth, 237)
         self.view.addSubview(self.datePickerView)
         
-        UIView.animateWithDuration(0.30,
+        UIView.animateWithDuration(0.40,
             delay: 0,
             options: UIViewAnimationOptions.CurveEaseOut,
             animations: {
