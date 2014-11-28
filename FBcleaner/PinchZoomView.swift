@@ -17,12 +17,15 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         self.uiImageView = UIImageView(frame: frame)
         self.uiImageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.uiImageView.image = imageView.image
+        
         self.scrollView = UIScrollView(frame: frame)
         self.scrollView.scrollsToTop = false
         self.scrollView.minimumZoomScale = 1.0;
         self.scrollView.maximumZoomScale = 6.5;
         self.scrollView.contentSize = frame.size
+        
         super.init(frame: frame)
+        
         self.scrollView.delegate = self;
         self.scrollView.addSubview(self.uiImageView)
         self.addSubview(self.scrollView)
@@ -48,7 +51,17 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         centerScrollViewContents()
 
     }
+    
+    func updateFrame(){
+        self.uiImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        self.scrollView.scrollsToTop = false
+        self.scrollView.minimumZoomScale = 1.0;
+        self.scrollView.maximumZoomScale = 6.5;
+        self.scrollView.contentSize = frame.size
+        centerScrollViewContents()
 
+    }
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("not implementeed")
     }
@@ -58,7 +71,18 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
     }
     
     func singleTapButton(recognizer: UITapGestureRecognizer){
-        self.removeFromSuperview()
+        self.animateAndRemoveView();
+    }
+    
+    func animateAndRemoveView(){
+        UIView.animateWithDuration(0.2, delay:0, options:UIViewAnimationOptions.CurveEaseInOut,
+            animations:{
+                self.transform = CGAffineTransformMakeScale(0.95, 0.8);
+            },
+            completion: { finished in
+                self.removeFromSuperview()
+            }
+        );
     }
 
     func handleDoubleTap(recognizer: UITapGestureRecognizer){
