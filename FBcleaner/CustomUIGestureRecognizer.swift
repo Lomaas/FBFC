@@ -16,17 +16,14 @@ class TouchDownGestureRecognizer : UIGestureRecognizer {
         super.init(target: target, action: action)
     }
     func touchesBegan(touches:NSSet, withEvent:UIEvent) {
-        println("otuches begin")
         self.myview.alpha = 0.5
-
     }
     
     func touchesMoved(touches:NSSet, withEvent: UIEvent) {
-                println("otuches moved")
+
     }
     
     func touchesEnded(touches:NSSet, withEvent: UIEvent) {
-        println("otuches ended")
         self.myview.alpha = 1.0
     }
 }
