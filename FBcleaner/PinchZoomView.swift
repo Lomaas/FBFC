@@ -17,6 +17,7 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         self.uiImageView = UIImageView(frame: frame)
         self.uiImageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.uiImageView.image = imageView.image
+        self.uiImageView.layer.backgroundColor = UIColor.blackColor().CGColor
         
         self.scrollView = UIScrollView(frame: frame)
         self.scrollView.scrollsToTop = false
