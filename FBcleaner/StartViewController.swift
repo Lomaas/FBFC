@@ -160,8 +160,8 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     
     func fetchAssets(){
         var options = PHFetchOptions()
-//        options.includeHiddenAssets = true
-        options.includeAllBurstAssets = true
+        options.includeHiddenAssets = true
+//        options.includeAllBurstAssets = true
         
         if let results = PHAsset.fetchAssetsWithMediaType(.Image, options: options) {
             if(self.dateCompare){

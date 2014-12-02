@@ -1,0 +1,4 @@
+
+
+- Burst images causes trouble. Need fix
+- Navigation bar should scale up
