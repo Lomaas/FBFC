@@ -17,6 +17,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     var dateCompare: Bool = false
     var datePickerView: DatePickerView
 
+    @IBOutlet weak var navigationitem: UINavigationItem!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var allView: UIView!
     @IBOutlet weak var dateButton: UIButton!
@@ -38,6 +39,8 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     @IBOutlet weak var fromDateImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationController?.navigationBar.barTintColor = BLUE_COLOR
+//        self.navigationController?.navigationBar.translucent = false
         self.view.backgroundColor = BACKGROUND_COLOR
         self.startButton.layer.borderColor = GREEN_COLOR.CGColor
         self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -122,14 +125,15 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         }
         
         var screenRect = UIScreen.mainScreen().bounds
-        self.datePickerView.frame = CGRectMake(0, screenRect.size.height + 237, screenRect.size.width, 237)
+        let adjustment = CGFloat(280)
+        self.datePickerView.frame = CGRectMake(0, screenRect.size.height + adjustment, screenRect.size.width, adjustment)
         self.view.addSubview(self.datePickerView)
 
         UIView.animateWithDuration(0.30,
             delay: 0,
             options: UIViewAnimationOptions.CurveEaseOut,
             animations: {
-                self.datePickerView.frame = CGRectMake(0, screenRect.size.height - 237, screenRect.size.width, 237)
+                self.datePickerView.frame = CGRectMake(0, screenRect.size.height - adjustment, screenRect.size.width, adjustment)
             },
             completion: { finished in
                 
