@@ -77,16 +77,16 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         super.didReceiveMemoryWarning()
     }
     
-    func touchDown(reconginzer: UILongPressGestureRecognizer){
+    func touchDown(reconginzer: UILongPressGestureRecognizer) {
         
     }
     
-    func allViewTapped(recognizer : UIPinchGestureRecognizer){
+    func allViewTapped(recognizer : UIPinchGestureRecognizer) {
         self.setAllImagesView()
         self.animateDateViewInvisible()
     }
     
-    func fromDateViewTapped(recognizer : UIPinchGestureRecognizer){
+    func fromDateViewTapped(recognizer : UIPinchGestureRecognizer) {
         self.setFromDateView()
     }
     
@@ -122,16 +122,14 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         }
         
         var screenRect = UIScreen.mainScreen().bounds
-        var screenWidth = screenRect.size.width
-        var screenHeight = screenRect.size.height
-        self.datePickerView.frame = CGRectMake(0, screenHeight + 237, screenWidth, 237)
+        self.datePickerView.frame = CGRectMake(0, screenRect.size.height + 237, screenRect.size.width, 237)
         self.view.addSubview(self.datePickerView)
 
         UIView.animateWithDuration(0.30,
             delay: 0,
             options: UIViewAnimationOptions.CurveEaseOut,
             animations: {
-                self.datePickerView.frame = CGRectMake(0, screenHeight - 237, screenWidth, 237)
+                self.datePickerView.frame = CGRectMake(0, screenRect.size.height - 237, screenRect.size.width, 237)
             },
             completion: { finished in
                 
@@ -161,11 +159,15 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     }
     
     func fetchAssets(){
-        if let results = PHAsset.fetchAssetsWithMediaType(.Image, options: nil) {
+        var options = PHFetchOptions()
+//        options.includeHiddenAssets = true
+        options.includeAllBurstAssets = true
+        
+        if let results = PHAsset.fetchAssetsWithMediaType(.Image, options: options) {
             if(self.dateCompare){
-                    self.evaluateResultDate(results)
-            }
-            else {
+                println(results.count)
+               self.evaluateResultDate(results)
+            } else {
                 self.evaluateResult(results)
             }
         }
@@ -182,8 +184,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
                 if(counter == results.count){
                     if(self.assetsLeftToEvaluate.count == 0){
                         self.createAlertView("Unable to find any pictures", message: "It appears that you have no pictures. Take some pictures", actionTitle: "Ok")
-                    }
-                    else {
+                    } else {
                         self.presentNewViewController()
                     }
                 }
@@ -197,8 +198,11 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         results.enumerateObjectsUsingBlock { (object, idx, _) in
             if let asset = object as? PHAsset {
                 counter += 1
+//                println(asset.burstSelectionTypes)
+//                println(asset.burstIdentifier)
                 
                 if(self.compareDates(asset)){
+                    println(counter)
                     self.assetsLeftToEvaluate.append(asset)
                 }
        
