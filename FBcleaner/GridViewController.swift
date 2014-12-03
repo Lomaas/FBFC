@@ -45,7 +45,12 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func updateDeleteLabel(){
-        self.deleteButton.title = "Delete (\(self.deleteCounter))"
+        if(self.deleteCounter > 0){
+            self.deleteButton.title = "Delete (\(self.deleteCounter))"
+        }
+        else {
+            self.deleteButton.title = ""
+        }
     }
     
     override func viewDidLoad() {
@@ -81,10 +86,12 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func goToStartViewController(){
+        
         self.delegate?.dissmissMyViewController(self as UIViewController, toStartView: true, animated: false, title: "Success", msg:"Your pictures were deleted")
     }
     
     @IBAction func cancelCalled(sender: AnyObject) {
+        println("Cancel")
         self.delegate?.dissmissMyViewController(self as UIViewController, toStartView: false, animated: true, title: "", msg: "")
     }
 
@@ -106,17 +113,6 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }, completionHandler: { noError, error in
                 NSLog("Changes complete. Did they succeed? Who knows! \(noError), \(error?.localizedDescription)")
                 NSNotificationCenter.defaultCenter().postNotificationName("finishedDeleting", object: self)
-
-//                if(noError == true){
-//                    // Go to success view
-//                    self.hasDeleted = true
-//                    self.goToStartViewController()
-//                }
-//                else {
-//                    // User pressed false
-//                    println("What is the error? \(error?.localizedDescription)")
-//                    self.setViewToNotLoading()
-//                }
         })
     }
     
@@ -202,9 +198,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        println("didSelectItemAtIndexPath")
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
-        println("updateCheckmarkPicture")
         
         cell.backgroundColor = UIColor.whiteColor()
         cell.transform = CGAffineTransformMakeRotation(0.1);

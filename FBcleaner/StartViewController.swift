@@ -13,6 +13,7 @@ import Photos
 
 class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate {
     var assetsLeftToEvaluate: [PHAsset]
+    var allAssets: [PHAsset]
     var date: NSDate
     var dateCompare: Bool = false
     var datePickerView: DatePickerView
@@ -27,6 +28,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     @IBOutlet weak var startButton: UIButton!
     required init(coder aDecoder: NSCoder) {
         self.assetsLeftToEvaluate = []
+        self.allAssets = []
         self.date = Date().getNSDate()
         var screenRect = UIScreen.mainScreen().bounds
         var screenWidth = screenRect.size.width
@@ -39,8 +41,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     @IBOutlet weak var fromDateImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.navigationBar.barTintColor = BLUE_COLOR
-//        self.navigationController?.navigationBar.translucent = false
+        self.fetchAssets()
         self.view.backgroundColor = BACKGROUND_COLOR
         self.startButton.layer.borderColor = GREEN_COLOR.CGColor
         self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -105,10 +106,6 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         self.dateCompare = true
     }
     
-    @IBAction func startFromDateButtonPressed(sender: AnyObject) {
-        self.fetchAssets();
-    }
-    
     @IBAction func dateButtonPressed(sender: AnyObject) {
         self.setFromDateView()
         self.datePickerView.delegate = self
@@ -168,66 +165,61 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
 //        options.includeAllBurstAssets = true
         
         if let results = PHAsset.fetchAssetsWithMediaType(.Image, options: options) {
-            if(self.dateCompare){
-                println(results.count)
-               self.evaluateResultDate(results)
-            } else {
-                self.evaluateResult(results)
-            }
+            self.evaluateResult(results)
         }
     }
     
     func evaluateResult(results: PHFetchResult){
-        var counter = 0
-        
         results.enumerateObjectsUsingBlock { (object, idx, _) in
             if let asset = object as? PHAsset {
-                counter += 1
+                self.allAssets.append(asset)
+            }
+        }
+    }
+    
+    func maskAssetsOutByDate(){
+        self.assetsLeftToEvaluate = []
+        for (var i = 0; i < self.allAssets.count; i++){
+            var asset = self.allAssets[i]
+            if(self.compareDates(asset)){
                 self.assetsLeftToEvaluate.append(asset)
-
-                if(counter == results.count){
-                    if(self.assetsLeftToEvaluate.count == 0){
-                        self.createAlertView("Unable to find any pictures", message: "It appears that you have no pictures. Take some pictures", actionTitle: "Ok")
-                    } else {
-                        self.presentNewViewController()
-                    }
-                }
             }
         }
     }
-    
-    func evaluateResultDate(results: PHFetchResult){
-        var counter = 0
 
-        results.enumerateObjectsUsingBlock { (object, idx, _) in
-            if let asset = object as? PHAsset {
-                counter += 1
-//                println(asset.burstSelectionTypes)
-//                println(asset.burstIdentifier)
-                
-                if(self.compareDates(asset)){
-                    println(counter)
-                    self.assetsLeftToEvaluate.append(asset)
-                }
-       
-                if(counter == results.count){
-                    if(self.assetsLeftToEvaluate.count == 0){
-                        self.createAlertView("Unable to find any pictures", message: "It appears that you have no pictures newer than the selected date", actionTitle: "Select new date")
-                    }
-                    else {
-                        self.presentNewViewController()
-                    }
-                }
-            }
-        }
-    }
-    
     func compareDates(asset: PHAsset) -> Bool {
         var dateComparisionResult: NSComparisonResult = asset.creationDate.compare(self.date)
         if(dateComparisionResult == NSComparisonResult.OrderedDescending){
             return true
         }
         return false
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if(self.dateCompare){
+            self.maskAssetsOutByDate()
+        }
+        else {
+            self.assetsLeftToEvaluate = self.allAssets
+        }
+        if(self.assetsLeftToEvaluate.count == 0){
+            self.createAlertView("Unable to find any pictures", message: "It appears that you have no pictures newer than the selected date", actionTitle: "Select new date")
+
+            return false
+        }
+        
+        return true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue,
+        sender: AnyObject?) {
+            println("Prepare For Segue")
+            if (segue.identifier == "GO_TO_MAIN")
+            {
+                let vc = segue.destinationViewController as ViewController
+                vc.delegate = self
+                vc.tmpAssets = self.assetsLeftToEvaluate
+            }
     }
     
     func presentNewViewController(){
@@ -246,9 +238,8 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     }
     
     func dissmissMyViewController(view: UIViewController, toStartView: Bool, animated: Bool, title: String, msg: String){
-        view.dismissViewControllerAnimated(false, completion: { finished in
-            
-        })
+        self.navigationController?.popViewControllerAnimated(false)
+
     }
     
     func didFinishWithDateSelected(date: NSDate){
