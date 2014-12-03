@@ -1,5 +1,6 @@
 
 
+- Position of images is wrong when only two/one images left
 - Burst images causes trouble. Need fix
-- Navigation bar should scale up
+- Navigation bar delay of renaming title
 - If delete is pressed user should be able to start at last image.

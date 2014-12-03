@@ -9,9 +9,14 @@
 import Foundation
 import UIKit
 
+protocol PinchZoomDelegate {
+    func setNavigationBarVisible()
+}
+
 class PinchZoomView: UIView, UIScrollViewDelegate {
     var scrollView: UIScrollView
     var uiImageView: UIImageView
+    var delegate: PinchZoomDelegate?
     
     init(imageView: UIImageView, frame: CGRect){
         self.uiImageView = UIImageView(frame: frame)
@@ -31,14 +36,17 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         self.scrollView.addSubview(self.uiImageView)
         self.addSubview(self.scrollView)
         
-        var doubleTap = UITapGestureRecognizer(target: self, action: "handleDoubleTap:")
+        let doubleTap = UITapGestureRecognizer(target: self, action: "handleDoubleTap:")
         doubleTap.numberOfTapsRequired = 2
         self.scrollView.addGestureRecognizer(doubleTap)
         
-        var singleTap = UITapGestureRecognizer(target: self, action: "singleTapButton:")
-        singleTap.numberOfTapsRequired = 1
-        self.uiImageView.addGestureRecognizer(singleTap)
 
+        let test = UITapGestureRecognizer(target: self, action: "singleTapButton:")
+        test.numberOfTapsRequired = 1
+        self.scrollView.addGestureRecognizer(test)
+
+        let singleTap = UITapGestureRecognizer(target: self, action: "singleTapButton:")
+        singleTap.numberOfTapsRequired = 1
         var button = UIButton(frame: CGRectMake(3, 19, 60, 30))
         button.setTitle("back", forState: UIControlState.Normal)
         button.addGestureRecognizer(singleTap)
@@ -82,6 +90,7 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
             },
             completion: { finished in
                 self.removeFromSuperview()
+                self.delegate?.setNavigationBarVisible()
             }
         );
     }

@@ -28,13 +28,6 @@
                                 <color key="textColor" red="0.41347064393939392" green="0.41347064393939392" blue="0.41347064393939392" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0.0 MB trashed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kht-bU-weh">
-                                <rect key="frame" x="235" y="69" width="130" height="20.5"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpz-gE-5pp">
                                 <rect key="frame" x="150" y="505" width="300" height="70"/>
                                 <subviews>
@@ -136,16 +129,13 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rpz-gE-5pp" secondAttribute="trailing" constant="1" id="3Mc-JF-oDH"/>
-                            <constraint firstItem="Kht-bU-weh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="3" id="Bz7-vz-eWJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rpz-gE-5pp" secondAttribute="bottom" constant="40" id="GSI-vf-MTq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Rpz-gE-5pp" secondAttribute="bottom" constant="10" id="HEd-4k-s8V"/>
                             <constraint firstItem="JtL-qd-Q4G" firstAttribute="centerX" secondItem="Rpz-gE-5pp" secondAttribute="centerX" id="L7m-J8-iXU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rpz-gE-5pp" secondAttribute="bottom" priority="750" constant="25" id="MOn-hr-I2g"/>
-                            <constraint firstAttribute="centerX" secondItem="Kht-bU-weh" secondAttribute="centerX" id="MvZ-fe-pMt"/>
                             <constraint firstAttribute="centerX" secondItem="Rpz-gE-5pp" secondAttribute="centerX" id="Sq4-Jc-t2V"/>
                             <constraint firstAttribute="bottom" secondItem="JtL-qd-Q4G" secondAttribute="bottom" constant="121" id="c5H-AW-kzB"/>
                             <constraint firstItem="Rpz-gE-5pp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="89" id="df3-ho-0OS"/>
-                            <constraint firstItem="Rpz-gE-5pp" firstAttribute="top" secondItem="Kht-bU-weh" secondAttribute="bottom" constant="-96" id="gU7-oz-xpq"/>
                             <constraint firstItem="Rpz-gE-5pp" firstAttribute="top" secondItem="JtL-qd-Q4G" secondAttribute="bottom" constant="5" id="mOc-3v-DcB"/>
                             <constraint firstAttribute="centerX" secondItem="Rpz-gE-5pp" secondAttribute="centerX" id="smn-ot-NMy"/>
                             <constraint firstItem="Rpz-gE-5pp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="1" id="t8b-Wg-F7C"/>
@@ -154,14 +144,13 @@
                             <mask key="constraints">
                                 <exclude reference="c5H-AW-kzB"/>
                                 <exclude reference="df3-ho-0OS"/>
-                                <exclude reference="gU7-oz-xpq"/>
                                 <exclude reference="smn-ot-NMy"/>
                                 <exclude reference="GSI-vf-MTq"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Trash or keep" id="gmh-zO-JUb">
-                        <barButtonItem key="rightBarButtonItem" id="Xfs-j4-7xI">
+                        <barButtonItem key="rightBarButtonItem" title="-" id="Xfs-j4-7xI">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="skipRestButtonPressed:" destination="BYZ-38-t0r" id="owN-Zc-iFG"/>
@@ -173,7 +162,6 @@
                     <connections>
                         <outlet property="containerView" destination="Rpz-gE-5pp" id="vSH-zt-Q7s"/>
                         <outlet property="keepButton" destination="vnc-B1-DQF" id="cFS-L0-wO0"/>
-                        <outlet property="sizeTrashed" destination="Kht-bU-weh" id="ssE-uM-Seq"/>
                         <outlet property="skipRestButton" destination="Xfs-j4-7xI" id="h4I-Mh-fOr"/>
                         <outlet property="titleNavBar" destination="gmh-zO-JUb" id="c4V-kV-PQp"/>
                         <outlet property="trashButton" destination="VF9-XC-guW" id="eDU-Lz-kkh"/>

@@ -75,6 +75,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     
     override func viewDidAppear(animated: Bool) {
         self.assetsLeftToEvaluate = []
+        self.navigationController?.navigationBar.topItem?.title = "Choose pictures"
     }
     
     override func didReceiveMemoryWarning() {
@@ -219,15 +220,8 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
                 let vc = segue.destinationViewController as ViewController
                 vc.delegate = self
                 vc.tmpAssets = self.assetsLeftToEvaluate
+                self.navigationController?.navigationBar.topItem?.title = "Back"
             }
-    }
-    
-    func presentNewViewController(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil);
-        let vc = storyboard.instantiateViewControllerWithIdentifier("SelecterViewController") as ViewController;
-        vc.tmpAssets = self.assetsLeftToEvaluate
-        vc.delegate = self
-        self.presentViewController(vc, animated: true, completion: nil);
     }
     
     func createAlertView(title: NSString, message: NSString, actionTitle: NSString){
