@@ -29,3 +29,8 @@ let ANIMATION_TIME = 0.3
 let BACKGROUND_COLOR = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
 
 let IMAGE_LAYER_COLOR = UIColor.lightGrayColor()
+
+let IPHONE_4AND4s = 960
+let IPHONE_5AND5s = 1136
+let IPHONE_6 = 1334
+let IPHONE_6_PLUS = 1920
