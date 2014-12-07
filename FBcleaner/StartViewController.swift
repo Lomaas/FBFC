@@ -41,23 +41,21 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     @IBOutlet weak var fromDateImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchAssets()
         self.view.backgroundColor = BACKGROUND_COLOR
+        let screenRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenRect.size.width * UIScreen.mainScreen().scale
+        let screenHeight = screenRect.size.height * UIScreen.mainScreen().scale
+        var adjustment = CGFloat(15)
+        println("Screen: \(screenHeight)")
         self.startButton.layer.borderColor = GREEN_COLOR.CGColor
         self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.startButton.backgroundColor = GREEN_COLOR
         self.startButton.alpha = 1.0
         self.startButton.layer.borderWidth = 4.0
         self.startButton.layer.cornerRadius = 3.0
-        
-        self.dateLabel.text = "Last run \(Date().getDate())"
-        var dateStr: String = Date().getDate()
-        if(dateStr.lowercaseString == "never"){
-            dateStr = "Select date"
-        }
-        self.dateButton.setTitle(dateStr, forState: UIControlState.Normal)
         self.date = Date().getNSDate()
-        
+        self.updateDates()
+
         var singleTap = UITapGestureRecognizer(target: self, action: "allViewTapped:")
         singleTap.numberOfTapsRequired = 1
         var fakeLongPress = TouchDownGestureRecognizer(target: self, action: "touchDown:", parentView: self.allView)
@@ -75,7 +73,20 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     
     override func viewDidAppear(animated: Bool) {
         self.assetsLeftToEvaluate = []
+        self.allAssets = []
+        self.fetchAssets()
         self.navigationController?.navigationBar.topItem?.title = "Choose pictures"
+        self.updateDates()
+    }
+    
+    func updateDates(){
+        self.dateLabel.text = "Last run \(Date().getDate())"
+        var dateStr: String = Date().getDate()
+        if(dateStr.lowercaseString == "never"){
+            dateStr = "Select date"
+            self.dateLabel.text = ""
+        }
+        self.dateButton.setTitle(dateStr, forState: UIControlState.Normal)
     }
     
     override func didReceiveMemoryWarning() {
@@ -162,7 +173,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     
     func fetchAssets(){
         var options = PHFetchOptions()
-        options.includeHiddenAssets = true
+//        options.includeHiddenAssets = true    
 //        options.includeAllBurstAssets = true
         
         if let results = PHAsset.fetchAssetsWithMediaType(.Image, options: options) {
