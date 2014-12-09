@@ -24,8 +24,9 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     @IBOutlet weak var dateButton: UIButton!
     @IBOutlet weak var allCheckBox: UIImageView!
     @IBOutlet weak var fromDateView: UIView!
-    
+    @IBOutlet weak var fromDateImage: UIImageView!
     @IBOutlet weak var startButton: UIButton!
+    
     required init(coder aDecoder: NSCoder) {
         self.assetsLeftToEvaluate = []
         self.allAssets = []
@@ -38,7 +39,6 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         super.init(coder: aDecoder)
     }
     
-    @IBOutlet weak var fromDateImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = BACKGROUND_COLOR
@@ -86,6 +86,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
             self.dateLabel.text = ""
         }
         self.dateButton.setTitle(dateStr, forState: UIControlState.Normal)
+        self.date = Date().getNSDate()
     }
     
     override func didReceiveMemoryWarning() {
@@ -190,8 +191,10 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     
     func maskAssetsOutByDate(){
         self.assetsLeftToEvaluate = []
+        
         for (var i = 0; i < self.allAssets.count; i++){
             var asset = self.allAssets[i]
+            
             if(self.compareDates(asset)){
                 self.assetsLeftToEvaluate.append(asset)
             }
@@ -199,7 +202,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     }
 
     func compareDates(asset: PHAsset) -> Bool {
-        var dateComparisionResult: NSComparisonResult = asset.creationDate.compare(self.date)
+        let dateComparisionResult: NSComparisonResult = asset.creationDate.compare(self.date)
         if(dateComparisionResult == NSComparisonResult.OrderedDescending){
             return true
         }
