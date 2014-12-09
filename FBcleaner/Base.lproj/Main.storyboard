@@ -225,7 +225,7 @@
                                 <color key="highlightedColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzm-tB-SpZ">
-                                <rect key="frame" x="222" y="381" width="154" height="48"/>
+                                <rect key="frame" x="222" y="341" width="154" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="154" id="9Xy-Nk-JwR"/>
                                 </constraints>
@@ -427,7 +427,7 @@
                             <constraint firstItem="xaF-Gz-Vzj" firstAttribute="top" secondItem="uR7-lp-1QB" secondAttribute="bottom" constant="36" id="lKq-0F-T3i"/>
                             <constraint firstItem="xaF-Gz-Vzj" firstAttribute="trailing" secondItem="sPP-Yo-8vr" secondAttribute="trailing" constant="12" id="rdj-G3-ToP"/>
                             <constraint firstAttribute="centerX" secondItem="SrT-Km-xbU" secondAttribute="centerX" id="rgh-xh-CK4"/>
-                            <constraint firstItem="76N-l9-B0H" firstAttribute="top" secondItem="hzm-tB-SpZ" secondAttribute="bottom" priority="3" constant="60" id="vna-a6-ECu"/>
+                            <constraint firstItem="76N-l9-B0H" firstAttribute="top" secondItem="hzm-tB-SpZ" secondAttribute="bottom" priority="3" constant="100" id="vna-a6-ECu"/>
                             <constraint firstItem="76N-l9-B0H" firstAttribute="leading" secondItem="JGO-aq-NFp" secondAttribute="leading" id="xT7-Tv-rQC"/>
                             <constraint firstItem="uR7-lp-1QB" firstAttribute="leading" secondItem="olY-bB-Wnc" secondAttribute="leading" constant="198" id="xmn-gc-bwr"/>
                         </constraints>
