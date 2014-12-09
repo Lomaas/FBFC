@@ -46,7 +46,6 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         let screenWidth = screenRect.size.width * UIScreen.mainScreen().scale
         let screenHeight = screenRect.size.height * UIScreen.mainScreen().scale
         var adjustment = CGFloat(15)
-        println("Screen: \(screenHeight)")
         self.startButton.layer.borderColor = GREEN_COLOR.CGColor
         self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.startButton.backgroundColor = GREEN_COLOR
