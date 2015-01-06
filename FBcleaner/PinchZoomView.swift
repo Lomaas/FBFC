@@ -35,11 +35,6 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         self.scrollView.delegate = self;
         self.scrollView.addSubview(self.uiImageView)
         self.addSubview(self.scrollView)
-        
-        let doubleTap = UITapGestureRecognizer(target: self, action: "handleDoubleTap:")
-        doubleTap.numberOfTapsRequired = 2
-        self.scrollView.addGestureRecognizer(doubleTap)
-        
 
         let test = UITapGestureRecognizer(target: self, action: "singleTapButton:")
         test.numberOfTapsRequired = 1
@@ -93,23 +88,6 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
                 self.delegate?.setNavigationBarVisible()
             }
         );
-    }
-
-    func handleDoubleTap(recognizer: UITapGestureRecognizer){
-        let pointInView = recognizer.locationInView(self.uiImageView)
-        
-        var newZoomScale = self.scrollView.zoomScale * 1.5
-        newZoomScale = min(newZoomScale, self.scrollView.maximumZoomScale)
-        
-        let scrollViewSize = self.scrollView.bounds.size
-        let w = scrollViewSize.width / newZoomScale
-        let h = scrollViewSize.height / newZoomScale
-        let x = pointInView.x - (w / 2.0)
-        let y = pointInView.y - (h / 2.0)
-        
-        let rectToZoomTo = CGRectMake(x, y, w, h);
-        
-        scrollView.zoomToRect(rectToZoomTo, animated: true)
     }
     
     func centerScrollViewContents() {

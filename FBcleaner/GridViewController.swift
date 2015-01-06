@@ -17,7 +17,6 @@ protocol GoBackDelegate {
 }
 
 class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver {
-
     var images: [PHAsset] = []
     var imagesToDelete = []
     var viewLoading: UIView
@@ -86,7 +85,6 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func goToStartViewController(){
-        
         self.delegate?.dissmissMyViewController(self as UIViewController, toStartView: true, animated: false, title: "Success", msg:"Your pictures were deleted")
     }
     
@@ -117,7 +115,6 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func photoLibraryDidChange(changeInstance: PHChange!) {
-//        self.setViewToNotLoading()
         self.hasDeleted = true
         let alertController = UIAlertController(title: "Success", message:
             "Your pictures were deleted", preferredStyle: UIAlertControllerStyle.Alert)
@@ -132,7 +129,6 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.viewLoading.removeFromSuperview()
         self.activityIndicator.stopAnimating()
         self.activityIndicator.hidden = true
-//        self.uiCollectionView.alpha = 1
         self.cancelButton.enabled = true
         self.deleteButton.enabled = true
         CATransaction.flush()
@@ -181,8 +177,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        self.storedCollectionView = collectionView
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
-        
         
         if(self.imagesArray[indexPath.item] == true){
             cell.checkedImageView.image = UIImage(named:"unchecked")

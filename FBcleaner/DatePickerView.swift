@@ -35,25 +35,25 @@ class DatePickerView: UIView {
         self.finishButton.titleLabel?.font = UIFont.systemFontOfSize(16)
         self.finishButton.layer.cornerRadius = 4.0
         
-        var lineView = UIView(frame: CGRectMake(0, 35, datePickerFrame.size.width, 1))
-        lineView.backgroundColor = UIColor.blackColor()
-        
         super.init(frame: datePickerFrame)
-        
-//        self.layer.borderWidth = 1.5
-//        self.layer.borderColor = UIColor.blackColor().CGColor
-        
         
         self.finishButton.addTarget(self, action: "finishButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         self.backgroundColor = UIColor.whiteColor()
 
         self.addSubview(self.datePicker)
         self.addSubview(self.finishButton)
-//        self.addSubview(lineView)
-
     }
     
     func finishButtonPressed(sender: UIButton){
-        self.delegate?.didFinishWithDateSelected(self.datePicker.date)
+        let calendar = NSCalendar.currentCalendar()
+        let timeZone = NSTimeZone.systemTimeZone
+        calendar.timeZone = timeZone()
+        
+        var dateComps = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay , fromDate: self.datePicker.date)
+        dateComps.minute = 0
+        dateComps.second = 0
+        dateComps.hour = 0
+        
+        self.delegate?.didFinishWithDateSelected(calendar.dateFromComponents(dateComps)!)
     }
 }
