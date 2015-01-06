@@ -16,7 +16,7 @@ protocol GoBackDelegate {
     func dissmissMyViewController(view: UIViewController, toStartView: Bool, animated: Bool, title: String, msg: String)
 }
 
-class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver {
+class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var images: [PHAsset] = []
     var imagesToDelete = []
     var viewLoading: UIView
@@ -60,14 +60,12 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.imagesToDelete = self.images
         self.deleteCounter = self.imagesToDelete.count
         self.updateDeleteLabel();
-
-        PHPhotoLibrary.sharedPhotoLibrary().registerChangeObserver(self)
         self.deleteButton.tintColor = RED_COLOR
-
         self.view.backgroundColor = nil
         self.uiCollectionView.backgroundColor = nil
         self.uiCollectionView.delegate = self
         self.uiCollectionView.dataSource = self
+
         for x in images {
             self.imagesArray.append(false)
         }
@@ -79,8 +77,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         println(formatter.stringFromDate(date))
         Date().setDate(formatter.stringFromDate(date))
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "setViewToNotLoading:", name: "finishedDeleting", object: self)
-        NSNotificationCenter.defaultCenter().postNotificationName("finishedDeleting", object: self)
+        self.setViewToNotLoading()
 
     }
     
@@ -110,22 +107,27 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             PHAssetChangeRequest.deleteAssets(temp)
             }, completionHandler: { noError, error in
                 NSLog("Changes complete. Did they succeed? Who knows! \(noError), \(error?.localizedDescription)")
-                NSNotificationCenter.defaultCenter().postNotificationName("finishedDeleting", object: self)
+                self.viewLoading.removeFromSuperview()
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.hidden = true
+                self.cancelButton.enabled = true
+                self.deleteButton.enabled = true
+                CATransaction.flush()
+                
+                if error == nil {
+                    self.hasDeleted = true
+                    let alertController = UIAlertController(title: "Success", message:
+                        "Your pictures were deleted", preferredStyle: UIAlertControllerStyle.Alert)
+                    var test = UIAlertAction(title: "Back to start", style: UIAlertActionStyle.Default, { (UIAlertAction) -> Void in
+                        self.goToStartViewController()
+                    })
+                    alertController.addAction(test)
+                    self.presentViewController(alertController, animated: true, completion: nil);
+                }
         })
     }
     
-    func photoLibraryDidChange(changeInstance: PHChange!) {
-        self.hasDeleted = true
-        let alertController = UIAlertController(title: "Success", message:
-            "Your pictures were deleted", preferredStyle: UIAlertControllerStyle.Alert)
-        var test = UIAlertAction(title: "Back to start", style: UIAlertActionStyle.Default, { (UIAlertAction) -> Void in
-            self.goToStartViewController()
-        })
-        alertController.addAction(test)
-        self.presentViewController(alertController, animated: true, completion: nil);
-    }
-    
-    func setViewToNotLoading(notification: NSNotification){
+    func setViewToNotLoading(){
         self.viewLoading.removeFromSuperview()
         self.activityIndicator.stopAnimating()
         self.activityIndicator.hidden = true
@@ -144,10 +146,6 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.viewLoading.addSubview(indicatior)
         self.viewLoading.backgroundColor = UIColor.blackColor()
         self.view.addSubview(self.viewLoading)
-//        self.view.backgroundColor = UIColor.blackColor()
-//        self.activityIndicator.hidden = false
-//        self.uiCollectionView.alpha = 0.4
-//        self.activityIndicator.startAnimating()
         self.cancelButton.enabled = false
         self.deleteButton.enabled = false
     }
