@@ -19,6 +19,7 @@ protocol GoBackDelegate {
 class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var images: [PHAsset] = []
     var imagesToDelete = []
+    let rateAppService: RateAppService
     var viewLoading: UIView
     var hasDeleted = false
     var deleteCounter: Int = 0
@@ -40,6 +41,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         var cellSize = CGSizeMake(100,100)
         assetGridThumbnailSize = CGSizeMake(cellSize.width * scale, cellSize.height * scale)
         self.viewLoading = UIView()
+        self.rateAppService = RateAppService()
         super.init(coder: aDecoder)
     }
     
@@ -69,6 +71,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         for x in images {
             self.imagesArray.append(false)
         }
+        
         self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
         
         let date = NSDate()
@@ -76,9 +79,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         formatter.dateStyle = .MediumStyle
         println(formatter.stringFromDate(date))
         Date().setDate(formatter.stringFromDate(date))
-        
         self.setViewToNotLoading()
-
     }
     
     func goToStartViewController(){
@@ -105,27 +106,57 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             PHAssetChangeRequest.deleteAssets(temp)
-            }, completionHandler: { noError, error in
-                NSLog("Changes complete. Did they succeed? Who knows! \(noError), \(error?.localizedDescription)")
-                self.viewLoading.removeFromSuperview()
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.hidden = true
-                self.cancelButton.enabled = true
-                self.deleteButton.enabled = true
-                CATransaction.flush()
-                
-                if error == nil {
-                    self.hasDeleted = true
-                    let alertController = UIAlertController(title: "Success", message:
-                        "Your pictures were deleted", preferredStyle: UIAlertControllerStyle.Alert)
-                    var test = UIAlertAction(title: "Back to start", style: UIAlertActionStyle.Default, { (UIAlertAction) -> Void in
-                        self.goToStartViewController()
-                    })
-                    alertController.addAction(test)
-                    self.presentViewController(alertController, animated: true, completion: nil);
-                }
-        })
+            }, completionHandler: self.completionHandler)
     }
+    
+    func completionHandler (noError: Bool, error: NSError?) {
+        NSLog("Changes complete. Did they succeed? Who knows! \(noError), \(error?.localizedDescription)")
+        self.viewLoading.removeFromSuperview()
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.hidden = true
+        self.cancelButton.enabled = true
+        self.deleteButton.enabled = true
+        CATransaction.flush()
+        
+        if error == nil {
+            self.hasDeleted = true
+            if (self.rateAppService.isNewVersion()) {
+                rateUsOnAppStore()
+            } else {
+                self.succesFullDeletionDontRate()
+            }
+        }
+    }
+    
+    func succesFullDeletionDontRate() {
+        let alertController = UIAlertController(title: "Success!", message: "Your photos were successfully deleted", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Back to start", style: UIAlertActionStyle.Default, { (UIAlertAction) -> Void in
+            self.goToStartViewController()
+        }))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func rateUsOnAppStore() {
+        let alertController = UIAlertController(title: "Success! Rate us on app store", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Sure", style: UIAlertActionStyle.Default, handler: {
+            void in
+            println("Hiiya")
+            self.rateAppService.setNewPreviousBuildThatWasRated()
+            self.goToStartViewController()
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=940183182&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")!)
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Later. I'll go back to start", style: UIAlertActionStyle.Default, { (UIAlertAction) -> Void in
+            self.goToStartViewController()
+        }))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     
     func setViewToNotLoading(){
         self.viewLoading.removeFromSuperview()

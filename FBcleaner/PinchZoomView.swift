@@ -51,7 +51,6 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         button.layer.cornerRadius = 3.0
         self.addSubview(button)
         self.backgroundColor = UIColor.blackColor()
-        
         centerScrollViewContents()
 
     }
@@ -63,7 +62,6 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         self.scrollView.maximumZoomScale = 6.5;
         self.scrollView.contentSize = frame.size
         centerScrollViewContents()
-
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -30,6 +30,9 @@ let BACKGROUND_COLOR = UIColor(red: 255/255, green: 255/255, blue: 255/255, alph
 
 let IMAGE_LAYER_COLOR = UIColor.lightGrayColor()
 
+// UserDefaults
+let PREVIOUS_BUILD_THAT_WAS_RATED = "previousBuildThatWasRated"
+
 let IPHONE_4AND4s = 960
 let IPHONE_5AND5s = 1136
 let IPHONE_6 = 1334

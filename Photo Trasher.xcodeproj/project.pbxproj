@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		859EE29E1A54285E00349938 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 859EE29D1A54285E00349938 /* iRate.bundle */; };
-		F101D62B1A5C881100335E59 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = F101D62A1A5C881100335E59 /* iRate.m */; };
 		F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108769F1A02EB46002EEEDB /* StartViewController.swift */; };
+		F137A54C1A6598F1008A42D6 /* RateAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137A54B1A6598F1008A42D6 /* RateAppService.swift */; };
 		F17FC8F81A06A7E400E0B1DF /* GlobalConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */; };
 		F17FC8FA1A06A83000E0B1DF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FC8F91A06A83000E0B1DF /* Date.swift */; };
 		F1A14BAE1A1161D9009FBBFB /* PinchZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A14BAD1A1161D9009FBBFB /* PinchZoomView.swift */; };
@@ -39,11 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		859EE29D1A54285E00349938 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
-		F101D6291A5C881100335E59 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
-		F101D62A1A5C881100335E59 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
-		F101D62C1A5C882900335E59 /* SwiftDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		F108769F1A02EB46002EEEDB /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		F137A54B1A6598F1008A42D6 /* RateAppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateAppService.swift; sourceTree = "<group>"; };
 		F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstans.swift; sourceTree = "<group>"; };
 		F17FC8F91A06A83000E0B1DF /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F1A14BAD1A1161D9009FBBFB /* PinchZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinchZoomView.swift; sourceTree = "<group>"; };
@@ -108,10 +104,6 @@
 		859EE2981A5427DF00349938 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				F101D62C1A5C882900335E59 /* SwiftDemo-Bridging-Header.h */,
-				F101D6291A5C881100335E59 /* iRate.h */,
-				F101D62A1A5C881100335E59 /* iRate.m */,
-				859EE29D1A54285E00349938 /* iRate.bundle */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -121,6 +113,7 @@
 			children = (
 				F17FC8F91A06A83000E0B1DF /* Date.swift */,
 				F1CEB0391A350BD000EADAD0 /* Queue.swift */,
+				F137A54B1A6598F1008A42D6 /* RateAppService.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -280,7 +273,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1ED60E519F3D16800238338 /* Main.storyboard in Resources */,
-				859EE29E1A54285E00349938 /* iRate.bundle in Resources */,
 				F1ED60EA19F3D16800238338 /* LaunchScreen.xib in Resources */,
 				F1ED60E719F3D16800238338 /* Images.xcassets in Resources */,
 			);
@@ -307,9 +299,9 @@
 				F1CEB03A1A350BD000EADAD0 /* Queue.swift in Sources */,
 				F1ED610119F3D33E00238338 /* UIDraggableView.swift in Sources */,
 				F1A14BAE1A1161D9009FBBFB /* PinchZoomView.swift in Sources */,
+				F137A54C1A6598F1008A42D6 /* RateAppService.swift in Sources */,
 				F1B124BA1A27BC6F0094AB52 /* CustomUIGestureRecognizer.swift in Sources */,
 				F1AC10651A1D5C72006A87D3 /* DatePickerView.swift in Sources */,
-				F101D62B1A5C881100335E59 /* iRate.m in Sources */,
 				F1ED610219F3D33E00238338 /* ViewController.swift in Sources */,
 				F1ED60E019F3D16800238338 /* AppDelegate.swift in Sources */,
 				F17FC8FA1A06A83000E0B1DF /* Date.swift in Sources */,
