@@ -62,7 +62,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.imagesToDelete = self.images
         self.deleteCounter = self.imagesToDelete.count
         self.updateDeleteLabel();
-        self.deleteButton.tintColor = RED_COLOR
+        self.deleteButton.tintColor = RED_DIVERSE_COLOR
         self.view.backgroundColor = nil
         self.uiCollectionView.backgroundColor = nil
         self.uiCollectionView.delegate = self
@@ -151,9 +151,9 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }))
         
         alertController.addAction(UIAlertAction(title: "Later. I'll go back to start", style: UIAlertActionStyle.Default, { (UIAlertAction) -> Void in
-            self.goToStartViewController()
+                self.goToStartViewController()
         }))
-        
+                
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     

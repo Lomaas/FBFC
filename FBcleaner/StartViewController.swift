@@ -48,9 +48,9 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         let screenHeight = screenRect.size.height * UIScreen.mainScreen().scale
         var adjustment = CGFloat(15)
 
-        self.startButton.layer.borderColor = GREEN_COLOR.CGColor
+        self.startButton.layer.borderColor = GREEN_COLOR_DARK.CGColor
         self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        self.startButton.backgroundColor = GREEN_COLOR
+        self.startButton.backgroundColor = GREEN_COLOR_DARK
         self.startButton.alpha = 1.0
         self.startButton.layer.borderWidth = 4.0
         self.startButton.layer.cornerRadius = 3.0
@@ -83,7 +83,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     func updateDates() {
         self.dateLabel.text = "Last run \(Date().getDate())"
         var dateStr: String = Date().getDate()
-        if(dateStr.lowercaseString == "never"){
+        if(dateStr.lowercaseString == "- never"){
             dateStr = "Select date"
             self.dateLabel.text = ""
         }

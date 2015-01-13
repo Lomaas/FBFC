@@ -76,6 +76,7 @@
                                             <constraint firstAttribute="width" constant="75" id="wbN-C9-Bsj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-8" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="-13" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="keep" image="keep"/>

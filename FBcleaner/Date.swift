@@ -14,7 +14,7 @@ class Date: NSString {
         var returnValue: NSString? = NSUserDefaults.standardUserDefaults().objectForKey(DATE_STRING) as? NSString
         if returnValue == nil
         {
-            returnValue = "Never"
+            returnValue = "- never"
         }
         return returnValue!
     }

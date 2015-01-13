@@ -19,10 +19,10 @@ func colorize (hex: Int, alpha: Double = 1.0) -> UIColor {
 }
 
 let DATE_STRING = "dateSinceLastRun"
-let BLUE_COLOR = UIColor(red: 38, green: 100, blue: 255, alpha: 100)
-let GREEN_COLOR = UIColor(red: 83/255, green: 153/255, blue: 93/255, alpha: 1.0)
-let RED_COLOR = UIColor(red: 224, green: 0.3, blue:0.2, alpha: 1.0)
-let RED_DIVERSE_COLOR = UIColor(red: 224/255, green: 88/255, blue:65/255, alpha: 1.0)
+let GREEN_COLOR = UIColor(red: 112/255, green: 196/255, blue: 146/255, alpha: 1.0)
+let GREEN_COLOR_DARK = UIColor(red: 105/255, green: 153/255, blue: 93/255, alpha: 1.0)
+
+let RED_DIVERSE_COLOR = UIColor(red: 236/255, green: 112/255, blue:89/255, alpha: 1.0)
 
 let ANIMATION_TIME = 0.3
 //let BACKGROUND_COLOR = UIColor(red: 263/255, green: 245/255, blue: 230/255, alpha: 1.0)
