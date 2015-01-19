@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+//        let localNotification = UILocalNotification();
+//        localNotification.fireDate = NSDate()
+//        localNotification.repeatInterval = NSCalendarUnit.CalendarUnitMonth
+//        localNotification.alertBody = "Your alert message"
+//        localNotification.alertAction = "Show me the alert"
+//        localNotification.timeZone = NSTimeZone()
+//        UIApplication.sharedApplication().scheduledLocalNotifications.append(localNotification)
         return true
     }
 

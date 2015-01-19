@@ -129,7 +129,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func succesFullDeletionDontRate() {
-        let alertController = UIAlertController(title: "Success!", message: "Your photos were successfully deleted", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Success", message: "Your photos were successfully deleted", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Back to start", style: UIAlertActionStyle.Default, { (UIAlertAction) -> Void in
             self.goToStartViewController()
@@ -140,7 +140,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func rateUsOnAppStore() {
-        let alertController = UIAlertController(title: "Success! Rate us on app store", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Success", message: "Please take a moment and rate us on app store", preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Sure", style: UIAlertActionStyle.Default, handler: {
             void in
