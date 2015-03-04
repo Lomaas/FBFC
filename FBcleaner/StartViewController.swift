@@ -11,7 +11,7 @@ import UIKit
 import Photos
 
 
-class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate {
+class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerDelegate {
     var assetsLeftToEvaluate: [PHAsset]
     var allAssets: [PHAsset]
     var date: NSDate
@@ -41,6 +41,7 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.screenName = START_VIEW_CONTROLLER
         self.datePickerView.delegate? = self
         self.view.backgroundColor = BACKGROUND_COLOR
         let screenRect = UIScreen.mainScreen().bounds
@@ -48,13 +49,13 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         let screenHeight = screenRect.size.height * UIScreen.mainScreen().scale
         var adjustment = CGFloat(15)
         
-        let localNotification = UILocalNotification();
-        localNotification.fireDate = NSDate()
-        localNotification.repeatInterval = NSCalendarUnit.CalendarUnitMonth
-        localNotification.alertBody = "Your alert message"
-        localNotification.alertAction = "Show me the alert"
-        localNotification.timeZone = NSTimeZone()
-        UIApplication.sharedApplication().scheduledLocalNotifications.append(localNotification)
+//        let localNotification = UILocalNotification();
+//        localNotification.fireDate = NSDate()
+//        localNotification.repeatInterval = NSCalendarUnit.CalendarUnitMonth
+//        localNotification.alertBody = "Your alert message"
+//        localNotification.alertAction = "Show me the alert"
+//        localNotification.timeZone = NSTimeZone()
+//        UIApplication.sharedApplication().scheduledLocalNotifications.append(localNotification)
 
         self.startButton.layer.borderColor = GREEN_COLOR_DARK.CGColor
         self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -139,6 +140,8 @@ class StartViewController: UIViewController, GoBackDelegate, DatePickerDelegate 
         if(self.datePickerView.isDescendantOfView(self.view)){
             return
         }
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("button_pressed", action: "date view visible", label: nil, value: nil).build())
+
         
         var screenRect = UIScreen.mainScreen().bounds
         let adjustment = CGFloat(280)

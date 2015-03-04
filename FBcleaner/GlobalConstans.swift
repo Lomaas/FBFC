@@ -39,3 +39,8 @@ let IPHONE_6 = 1334
 let IPHONE_6_PLUS = 1920
 let IPAD_RETINA = 2048
 
+
+// TRACKING
+let START_VIEW_CONTROLLER = "StartViewController"
+let SWIPE_VIEW_CONTROLLER = "SwipeViewController"
+let GRID_VIEW_CONTROLLER = "GridViewController"

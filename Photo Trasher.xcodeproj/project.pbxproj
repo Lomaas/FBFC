@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		857F4E181AA781B3006C2074 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F4E171AA781B3006C2074 /* CoreData.framework */; };
+		857F4E1A1AA781BF006C2074 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F4E191AA781BF006C2074 /* SystemConfiguration.framework */; };
+		857F4E1C1AA781CB006C2074 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F4E1B1AA781CB006C2074 /* libz.dylib */; };
+		857F4E1E1AA781D6006C2074 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F4E1D1AA781D6006C2074 /* libsqlite3.dylib */; };
+		857F4E201AA78223006C2074 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F4E1F1AA78223006C2074 /* libGoogleAnalyticsServices.a */; };
 		F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108769F1A02EB46002EEEDB /* StartViewController.swift */; };
 		F137A54C1A6598F1008A42D6 /* RateAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137A54B1A6598F1008A42D6 /* RateAppService.swift */; };
 		F17FC8F81A06A7E400E0B1DF /* GlobalConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */; };
@@ -38,6 +43,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		857F4E0D1AA78166006C2074 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		857F4E0E1AA78166006C2074 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		857F4E0F1AA78166006C2074 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		857F4E101AA78166006C2074 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		857F4E111AA78166006C2074 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		857F4E121AA78166006C2074 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		857F4E131AA78166006C2074 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		857F4E141AA78166006C2074 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		857F4E151AA78166006C2074 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		857F4E171AA781B3006C2074 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		857F4E191AA781BF006C2074 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		857F4E1B1AA781CB006C2074 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		857F4E1D1AA781D6006C2074 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		857F4E1F1AA78223006C2074 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = ../../Downloads/GoogleAnalyticsServicesiOS_3.10/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		857F4E211AA7832C006C2074 /* googleanalytics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "googleanalytics-Bridging-Header.h"; sourceTree = "<group>"; };
+		857F4E221AA784E2006C2074 /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		F108769F1A02EB46002EEEDB /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		F137A54B1A6598F1008A42D6 /* RateAppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateAppService.swift; sourceTree = "<group>"; };
 		F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstans.swift; sourceTree = "<group>"; };
@@ -67,6 +88,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				857F4E201AA78223006C2074 /* libGoogleAnalyticsServices.a in Frameworks */,
+				857F4E1E1AA781D6006C2074 /* libsqlite3.dylib in Frameworks */,
+				857F4E1C1AA781CB006C2074 /* libz.dylib in Frameworks */,
+				857F4E1A1AA781BF006C2074 /* SystemConfiguration.framework in Frameworks */,
+				857F4E181AA781B3006C2074 /* CoreData.framework in Frameworks */,
 				F1C1AEAC19FD231A002B2E16 /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,9 +127,28 @@
 			name = static;
 			sourceTree = "<group>";
 		};
+		857F4E161AA78171006C2074 /* googleanalytics */ = {
+			isa = PBXGroup;
+			children = (
+				857F4E0D1AA78166006C2074 /* GAIDictionaryBuilder.h */,
+				857F4E0E1AA78166006C2074 /* GAIEcommerceFields.h */,
+				857F4E0F1AA78166006C2074 /* GAIEcommerceProduct.h */,
+				857F4E221AA784E2006C2074 /* GAI.h */,
+				857F4E101AA78166006C2074 /* GAIEcommerceProductAction.h */,
+				857F4E111AA78166006C2074 /* GAIEcommercePromotion.h */,
+				857F4E121AA78166006C2074 /* GAIFields.h */,
+				857F4E131AA78166006C2074 /* GAILogger.h */,
+				857F4E141AA78166006C2074 /* GAITrackedViewController.h */,
+				857F4E151AA78166006C2074 /* GAITracker.h */,
+			);
+			name = googleanalytics;
+			sourceTree = "<group>";
+		};
 		859EE2981A5427DF00349938 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				857F4E161AA78171006C2074 /* googleanalytics */,
+				857F4E211AA7832C006C2074 /* googleanalytics-Bridging-Header.h */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -121,6 +166,11 @@
 		F1ED60D119F3D16800238338 = {
 			isa = PBXGroup;
 			children = (
+				857F4E1F1AA78223006C2074 /* libGoogleAnalyticsServices.a */,
+				857F4E1D1AA781D6006C2074 /* libsqlite3.dylib */,
+				857F4E1B1AA781CB006C2074 /* libz.dylib */,
+				857F4E191AA781BF006C2074 /* SystemConfiguration.framework */,
+				857F4E171AA781B3006C2074 /* CoreData.framework */,
 				F1C1AEAB19FD231A002B2E16 /* Photos.framework */,
 				F1ED60DC19F3D16800238338 /* Photo Trasher */,
 				F1ED60F219F3D16800238338 /* Photo TrasherTests */,
@@ -431,14 +481,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FBcleaner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/simen,
+					johannessen/Downloads/GoogleAnalyticsServicesiOS_3.10,
+				);
 				PRODUCT_NAME = "Photo Trasher";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "FBcleaner/googleanalytics-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -450,14 +508,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FBcleaner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/simen,
+					johannessen/Downloads/GoogleAnalyticsServicesiOS_3.10,
+				);
 				PRODUCT_NAME = "Photo Trasher";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FBcleaner/googleanalytics-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

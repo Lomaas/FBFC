@@ -16,7 +16,7 @@ protocol GoBackDelegate {
     func dissmissMyViewController(view: UIViewController, toStartView: Bool, animated: Bool, title: String, msg: String)
 }
 
-class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var images: [PHAsset] = []
     var imagesToDelete = []
     let rateAppService: RateAppService
@@ -56,7 +56,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.screenName = GRID_VIEW_CONTROLLER
         imageCacheController = ImageCacheController(imageManager: self.imageManager, images: self.images, preheatSize: 1)
         imageCacheController.targetSize = assetGridThumbnailSize
         self.imagesToDelete = self.images
@@ -102,6 +102,9 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.presentViewController(alertController, animated: true, completion: nil)
             return
         }
+        
+        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("button_pressed", action: "final delete pressed", label: nil, value: nil).build())
+
         self.setViewToLoading()
         
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
@@ -136,7 +139,6 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }))
         
         self.presentViewController(alertController, animated: true, completion: nil)
-        
     }
     
     func rateUsOnAppStore() {
