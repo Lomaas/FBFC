@@ -43,7 +43,6 @@ class ImageCacheController {
             if !updatedCache.containsIndex(index) {
                 let asset: AnyObject! = self.images[index]
                 self.imageCache.stopCachingImagesForAssets([asset], targetSize: self.targetSize, contentMode: self.contentMode, options: initialRequestOptions)
-                println("Stopping caching image \(index)")
             }
         }
         
@@ -53,7 +52,6 @@ class ImageCacheController {
             if !self.cachedIndices.containsIndex(index) {
                 let asset: AnyObject! = self.images[index]
                 self.imageCache.startCachingImagesForAssets([asset], targetSize: self.targetSize, contentMode: self.contentMode, options: initialRequestOptions)
-                println("Starting caching image \(index)")
             }
         }
         cachedIndices = NSIndexSet(indexSet: updatedCache)

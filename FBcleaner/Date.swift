@@ -10,15 +10,15 @@
 import Foundation
 
 class Date: NSString {
-    func getDate() -> NSString {
-        var returnValue: NSString? = NSUserDefaults.standardUserDefaults().objectForKey(DATE_STRING) as? NSString
+    func getDate() -> String {
+        var returnValue: String? = NSUserDefaults.standardUserDefaults().objectForKey(DATE_STRING) as? String
         if returnValue == nil
         {
             returnValue = "- never"
         }
         return returnValue!
     }
-    func setDate (newValue: NSString) {
+    func setDate (newValue: String) {
             NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: DATE_STRING)
             NSUserDefaults.standardUserDefaults().synchronize()
     }
@@ -28,22 +28,17 @@ class Date: NSString {
     }
     
     func getNSDate() -> NSDate {
-        var returnValue: NSString? = NSUserDefaults.standardUserDefaults().objectForKey(DATE_STRING) as? NSString
-        if returnValue == nil
-        {
-            return NSDate()
-        }
-        else {
+        if let returnValue = NSUserDefaults.standardUserDefaults().objectForKey(DATE_STRING) as? String {
             var formatter = NSDateFormatter()
             formatter.dateStyle = .MediumStyle
-            return formatter.dateFromString(returnValue!)!
+            return formatter.dateFromString(returnValue)!
         }
+        return NSDate()
     }
-    
-    func getDateStringFromNSDate(date: NSDate) -> NSString {
+
+    func getDateStringFromNSDate(date: NSDate) -> String {
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
-        println(formatter.stringFromDate(date))
         return formatter.stringFromDate(date)
     }
     

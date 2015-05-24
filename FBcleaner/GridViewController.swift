@@ -77,7 +77,6 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
         let date = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
-        println(formatter.stringFromDate(date))
         Date().setDate(formatter.stringFromDate(date))
         self.setViewToNotLoading()
     }
@@ -87,7 +86,6 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
     }
     
     @IBAction func cancelCalled(sender: AnyObject) {
-        println("Cancel")
         self.delegate?.dissmissMyViewController(self as UIViewController, toStartView: false, animated: true, title: "", msg: "")
     }
 
@@ -102,8 +100,11 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
             self.presentViewController(alertController, animated: true, completion: nil)
             return
         }
+
+        let tracker = GAI.sharedInstance().defaultTracker
+        let trackDictionary = GAIDictionaryBuilder.createEventWithCategory("button_pressed", action: "final delete pressed", label: "", value: nil).build()
         
-        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("button_pressed", action: "final delete pressed", label: nil, value: nil).build())
+        GAI.sharedInstance().defaultTracker.send(trackDictionary as [NSObject : AnyObject])
 
         self.setViewToLoading()
         
@@ -134,7 +135,7 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
     func succesFullDeletionDontRate() {
         let alertController = UIAlertController(title: "Success", message: "Your photos were successfully deleted", preferredStyle: UIAlertControllerStyle.Alert)
         
-        alertController.addAction(UIAlertAction(title: "Back to start", style: UIAlertActionStyle.Default, { (UIAlertAction) -> Void in
+        alertController.addAction(UIAlertAction(title: "Back to start", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
             self.goToStartViewController()
         }))
         
@@ -146,13 +147,12 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
         
         alertController.addAction(UIAlertAction(title: "Sure", style: UIAlertActionStyle.Default, handler: {
             void in
-            println("Hiiya")
             self.rateAppService.setNewPreviousBuildThatWasRated()
             self.goToStartViewController()
             UIApplication.sharedApplication().openURL(NSURL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=940183182&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")!)
         }))
         
-        alertController.addAction(UIAlertAction(title: "Later. I'll go back to start", style: UIAlertActionStyle.Default, { (UIAlertAction) -> Void in
+        alertController.addAction(UIAlertAction(title: "Later. I'll go back to start", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
                 self.goToStartViewController()
         }))
                 
@@ -208,7 +208,7 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotosCollectionViewCell
         
         if(self.imagesArray[indexPath.item] == true){
             cell.checkedImageView.image = UIImage(named:"unchecked")
@@ -217,14 +217,14 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
             cell.checkedImageView.image = UIImage(named:"checked")
         }
         self.imageManager.requestImageForAsset(images[indexPath.item], targetSize: assetGridThumbnailSize, contentMode:PHImageContentMode.AspectFill, options: initialRequestOptions) { image, info in
-            cell.photoImageView.image = image?;
+            cell.photoImageView.image = image;
         }
         self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as PhotosCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotosCollectionViewCell
         
         cell.backgroundColor = UIColor.whiteColor()
         cell.transform = CGAffineTransformMakeRotation(0.1);
@@ -246,6 +246,6 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
     // MARK: - ScrollViewDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let indexPaths = self.uiCollectionView.indexPathsForVisibleItems()
-        imageCacheController.updateVisibleCells(indexPaths as [NSIndexPath])
+        imageCacheController.updateVisibleCells(indexPaths as! [NSIndexPath])
     }
 }
