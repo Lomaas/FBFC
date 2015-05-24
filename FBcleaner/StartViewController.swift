@@ -48,14 +48,6 @@ class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerD
         let screenWidth = screenRect.size.width * UIScreen.mainScreen().scale
         let screenHeight = screenRect.size.height * UIScreen.mainScreen().scale
         var adjustment = CGFloat(15)
-        
-//        let localNotification = UILocalNotification();
-//        localNotification.fireDate = NSDate()
-//        localNotification.repeatInterval = NSCalendarUnit.CalendarUnitMonth
-//        localNotification.alertBody = "Your alert message"
-//        localNotification.alertAction = "Show me the alert"
-//        localNotification.timeZone = NSTimeZone()
-//        UIApplication.sharedApplication().scheduledLocalNotifications.append(localNotification)
 
         self.startButton.layer.borderColor = GREEN_COLOR_DARK.CGColor
         self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -140,7 +132,11 @@ class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerD
         if(self.datePickerView.isDescendantOfView(self.view)){
             return
         }
-        GAI.sharedInstance().defaultTracker.send(GAIDictionaryBuilder.createEventWithCategory("button_pressed", action: "date view visible", label: nil, value: nil).build())
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        let trackDictionary = GAIDictionaryBuilder.createEventWithCategory("button_pressed", action: "date view visible", label: "", value: nil).build()
+        
+        GAI.sharedInstance().defaultTracker.send(trackDictionary as [NSObject : AnyObject])
 
         
         var screenRect = UIScreen.mainScreen().bounds
@@ -244,13 +240,13 @@ class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerD
         sender: AnyObject?) {
             if (segue.identifier == "GO_TO_MAIN")
             {
-                let vc = segue.destinationViewController as ViewController
+                let vc = segue.destinationViewController as! ViewController
                 vc.delegate = self
                 vc.tmpAssets = self.assetsLeftToEvaluate
             }
     }
     
-    func createAlertView(title: NSString, message: NSString, actionTitle: NSString){
+    func createAlertView(title: String, message: String, actionTitle: String){
         let alertController = UIAlertController(title: title, message:
             message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.Default, handler:nil))
@@ -263,7 +259,7 @@ class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerD
     
     func didFinishWithDateSelected(date: NSDate){
         self.date = date
-        self.dateButton.setTitle( Date().getDateStringFromNSDate(date), forState: UIControlState.Normal)
+        self.dateButton.setTitle(Date().getDateStringFromNSDate(date), forState: UIControlState.Normal)
         self.animateDateViewInvisible()
     }
 }

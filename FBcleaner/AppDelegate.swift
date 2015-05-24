@@ -14,13 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        //registering for sending user various kinds of notifications
-//        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound|UIUserNotificationType.Alert|UIUserNotificationType.Badge, categories: nil))
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         GAI.sharedInstance().trackUncaughtExceptions = true
         GAI.sharedInstance().trackerWithTrackingId("UA-60370254-1")
-
+        
         return true;
     }
     
