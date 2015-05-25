@@ -15,8 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        GAI.sharedInstance().trackUncaughtExceptions = true
-        GAI.sharedInstance().trackerWithTrackingId("UA-60370254-1")
+        let tracker = GAI.sharedInstance()
+        tracker.trackUncaughtExceptions = true
+        tracker.trackerWithTrackingId("UA-60370254-1")
+        tracker.defaultTracker.allowIDFACollection = true
         
         return true;
     }
