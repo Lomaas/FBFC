@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="64p-Lp-a19">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="64p-Lp-a19">
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -562,11 +562,134 @@
                         <outlet property="cancelButton" destination="txL-iK-7bR" id="dLm-nk-Dyt"/>
                         <outlet property="deleteButton" destination="axm-f6-tvb" id="P7O-M1-lJs"/>
                         <outlet property="uiCollectionView" destination="b6i-1C-AhA" id="4gC-aW-UNM"/>
+                        <segue destination="XgX-K2-gQR" kind="modal" identifier="GO_TO_SOCIAL_SHARING" id="FDU-6D-xIf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eb1-OE-PuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1078" y="288"/>
+        </scene>
+        <!--Post To Social Media View Controller-->
+        <scene sceneID="Zc9-qJ-OP0">
+            <objects>
+                <viewController id="XgX-K2-gQR" customClass="PostToSocialMediaViewController" customModule="Photo_Trasher" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Srr-X4-N8h"/>
+                        <viewControllerLayoutGuide type="bottom" id="jhv-J2-RFN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oSN-P4-jJW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyr-mI-tXL">
+                                <rect key="frame" x="16" y="150" width="568" height="30"/>
+                                <color key="backgroundColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Share on Twitter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postToTwitter" destination="XgX-K2-gQR" eventType="touchUpInside" id="0Ks-XV-bTH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vV-fI-0Se">
+                                <rect key="frame" x="16" y="188" width="568" height="30"/>
+                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Share on Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postToFacebook" destination="XgX-K2-gQR" eventType="touchUpInside" id="Jya-1z-5Bd"/>
+                                    <action selector="postToTwitter" destination="XgX-K2-gQR" eventType="touchUpInside" id="ele-uw-tij"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell your friends:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lo-oT-hK1">
+                                <rect key="frame" x="16" y="125" width="568" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sm-h0-qth">
+                                <rect key="frame" x="16" y="226" width="568" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You just just cleaned up x MB space by deleting y photos!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1U-ZC-ujU">
+                                <rect key="frame" x="16" y="67" width="568" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aEL-yD-M0d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqo-ro-fER">
+                                <rect key="frame" x="16" y="251" width="568" height="30"/>
+                                <state key="normal" title="Go back to start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack" destination="XgX-K2-gQR" eventType="touchUpInside" id="XNm-zS-DRw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Well done! 😀" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkb-lt-rPZ">
+                                <rect key="frame" x="16" y="28" width="568" height="19.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="5vV-fI-0Se" secondAttribute="trailing" id="0BY-hx-sKc"/>
+                            <constraint firstItem="y1U-ZC-ujU" firstAttribute="top" secondItem="gkb-lt-rPZ" secondAttribute="top" id="0IP-UF-usn"/>
+                            <constraint firstItem="qyr-mI-tXL" firstAttribute="top" secondItem="y1U-ZC-ujU" secondAttribute="bottom" constant="213.5" id="22K-hT-kum"/>
+                            <constraint firstAttribute="centerX" secondItem="qyr-mI-tXL" secondAttribute="centerX" id="4tN-H7-Zrd"/>
+                            <constraint firstAttribute="centerX" secondItem="0sm-h0-qth" secondAttribute="centerX" id="4y1-z8-wqd"/>
+                            <constraint firstAttribute="centerX" secondItem="5vV-fI-0Se" secondAttribute="centerX" id="6N6-k3-brS"/>
+                            <constraint firstItem="gkb-lt-rPZ" firstAttribute="leading" secondItem="oSN-P4-jJW" secondAttribute="leadingMargin" id="8f7-Oc-QUW"/>
+                            <constraint firstItem="5vV-fI-0Se" firstAttribute="leading" secondItem="oSN-P4-jJW" secondAttribute="leadingMargin" id="9N8-vQ-48K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0sm-h0-qth" secondAttribute="trailing" id="AZx-v8-fFt"/>
+                            <constraint firstItem="gkb-lt-rPZ" firstAttribute="top" secondItem="Srr-X4-N8h" secondAttribute="bottom" constant="8" symbolic="YES" id="BhC-yE-sLv"/>
+                            <constraint firstItem="y1U-ZC-ujU" firstAttribute="top" secondItem="Srr-X4-N8h" secondAttribute="bottom" constant="8" symbolic="YES" id="Bwi-x7-EKO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qqo-ro-fER" secondAttribute="trailing" id="DzX-9s-mUj"/>
+                            <constraint firstItem="0sm-h0-qth" firstAttribute="leading" secondItem="oSN-P4-jJW" secondAttribute="leadingMargin" id="J7N-7x-TRy"/>
+                            <constraint firstAttribute="centerX" secondItem="y1U-ZC-ujU" secondAttribute="centerX" id="RtH-da-p3g"/>
+                            <constraint firstItem="qqo-ro-fER" firstAttribute="leading" secondItem="oSN-P4-jJW" secondAttribute="leadingMargin" id="Vus-1U-5xF"/>
+                            <constraint firstItem="4lo-oT-hK1" firstAttribute="top" secondItem="y1U-ZC-ujU" secondAttribute="bottom" constant="8" symbolic="YES" id="Wu7-YL-If2"/>
+                            <constraint firstItem="qyr-mI-tXL" firstAttribute="leading" secondItem="oSN-P4-jJW" secondAttribute="leadingMargin" id="Xvp-10-1wy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4lo-oT-hK1" secondAttribute="trailing" id="Ybo-fr-XQo"/>
+                            <constraint firstItem="4lo-oT-hK1" firstAttribute="leading" secondItem="oSN-P4-jJW" secondAttribute="leadingMargin" id="bW2-ZY-lID"/>
+                            <constraint firstItem="qyr-mI-tXL" firstAttribute="top" secondItem="4lo-oT-hK1" secondAttribute="bottom" constant="8" symbolic="YES" id="ezQ-o9-lGw"/>
+                            <constraint firstItem="y1U-ZC-ujU" firstAttribute="leading" secondItem="oSN-P4-jJW" secondAttribute="leadingMargin" id="fmP-9n-yrL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="y1U-ZC-ujU" secondAttribute="trailing" id="gg1-nK-CLu"/>
+                            <constraint firstAttribute="centerX" secondItem="4lo-oT-hK1" secondAttribute="centerX" id="lSO-jS-hxQ"/>
+                            <constraint firstItem="qqo-ro-fER" firstAttribute="top" secondItem="0sm-h0-qth" secondAttribute="bottom" constant="8" symbolic="YES" id="mbe-fT-8Dc"/>
+                            <constraint firstItem="0sm-h0-qth" firstAttribute="top" secondItem="5vV-fI-0Se" secondAttribute="bottom" constant="8" symbolic="YES" id="nzh-Bc-Pbu"/>
+                            <constraint firstItem="y1U-ZC-ujU" firstAttribute="top" secondItem="gkb-lt-rPZ" secondAttribute="top" constant="-324" id="oNl-uI-MuS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qyr-mI-tXL" secondAttribute="trailing" id="u71-R3-JBT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gkb-lt-rPZ" secondAttribute="trailing" id="uFn-oL-1En"/>
+                            <constraint firstAttribute="centerX" secondItem="qqo-ro-fER" secondAttribute="centerX" id="vp3-tQ-Ufg"/>
+                            <constraint firstItem="5vV-fI-0Se" firstAttribute="top" secondItem="qyr-mI-tXL" secondAttribute="bottom" constant="8" symbolic="YES" id="vq3-j2-NOR"/>
+                            <constraint firstItem="y1U-ZC-ujU" firstAttribute="top" secondItem="gkb-lt-rPZ" secondAttribute="bottom" constant="20" id="zQB-3X-qXd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0IP-UF-usn"/>
+                                <exclude reference="Bwi-x7-EKO"/>
+                                <exclude reference="oNl-uI-MuS"/>
+                                <exclude reference="22K-hT-kum"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="textSummary" destination="y1U-ZC-ujU" id="Xdr-mM-y1f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mb5-CO-cOT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1799" y="288"/>
         </scene>
     </scenes>
     <resources>

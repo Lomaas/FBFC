@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		682554C21B13178800F19AC3 /* PostToSocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682554C11B13178800F19AC3 /* PostToSocialMediaViewController.swift */; };
+		682F966E1B1335CC0002A75E /* SocialSharingTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682F966D1B1335CC0002A75E /* SocialSharingTexts.swift */; };
 		857F4E181AA781B3006C2074 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F4E171AA781B3006C2074 /* CoreData.framework */; };
 		857F4E1A1AA781BF006C2074 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F4E191AA781BF006C2074 /* SystemConfiguration.framework */; };
 		857F4E1C1AA781CB006C2074 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F4E1B1AA781CB006C2074 /* libz.dylib */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		682554C11B13178800F19AC3 /* PostToSocialMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostToSocialMediaViewController.swift; sourceTree = "<group>"; };
+		682F966D1B1335CC0002A75E /* SocialSharingTexts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSharingTexts.swift; sourceTree = "<group>"; };
 		857F4E171AA781B3006C2074 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		857F4E191AA781BF006C2074 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		857F4E1B1AA781CB006C2074 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -117,6 +121,7 @@
 				F1C11F7319FED7C20013580F /* GridViewController.swift */,
 				F1C11F7719FEDBC60013580F /* PhotosCollectionViewCell.swift */,
 				F108769F1A02EB46002EEEDB /* StartViewController.swift */,
+				682554C11B13178800F19AC3 /* PostToSocialMediaViewController.swift */,
 			);
 			name = vc;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			children = (
 				F1ED60E619F3D16800238338 /* Images.xcassets */,
 				F17FC8F71A06A7E400E0B1DF /* GlobalConstans.swift */,
+				682F966D1B1335CC0002A75E /* SocialSharingTexts.swift */,
 			);
 			name = static;
 			sourceTree = "<group>";
@@ -347,6 +353,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */,
+				682554C21B13178800F19AC3 /* PostToSocialMediaViewController.swift in Sources */,
+				682F966E1B1335CC0002A75E /* SocialSharingTexts.swift in Sources */,
 				F17FC8F81A06A7E400E0B1DF /* GlobalConstans.swift in Sources */,
 				F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */,
 				F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */,

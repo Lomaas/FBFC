@@ -29,6 +29,8 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
     var imageCacheController: ImageCacheController!
     var assetGridThumbnailSize: CGSize!
     var delegate: GoBackDelegate?
+    var mbSpaceToBeCleaned: Float = 0
+    
     @IBOutlet weak var uiCollectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -124,11 +126,23 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
         
         if error == nil {
             self.hasDeleted = true
-            if (self.rateAppService.isNewVersion()) {
-                rateUsOnAppStore()
-            } else {
-                self.succesFullDeletionDontRate()
-            }
+            self.performSegueWithIdentifier("GO_TO_SOCIAL_SHARING", sender: self)
+            
+//            if (self.rateAppService.isNewVersion()) {
+//                rateUsOnAppStore()
+//            } else {
+//                self.succesFullDeletionDontRate()
+//            }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "GO_TO_SOCIAL_SHARING")
+        {
+            let vc = segue.destinationViewController as! PostToSocialMediaViewController
+            vc.goBackDelegate = self.delegate
+            vc.mbSpaceCleaned = self.mbSpaceToBeCleaned
+            vc.numberOfDeletedPhotos = self.imagesToDelete.count
         }
     }
     
