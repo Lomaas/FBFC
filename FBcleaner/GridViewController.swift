@@ -29,7 +29,7 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
     var imageCacheController: ImageCacheController!
     var assetGridThumbnailSize: CGSize!
     var delegate: GoBackDelegate?
-    var mbSpaceToBeCleaned: Float = 0
+    var megaBytesToClean: Float = 0
     
     @IBOutlet weak var uiCollectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -141,7 +141,7 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
         {
             let vc = segue.destinationViewController as! PostToSocialMediaViewController
             vc.goBackDelegate = self.delegate
-            vc.mbSpaceCleaned = self.mbSpaceToBeCleaned
+            vc.megaBytesToClean = self.megaBytesToClean
             vc.numberOfDeletedPhotos = self.imagesToDelete.count
         }
     }

@@ -21,9 +21,9 @@ struct TwitterTexts {
 }
 
 struct CommonTexts {
-    static func sharingText (numDeleted: Int, mbSpaceCleaned: Float) -> String {
+    static func sharingText (numDeleted: Int, megaBytesToClean: Float) -> String {
         
-        var size = NSString(format: "%.01f", mbSpaceCleaned)
+        var size = NSString(format: "%.01f", megaBytesToClean)
         if(size.containsString("-")){
             size = size.substringFromIndex(1)
         }

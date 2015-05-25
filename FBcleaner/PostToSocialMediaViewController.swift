@@ -13,12 +13,12 @@ class PostToSocialMediaViewController: SLComposeViewController {
     @IBOutlet weak var textSummary: UILabel!
     
     var numberOfDeletedPhotos: Int?
-    var mbSpaceCleaned: Float?
+    var megaBytesToClean: Float?
     var goBackDelegate: GoBackDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.textSummary.text = CommonTexts.sharingText(numberOfDeletedPhotos!, mbSpaceCleaned: mbSpaceCleaned!)
+        self.textSummary.text = CommonTexts.sharingText(numberOfDeletedPhotos!, megaBytesToClean: megaBytesToClean!)
     }
 
     @IBAction func goBack() {
