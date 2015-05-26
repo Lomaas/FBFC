@@ -29,7 +29,7 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
     var imageCacheController: ImageCacheController!
     var assetGridThumbnailSize: CGSize!
     var delegate: GoBackDelegate?
-    var megaBytesToClean: Float = 0
+    var megaBytesToClean: Float?
     
     @IBOutlet weak var uiCollectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
