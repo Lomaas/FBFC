@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		682554C21B13178800F19AC3 /* PostToSocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682554C11B13178800F19AC3 /* PostToSocialMediaViewController.swift */; };
 		682F966E1B1335CC0002A75E /* SocialSharingTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682F966D1B1335CC0002A75E /* SocialSharingTexts.swift */; };
+		68E934751B6950C5005E10E2 /* GoogleAnalyticsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E934741B6950C5005E10E2 /* GoogleAnalyticsEvents.swift */; };
 		857F4E181AA781B3006C2074 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F4E171AA781B3006C2074 /* CoreData.framework */; };
 		857F4E1A1AA781BF006C2074 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F4E191AA781BF006C2074 /* SystemConfiguration.framework */; };
 		857F4E1C1AA781CB006C2074 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F4E1B1AA781CB006C2074 /* libz.dylib */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		682554C11B13178800F19AC3 /* PostToSocialMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostToSocialMediaViewController.swift; sourceTree = "<group>"; };
 		682F966D1B1335CC0002A75E /* SocialSharingTexts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialSharingTexts.swift; sourceTree = "<group>"; };
+		68E934741B6950C5005E10E2 /* GoogleAnalyticsEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsEvents.swift; sourceTree = "<group>"; };
 		857F4E171AA781B3006C2074 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		857F4E191AA781BF006C2074 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		857F4E1B1AA781CB006C2074 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -168,6 +170,7 @@
 				F17FC8F91A06A83000E0B1DF /* Date.swift */,
 				F1CEB0391A350BD000EADAD0 /* Queue.swift */,
 				F137A54B1A6598F1008A42D6 /* RateAppService.swift */,
+				68E934741B6950C5005E10E2 /* GoogleAnalyticsEvents.swift */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -300,7 +303,7 @@
 				TargetAttributes = {
 					F1ED60D919F3D16800238338 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = H8L8VRZJUX;
+						DevelopmentTeam = U6YCW9WNUK;
 					};
 					F1ED60EE19F3D16800238338 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -355,6 +358,7 @@
 				F1C11F7419FED7C20013580F /* GridViewController.swift in Sources */,
 				682554C21B13178800F19AC3 /* PostToSocialMediaViewController.swift in Sources */,
 				682F966E1B1335CC0002A75E /* SocialSharingTexts.swift in Sources */,
+				68E934751B6950C5005E10E2 /* GoogleAnalyticsEvents.swift in Sources */,
 				F17FC8F81A06A7E400E0B1DF /* GlobalConstans.swift in Sources */,
 				F10876A01A02EB46002EEEDB /* StartViewController.swift in Sources */,
 				F1C11F7619FEDB900013580F /* ImageCacheController.swift in Sources */,

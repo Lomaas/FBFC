@@ -126,6 +126,10 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
         
         if error == nil {
             self.hasDeleted = true
+            GoogleAnalyticsEvents.numberOfDeletedPhotos(self.imagesToDelete.count)
+            if let mbToBeCleaned = self.megaBytesToClean {
+                GoogleAnalyticsEvents.megabytesDeleted(Int(round(mbToBeCleaned)))
+            }
             self.performSegueWithIdentifier("GO_TO_SOCIAL_SHARING", sender: self)
             
 //            if (self.rateAppService.isNewVersion()) {
