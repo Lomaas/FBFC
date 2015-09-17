@@ -30,12 +30,12 @@ class PostToSocialMediaViewController: SLComposeViewController {
     @IBAction func postToTwitter() {
         GoogleAnalyticsEvents.postOnTwitterButtonPressed()
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
-            var twitterSheet = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            let twitterSheet = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             twitterSheet.setInitialText(TwitterTexts.sharingText(numberOfDeletedPhotos!))
             twitterSheet.completionHandler = handleTwitterSheetResult
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
-            var alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share. Go to Settings -> Twitter to add a Twitter account", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share. Go to Settings -> Twitter to add a Twitter account", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
@@ -44,12 +44,12 @@ class PostToSocialMediaViewController: SLComposeViewController {
     @IBAction func postToFacebook() {
         GoogleAnalyticsEvents.postOnFacebookButtonPressed()
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
-            var facebookSheet = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            let facebookSheet = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             facebookSheet.setInitialText(FacebookTexts.sharingText(numberOfDeletedPhotos!))
             facebookSheet.completionHandler = handleFacebookSheetResult
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
-            var alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share. Go to Settings -> Facebook to add a Facebook account", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share. Go to Settings -> Facebook to add a Facebook account", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }

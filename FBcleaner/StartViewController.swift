@@ -27,13 +27,13 @@ class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerD
     @IBOutlet weak var fromDateImage: UIImageView!
     @IBOutlet weak var startButton: UIButton!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.assetsLeftToEvaluate = []
         self.allAssets = []
         self.date = Date().getNSDate()
-        var screenRect = UIScreen.mainScreen().bounds
-        var screenWidth = screenRect.size.width
-        var screenHeight = screenRect.size.height
+        let screenRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
         self.dateCompare = false
         self.datePickerView = DatePickerView(datePickerFrame: CGRectMake(0, screenHeight - 237, screenWidth, 237))
         super.init(coder: aDecoder)
@@ -44,10 +44,6 @@ class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerD
         self.screenName = START_VIEW_CONTROLLER
         self.datePickerView.delegate? = self
         self.view.backgroundColor = BACKGROUND_COLOR
-        let screenRect = UIScreen.mainScreen().bounds
-        let screenWidth = screenRect.size.width * UIScreen.mainScreen().scale
-        let screenHeight = screenRect.size.height * UIScreen.mainScreen().scale
-        var adjustment = CGFloat(15)
 
         self.startButton.layer.borderColor = GREEN_COLOR_DARK.CGColor
         self.startButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
@@ -139,7 +135,7 @@ class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerD
         GAI.sharedInstance().defaultTracker.send(trackDictionary as [NSObject : AnyObject])
 
         
-        var screenRect = UIScreen.mainScreen().bounds
+        let screenRect = UIScreen.mainScreen().bounds
         let adjustment = CGFloat(280)
         self.datePickerView.frame = CGRectMake(0, screenRect.size.height + adjustment, screenRect.size.width, adjustment)
         self.view.addSubview(self.datePickerView)
@@ -160,9 +156,9 @@ class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerD
             return
         }
         
-        var screenRect = UIScreen.mainScreen().bounds
-        var screenWidth = screenRect.size.width
-        var screenHeight = screenRect.size.height
+        let screenRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
         self.datePickerView.frame = CGRectMake(0, screenHeight - 237, screenWidth, 237)
         
         UIView.animateWithDuration(0.40,
@@ -177,13 +173,10 @@ class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerD
     }
     
     func fetchAssets(){
-        var options = PHFetchOptions()
-//        options.includeHiddenAssets = true    
-//        options.includeAllBurstAssets = true
-        
-        if let results = PHAsset.fetchAssetsWithMediaType(.Image, options: options) {
-            self.evaluateResult(results)
-        }
+        let options = PHFetchOptions()
+
+        let results = PHAsset.fetchAssetsWithMediaType(.Image, options: options)
+        self.evaluateResult(results)
     }
     
     func evaluateResult(results: PHFetchResult){
@@ -198,7 +191,7 @@ class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerD
         self.assetsLeftToEvaluate = []
         
         for (var i = 0; i < self.allAssets.count; i++){
-            var asset = self.allAssets[i]
+            let asset = self.allAssets[i]
             
             if(self.compareDates(asset)){
                 self.assetsLeftToEvaluate.append(asset)
@@ -207,14 +200,14 @@ class StartViewController: GAITrackedViewController, GoBackDelegate, DatePickerD
     }
 
     func compareDates(asset: PHAsset) -> Bool {        
-        let dateComparisionResult: NSComparisonResult = asset.creationDate.compare(self.date)
+        let dateComparisionResult = asset.creationDate?.compare(self.date)
         if(dateComparisionResult == NSComparisonResult.OrderedDescending || dateComparisionResult == NSComparisonResult.OrderedSame) {
             return true
         }
         return false
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if (self.dateCompare == true) {
             self.maskAssetsOutByDate()
         }

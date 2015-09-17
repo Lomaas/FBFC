@@ -298,12 +298,14 @@
 		F1ED60D219F3D16800238338 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Simen Johannessen";
 				TargetAttributes = {
 					F1ED60D919F3D16800238338 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = U6YCW9WNUK;
+						DevelopmentTeam = H8L8VRZJUX;
 					};
 					F1ED60EE19F3D16800238338 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -498,6 +500,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -525,6 +528,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol DatePickerDelegate {
-    func didFinishWithDateSelected(NSDate)
+    func didFinishWithDateSelected(_: NSDate)
 }
 
 class DatePickerView: UIView {
@@ -18,7 +18,7 @@ class DatePickerView: UIView {
     var finishButton: UIButton
     var delegate: DatePickerDelegate?
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError( "NSCoding not supported")
     }
     
@@ -49,7 +49,7 @@ class DatePickerView: UIView {
         let timeZone = NSTimeZone.systemTimeZone
         calendar.timeZone = timeZone()
         
-        var dateComps = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay , fromDate: self.datePicker.date)
+        let dateComps = calendar.components([.Year, .Month, .Day] , fromDate: self.datePicker.date)
         dateComps.minute = 0
         dateComps.second = 0
         dateComps.hour = 0

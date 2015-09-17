@@ -42,7 +42,7 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
 
         let singleTap = UITapGestureRecognizer(target: self, action: "singleTapButton:")
         singleTap.numberOfTapsRequired = 1
-        var button = UIButton(frame: CGRectMake(3, 19, 60, 30))
+        let button = UIButton(frame: CGRectMake(3, 19, 60, 30))
         button.setTitle("back", forState: UIControlState.Normal)
         button.addGestureRecognizer(singleTap)
         button.layer.borderColor = UIColor.whiteColor().CGColor
@@ -64,7 +64,7 @@ class PinchZoomView: UIView, UIScrollViewDelegate {
         centerScrollViewContents()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("not implementeed")
     }
     

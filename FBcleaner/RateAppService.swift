@@ -11,7 +11,7 @@ import Foundation
 class RateAppService {
     func isNewVersion () -> Bool {
         let build: String = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as! String
-        let buildInt = build.toInt()
+        let buildInt = Int(build)
         
         if (getPreviousBuildThatWasRated() < buildInt) {
             return true;
@@ -21,7 +21,7 @@ class RateAppService {
     }
     
     func getPreviousBuildThatWasRated () -> Int {
-        var userDefaults = NSUserDefaults.standardUserDefaults()
+        let userDefaults = NSUserDefaults.standardUserDefaults()
         
         if let previousBuildThatWasRated: Int = userDefaults.valueForKeyPath(PREVIOUS_BUILD_THAT_WAS_RATED) as? Int {
             return previousBuildThatWasRated
@@ -32,13 +32,13 @@ class RateAppService {
     
     func setNewPreviousBuildThatWasRated () {
         if let build: Int = getBuildInt() {
-            var userDefaults = NSUserDefaults.standardUserDefaults()
+            let userDefaults = NSUserDefaults.standardUserDefaults()
             userDefaults.setInteger(build, forKey: PREVIOUS_BUILD_THAT_WAS_RATED)
         }
     }
     
     func getBuildInt () -> Int? {
         let build: String = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as! String
-        return build.toInt()
+        return Int(build)
     }
 }

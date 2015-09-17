@@ -29,7 +29,7 @@ class Date: NSString {
     
     func getNSDate() -> NSDate {
         if let returnValue = NSUserDefaults.standardUserDefaults().objectForKey(DATE_STRING) as? String {
-            var formatter = NSDateFormatter()
+            let formatter = NSDateFormatter()
             formatter.dateStyle = .MediumStyle
             return formatter.dateFromString(returnValue)!
         }

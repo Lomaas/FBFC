@@ -41,7 +41,7 @@ class ImageCacheController {
         self.cachedIndices.enumerateIndexesUsingBlock {
             index, _ in
             if !updatedCache.containsIndex(index) {
-                let asset: AnyObject! = self.images[index]
+                let asset = self.images[index]
                 self.imageCache.stopCachingImagesForAssets([asset], targetSize: self.targetSize, contentMode: self.contentMode, options: initialRequestOptions)
             }
         }
@@ -50,7 +50,7 @@ class ImageCacheController {
         updatedCache.enumerateIndexesUsingBlock {
             index, _ in
             if !self.cachedIndices.containsIndex(index) {
-                let asset: AnyObject! = self.images[index]
+                let asset  = self.images[index]
                 self.imageCache.startCachingImagesForAssets([asset], targetSize: self.targetSize, contentMode: self.contentMode, options: initialRequestOptions)
             }
         }

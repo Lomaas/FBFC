@@ -36,11 +36,11 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         initialRequestOptions.networkAccessAllowed = true
         initialRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.HighQualityFormat
-        var scale = UIScreen.mainScreen().scale
-        var cellSize = CGSizeMake(100,100)
+        let scale = UIScreen.mainScreen().scale
+        let cellSize = CGSizeMake(100,100)
         assetGridThumbnailSize = CGSizeMake(cellSize.width * scale, cellSize.height * scale)
         self.viewLoading = UIView()
         self.rateAppService = RateAppService()
@@ -70,7 +70,7 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
         self.uiCollectionView.delegate = self
         self.uiCollectionView.dataSource = self
 
-        for x in images {
+        for _ in images {
             self.imagesArray.append(false)
         }
         
@@ -92,7 +92,7 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
     }
 
     @IBAction func deleteImages(sender: AnyObject) {
-        var temp: [PHAsset] = self.getAssetsToBeDeleted()
+        let temp: [PHAsset] = self.getAssetsToBeDeleted()
         
         if(temp.count == 0){
             let alertController = UIAlertController(title: "No picture selected", message:
@@ -103,45 +103,41 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
             return
         }
 
-        let tracker = GAI.sharedInstance().defaultTracker
         let trackDictionary = GAIDictionaryBuilder.createEventWithCategory("button_pressed", action: "final delete pressed", label: "", value: nil).build()
-        
         GAI.sharedInstance().defaultTracker.send(trackDictionary as [NSObject : AnyObject])
-
         self.setViewToLoading()
         
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             PHAssetChangeRequest.deleteAssets(temp)
-            }, completionHandler: self.completionHandler)
+        }, completionHandler: self.completionHandler)
     }
     
     func completionHandler (noError: Bool, error: NSError?) {
         NSLog("Changes complete. Did they succeed? Who knows! \(noError), \(error?.localizedDescription)")
-        self.viewLoading.removeFromSuperview()
-        self.activityIndicator.stopAnimating()
-        self.activityIndicator.hidden = true
-        self.cancelButton.enabled = true
-        self.deleteButton.enabled = true
-        CATransaction.flush()
-        
-        if error == nil {
-            self.hasDeleted = true
-            GoogleAnalyticsEvents.numberOfDeletedPhotos(self.imagesToDelete.count)
-            if let mbToBeCleaned = self.megaBytesToClean {
-                GoogleAnalyticsEvents.megabytesDeleted(Int(round(mbToBeCleaned)))
-            }
-            self.performSegueWithIdentifier("GO_TO_SOCIAL_SHARING", sender: self)
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.setViewToNotLoading()
+            CATransaction.flush()
             
-//            if (self.rateAppService.isNewVersion()) {
-//                rateUsOnAppStore()
-//            } else {
-//                self.succesFullDeletionDontRate()
-//            }
-        }
+            if error == nil {
+                self.hasDeleted = true
+                GoogleAnalyticsEvents.numberOfDeletedPhotos(self.imagesToDelete.count)
+                
+                if let mbToBeCleaned = self.megaBytesToClean {
+                    GoogleAnalyticsEvents.megabytesDeleted(Int(round(mbToBeCleaned)))
+                }
+                
+                self.performSegueWithIdentifier("GO_TO_SOCIAL_SHARING", sender: self)
+                //            if (self.rateAppService.isNewVersion()) {
+                //                rateUsOnAppStore()
+                //            } else {
+                //                self.succesFullDeletionDontRate()
+                //            }
+            }
+        })
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "GO_TO_SOCIAL_SHARING")
+        if segue.identifier == "GO_TO_SOCIAL_SHARING"
         {
             let vc = segue.destinationViewController as! PostToSocialMediaViewController
             vc.goBackDelegate = self.delegate
@@ -189,7 +185,7 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
     
     func setViewToLoading(){
         self.viewLoading = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
-        var indicatior = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.width/2 - 50, self.view.frame.height/2 - 50, 100, 100))
+        let indicatior = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.width/2 - 50, self.view.frame.height/2 - 50, 100, 100))
         indicatior.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
         indicatior.startAnimating()
         indicatior.color = UIColor.whiteColor()
@@ -264,6 +260,6 @@ class GridViewController: GAITrackedViewController, UICollectionViewDelegate, UI
     // MARK: - ScrollViewDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let indexPaths = self.uiCollectionView.indexPathsForVisibleItems()
-        imageCacheController.updateVisibleCells(indexPaths as! [NSIndexPath])
+        imageCacheController.updateVisibleCells(indexPaths )
     }
 }

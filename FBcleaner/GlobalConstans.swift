@@ -14,7 +14,7 @@ func colorize (hex: Int, alpha: Double = 1.0) -> UIColor {
     let red = CGFloat((hex & 0xFF0000) >> 16) / 255.0
     let green = CGFloat((hex & 0xFF00) >> 8) / 255.0
     let blue = CGFloat((hex & 0xFF)) / 255.0
-    var color: UIColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
+    let color: UIColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha:CGFloat(alpha) )
     return color
 }
 
@@ -33,12 +33,11 @@ let IMAGE_LAYER_COLOR = UIColor.lightGrayColor()
 // UserDefaults
 let PREVIOUS_BUILD_THAT_WAS_RATED = "previousBuildThatWasRated"
 
-let IPHONE_4AND4s = 960
-let IPHONE_5AND5s = 1136
-let IPHONE_6 = 1334
-let IPHONE_6_PLUS = 1920
+let IPHONE_4AND4s = 480
+let IPHONE_5AND5s = 568
+let IPHONE_6 = 667
+let IPHONE_6_PLUS = 736
 let IPAD_RETINA = 2048
-
 
 // TRACKING
 let START_VIEW_CONTROLLER = "StartViewController"
